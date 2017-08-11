@@ -39,6 +39,36 @@ return [
             'prefix' => '',
         ],
 
+        'mysql_local' => [
+            'driver' => 'mysql',
+            'host' => env('LOCAL_DB_HOST', '127.0.0.1'),
+            'port' => env('LOCAL_DB_PORT', '3306'),
+            'database' => env('LOCAL_DB_DATABASE', 'forge'),
+            'username' => env('LOCAL_DB_USERNAME', 'forge'),
+            'password' => env('LOCAL_DB_PASSWORD', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => 'InnoDB',
+        ],
+
+        'mysql_dev' => [
+            'driver' => 'mysql',
+            'host' => env('DEV_DB_HOST', '127.0.0.1'),
+            'port' => env('DEV_DB_PORT', '3306'),
+            'database' => env('DEV_DB_DATABASE', 'forge'),
+            'username' => env('DEV_DB_USERNAME', 'forge'),
+            'password' => env('DEV_DB_PASSWORD', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => 'InnoDB',
+        ],
+
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -51,7 +81,7 @@ return [
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
             'strict' => true,
-            'engine' => null,
+            'engine' => 'InnoDB',
         ],
 
         'pgsql' => [
