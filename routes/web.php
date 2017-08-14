@@ -36,6 +36,21 @@ Route::group(['prefix' => 'category'], function ()
             'page' => '^[2-9]{1}|[1-9]{1}[0-9]+$',
             'language' => '^(uk|ru)?$'
         ]);
+
+    Route::get('/{slug}/{sort}/{language?}', 'CategoryController@indexSort')
+        ->where([
+            'slug' => '^[a-z0-9-]+$',
+            'sort' => '^(price-asc|price-desc)$',
+            'language' => '^(uk|ru)?$'
+        ]);
+    
+    Route::get('/{slug}/{sort}/{page}/{language?}', 'CategoryController@indexPaginationSort')
+        ->where([
+            'slug' => '^[a-z0-9-]+$',
+            'sort' => '^(price-asc|price-desc)$',
+            'page' => '^[2-9]{1}|[1-9]{1}[0-9]+$',
+            'language' => '^(uk|ru)?$'
+        ]);
 });
 
 
