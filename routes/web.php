@@ -53,6 +53,11 @@ Route::group(['prefix' => 'category'], function ()
         ]);
 });
 
+Route::get('/product/{slug}/{language?}', 'ProductController@index')
+    ->where([
+        'slug' => '^[a-z0-9-]+$',
+        'language' => '^(uk|ru)?$'
+    ]);
 
 
 
