@@ -12,13 +12,25 @@ namespace App\Services;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 
+/**
+ * Class ProductService
+ * @package App\Services
+ */
 class ProductService extends LayoutService
 {
+    /**
+     * @var ProductRepository
+     */
     protected $productRepository;
 
+    /**
+     * ProductService constructor.
+     * @param CategoryRepository $categoryRepository
+     * @param ProductRepository $productRepository
+     */
     public function __construct(CategoryRepository $categoryRepository, ProductRepository $productRepository)
     {
-        parent::__construct($categoryRepository);
+        parent::__construct($categoryRepository, $productRepository);
 
         $this->productRepository = $productRepository;
     }
@@ -38,14 +50,21 @@ class ProductService extends LayoutService
     }
 
     /**
+     * fill single product
      * @param $model
      */
     private function fillProduct($model)
     {
         $model->product = $this->productRepository->getProductBySlugAndLanguage($model->productSlug, $model->language);
+
+        if ($model->product == null)
+        {
+            abort(404);
+        }
     }
 
     /**
+     * fill current category with related categories
      * @param $model
      */
     private function fillCurrentCategory($model)
@@ -54,6 +73,7 @@ class ProductService extends LayoutService
     }
 
     /**
+     * fill product properties
      * @param $model
      */
     private function fillProductProperties($model)

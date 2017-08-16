@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 abstract class LayoutViewModel extends ViewModel
 {
     public $allCategories;
+    
+    public $visitedProducts;
+    
+    public $recommendedProducts;
+    
+    public $bestDiscountsProducts;
+    
+    public $popularProducts;
 
     /**
      * LayoutViewModel constructor.

@@ -105,6 +105,7 @@ class ProductRepository
     }
 
     /**
+     * get all products for current category
      * @param null $currentCategory
      * @param string $sort
      * @param $categoryProductsLimit
@@ -175,6 +176,12 @@ class ProductRepository
             ]);
     }
 
+    /**
+     * get single product for product page
+     * @param null $slug
+     * @param string $language
+     * @return mixed
+     */
     public function getProductBySlugAndLanguage($slug = null, $language = Languages::DEFAULT_LANGUAGE)
     {
         return Product::select([
@@ -193,6 +200,12 @@ class ProductRepository
             ->first();
     }
 
+    /**
+     * get properties for current product
+     * @param $productId
+     * @param string $language
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function getProductProperties($productId, $language = Languages::DEFAULT_LANGUAGE)
     {
         return Property::select([
@@ -219,6 +232,12 @@ class ProductRepository
 //        return \DB::select($query);
     }
 
+    /**
+     * get visited products by session productIds
+     * @param $productsIds
+     * @param string $language
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function getVisitedProducts($productsIds, $language = Languages::DEFAULT_LANGUAGE)
     {
         $idsImploded = implode(',',$productsIds);
@@ -228,8 +247,111 @@ class ProductRepository
         ])
             ->whereIn('id', $productsIds)
             ->orderByRaw("field(id,{$idsImploded})", $productsIds)
-            ->get();
+            ->get([
+                'id',
+                'category_id',
+                'product_status_id',
+                "name_$language as name",
+                'name_slug',
+                'old_price',
+                'price',
+            ]);
     }
+
+    /**
+     * get recommended products
+     * @param string $language
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function getRecommendedProducts($language = Languages::DEFAULT_LANGUAGE)
+    {
+        $ids = [];
+        $max = Product::max('id');
+        for ($i = 0; $i < 3; $i++)
+        {
+            $ids[] = rand(1, $max);
+        }
+        //TODO SELECT LOGIC
+        return Product::with([
+            'images'
+        ])
+            ->whereIn('id', $ids)
+            ->get([
+                'id',
+                'category_id',
+                'product_status_id',
+                "name_$language as name",
+                'name_slug',
+                'old_price',
+                'price',
+            ]);
+    }
+
+    /**
+     * get best discounts products
+     * @param string $language
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function getBestDiscountsProducts($language = Languages::DEFAULT_LANGUAGE)
+    {
+        $ids = [];
+        $max = Product::max('id');
+        for ($i = 0; $i < 3; $i++)
+        {
+            $ids[] = rand(1, $max);
+        }
+        //TODO SELECT LOGIC
+        return Product::with([
+            'images'
+        ])
+            ->whereIn('id', $ids)
+            ->get([
+                'id',
+                'category_id',
+                'product_status_id',
+                "name_$language as name",
+                'name_slug',
+                'old_price',
+                'price',
+            ]);
+    }
+
+    /**
+     * get popular products
+     * @param string $language
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function getPopularProducts($language = Languages::DEFAULT_LANGUAGE)
+    {
+        $ids = [];
+        $max = Product::max('id');
+        for ($i = 0; $i < 3; $i++)
+        {
+            $ids[] = rand(1, $max);
+        }
+        //TODO SELECT LOGIC
+        return Product::with([
+            'images'
+        ])
+            ->whereIn('id', $ids)
+            ->get([
+                'id',
+                'category_id',
+                'product_status_id',
+                "name_$language as name",
+                'name_slug',
+                'old_price',
+                'price',
+            ]);
+    }
+
+
+
+    public function getSearchProducts()
+    {
+        return ;
+    }
+
 
 
 }

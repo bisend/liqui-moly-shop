@@ -4,15 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Languages;
 use App\Services\CategoryService;
+use App\Services\HistoryService;
 use App\ViewModels\CategoryViewModel;
 
 class CategoryController extends LayoutController
 {
     protected $categoryService;
+
+    protected $historyService;
     
-    public function __construct(CategoryService $categoryService)
+    public function __construct(CategoryService $categoryService, HistoryService $historyService)
     {
         $this->categoryService = $categoryService;
+
+        $this->historyService = $historyService;
     }
 
     /**
@@ -25,6 +30,8 @@ class CategoryController extends LayoutController
         
         $this->categoryService->fill($model);
 
+        $this->historyService->fillVisitedProducts($model);
+
         return view('pages.category.category', compact('model'));
     }
 
@@ -36,10 +43,11 @@ class CategoryController extends LayoutController
      */
     public function indexPagination($slug = null, $page = 1, $language = Languages::DEFAULT_LANGUAGE)
     {
-//        dd($slug, $page, $language);
         $model = new CategoryViewModel($slug, 'default', $page, $language);
         
         $this->categoryService->fill($model);
+
+        $this->historyService->fillVisitedProducts($model);
 
         return view('pages.category.category', compact('model'));
     }
@@ -52,10 +60,11 @@ class CategoryController extends LayoutController
      */
     public function indexSort($slug = null, $sort = 'default', $language = Languages::DEFAULT_LANGUAGE)
     {
-//        dd($slug, $sort, $language);
         $model = new CategoryViewModel($slug, $sort, 1, $language);
 
         $this->categoryService->fill($model);
+
+        $this->historyService->fillVisitedProducts($model);
 
         return view('pages.category.category', compact('model'));
     }
@@ -69,10 +78,11 @@ class CategoryController extends LayoutController
      */
     public function indexPaginationSort($slug = null, $sort = 'default', $page = 1, $language = Languages::DEFAULT_LANGUAGE)
     {
-//        dd($slug, $sort, $page, $language);
         $model = new CategoryViewModel($slug, $sort, $page, $language);
 
         $this->categoryService->fill($model);
+
+        $this->historyService->fillVisitedProducts($model);
 
         return view('pages.category.category', compact('model'));
     }

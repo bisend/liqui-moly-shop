@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Helpers\Languages;
 use App\Services\HistoryService;
 use App\Services\HomeService;
-use App\Services\LayoutService;
 use App\ViewModels\HomeViewModel;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,8 +16,6 @@ class HomeController extends LayoutController
 
     public function __construct(HomeService $homeService, HistoryService $historyService)
     {
-//        parent::__construct($layoutService);
-
         $this->homeService = $homeService;
 
         $this->historyService = $historyService;

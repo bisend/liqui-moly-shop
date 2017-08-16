@@ -41,6 +41,7 @@ class CategoryRepository
     }
 
     /**
+     * get current category with relations for breadcrumbs BY SLUG from category page
      * @param null $slug
      * @param string $language
      * @return mixed
@@ -123,6 +124,7 @@ class CategoryRepository
     }
 
     /**
+     * get current category with relations for breadcrumbs BY ID from product page
      * @param $categoryId
      * @param string $language
      * @return mixed
@@ -203,7 +205,12 @@ class CategoryRepository
                 'name_slug'
             ]);
     }
-    
+
+    /**
+     * get count of products for current category
+     * @param $currentCategory
+     * @return int
+     */
     public function getCountCategoryProducts($currentCategory)
     {
         return ProductCategory::whereCategoryId($currentCategory->id)->count();

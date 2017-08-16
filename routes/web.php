@@ -60,7 +60,21 @@ Route::get('/product/{slug}/{language?}', 'ProductController@index')
     ]);
 
 
+Route::group(['prefix' => 'errors'], function ()
+{
+    Route::get('/{error}/{language?}', 'ErrorController@index')
+        ->where([
+            'error' => '^(404|403|400)$',
+            'language' => '^(uk|ru)?$'
+        ]);
+});
 
+
+Route::group(['prefix' => 'search'], function ()
+{
+    Route::get('/{params}/{language?}', 'SearchController@index');
+
+});
 
 //Route::get('login', 'HomeController@showLoginForm')->middleware('guest');
 //Route::get('register', 'HomeController@showRegisterForm')->middleware('guest');

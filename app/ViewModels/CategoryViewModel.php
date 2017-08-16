@@ -34,6 +34,7 @@ class CategoryViewModel extends LayoutViewModel
 
     public $categoryProductsOffset;
 
+
     /**
      * CategoryViewModel constructor.
      * @param null $slug

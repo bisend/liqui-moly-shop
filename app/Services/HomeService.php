@@ -50,7 +50,7 @@ class HomeService extends LayoutService
         ProductRepository $productRepository
     )
     {
-        parent::__construct($categoryRepository);
+        parent::__construct($categoryRepository, $productRepository);
 
         $this->mainSliderRepository = $mainSliderRepository;
 
@@ -84,6 +84,7 @@ class HomeService extends LayoutService
     }
 
     /**
+     * fill main slider
      * @param $model
      */
     private function fillMainSlider($model)
@@ -92,6 +93,7 @@ class HomeService extends LayoutService
     }
 
     /**
+     * fill top banner
      * @param $model
      */
     private function fillTopBanner($model)
@@ -100,6 +102,7 @@ class HomeService extends LayoutService
     }
 
     /**
+     * fill bottom banner
      * @param $model
      */
     private function fillBottomBanner($model)
@@ -108,6 +111,7 @@ class HomeService extends LayoutService
     }
 
     /**
+     * fill top sales
      * @param $model
      */
     private function fillTopSales($model)
@@ -116,6 +120,7 @@ class HomeService extends LayoutService
     }
 
     /**
+     * fill novelty products
      * @param $model
      */
     private function fillNovelty($model)
@@ -124,6 +129,7 @@ class HomeService extends LayoutService
     }
 
     /**
+     * fill seasonal products
      * @param $model
      */
     private function fillSeasonalGoods($model)
@@ -132,6 +138,7 @@ class HomeService extends LayoutService
     }
 
     /**
+     * fill promotional product
      * @param $model
      */
     private function fillPromotionalProduct($model)

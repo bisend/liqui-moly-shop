@@ -2240,9 +2240,13 @@ header {
     display: inline-block;
     float: left; }
     .single-product-gallery .gallery-thumbs .item a, .single-product-gallery .gallery-thumbs li a {
-      display: inline-block;
-      border: 1px solid #e0e0e0;
-      min-height: 60px; }
+        display: inline-block;
+        border: 1px solid #e0e0e0;
+        min-height: 60px;
+
+        /*TODO DELETE THIS*/
+        width: 67px;
+    }
 
 .grid-list-products {
   margin: 0 0 59px 0; }

@@ -343,4 +343,29 @@ class UrlBuilder
 
         return $result;
     }
+
+
+    // -----------------------------------------------------------------------------------------------------------------
+    /**
+     * Build error page url
+     *
+     * @param null $code
+     * @param string $language
+     *
+     * @return null|string
+     */
+    public static function error($code = null, $language = Languages::DEFAULT_LANGUAGE)
+    {
+        if (!$code) {
+            $code = self::UNDEFINED_ERROR_URL;
+        }
+
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::ERROR_PAGE,
+            $code
+        ]);
+
+        return self::localize($url, $language);
+    }
 }

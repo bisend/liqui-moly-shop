@@ -12,14 +12,30 @@ namespace App\Services;
 use App\Repositories\ProductRepository;
 use Session;
 
+/**
+ * Class HistoryService
+ * @package App\Services
+ */
 class HistoryService
 {
+    /**
+     * @var ProductRepository
+     */
     protected $productRepository;
 
+    /**
+     * @var string
+     */
     protected $sessionKey = 'visitedProducts';
 
+    /**
+     * @var array
+     */
     protected $items = [];
 
+    /**
+     * @var int
+     */
     protected $maxElements = 10;
 
     /**
@@ -32,6 +48,7 @@ class HistoryService
     }
 
     /**
+     * store product ID in session
      * @param $productId
      */
     public function storeProduct($productId)
@@ -58,12 +75,16 @@ class HistoryService
     }
 
     /**
+     * fill visited products by session products ids
      * @param $model
      */
     public function fillVisitedProducts($model)
     {
         $this->items = Session::get($this->sessionKey);
-        
-        $model->visitedProducts = $this->productRepository->getVisitedProducts($this->items, $model->language);
+
+        if ($this->items != null)
+        {
+            $model->visitedProducts = $this->productRepository->getVisitedProducts($this->items, $model->language);
+        }
     }
 }

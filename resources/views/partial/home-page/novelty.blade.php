@@ -8,12 +8,14 @@
                     {{--<img alt="" src="/img/blank.gif" data-echo="{{ $novelty->images[0]->small }}" />--}}
                     {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/a5e5942s-960.jpg" />--}}
                     {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />--}}
-                    <img alt="{{ $novelty->name }}" src="{{ $novelty->images[0]->small }}">
+                    <a href="{{ url_product($novelty->name_slug, $model->language) }}">
+                        <img alt="{{ $novelty->name }}" src="{{ $novelty->images[0]->small }}">
+                    </a>
                 </div>
                 <div class="body">
 
                     <div class="title title-product-tabs">
-                        <a href="/product/{{ $novelty->name_slug }}">{{ $novelty->name }} </a>
+                        <a href="{{ url_product($novelty->name_slug, $model->language) }}">{{ $novelty->name }} </a>
                     </div>
                     <div class="star-holder inline"><div class="star" data-score="4"></div></div>
                     <div class="product-comments"><a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> <span>10</span> відгуків</a></div>

@@ -49,13 +49,15 @@
                                         {{--<img alt="" src="/img/blank.gif" data-echo="{{ $categoryProduct->products[0]->images[0]->small }}" />--}}
 {{--                                        <img alt="" src="/img/blank.gif" data-echo="{{ $categoryProduct->images[0]->small }}" />--}}
                                         {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />--}}
-                                        <img src="{{ $categoryProduct->images[0]->small }}" alt="{{ $categoryProduct->name }}">
+                                        <a href="{{ url_product($categoryProduct->name_slug, $model->language) }}">
+                                            <img src="{{ $categoryProduct->images[0]->small }}" alt="{{ $categoryProduct->name }}">
+                                        </a>
                                     </div>
                                     <div class="body">
 
                                         <div class="title">
                                             {{--<a href="single-product.html">{{ $categoryProduct->products[0]->name }}</a>--}}
-                                            <a href="/product/{{ $categoryProduct->name_slug }}">{{ $categoryProduct->name }}</a>
+                                            <a href="{{ url_product($categoryProduct->name_slug, $model->language) }}">{{ $categoryProduct->name }}</a>
                                         </div>
                                         <div class="star-holder inline">
                                             <div class="star" data-score="4"></div>

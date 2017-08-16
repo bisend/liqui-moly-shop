@@ -15,12 +15,14 @@
                                 <div class="image">
                                     {{--<img alt="" src="/img/blank.gif" data-echo="{{ $seasonalGood->images[0]->small }}" />--}}
                                     {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />--}}
-                                    <img alt="" src="{{ $seasonalGood->images[0]->small }}">
+                                    <a href="{{ url_product($seasonalGood->name_slug, $model->language) }}">
+                                        <img alt="" src="{{ $seasonalGood->images[0]->small }}">
+                                    </a>
                                 </div>
                                 <div class="body">
                                     <div class="label-discount clear"></div>
                                     <div class="title title-BestSellers">
-                                        <a href="/product/{{ $seasonalGood->name_slug }}">{{ $seasonalGood->name }}</a>
+                                        <a href="{{ url_product($seasonalGood->name_slug, $model->language) }}">{{ $seasonalGood->name }}</a>
                                     </div>
 
                                     <div class="star-holder inline"><div class="star" data-score="4"></div></div>
@@ -60,12 +62,14 @@
                                 <div class="image">
 {{--                                    <img alt="" src="/img/blank.gif" data-echo="{{ $seasonalGood->images[0]->small }}" />--}}
                                     {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />--}}
-                                    <img alt="" src="{{ $seasonalGood->images[0]->small }}">
+                                    <a href="{{ url_product($seasonalGood->name_slug, $model->language) }}">
+                                        <img alt="{{ $seasonalGood->name }}" src="{{ $seasonalGood->images[0]->small }}">
+                                    </a>
                                 </div>
                                 <div class="body">
                                     <div class="label-discount clear"></div>
                                     <div class="title title-BestSellers">
-                                        <a href="/product/{{ $seasonalGood->name_slug }}">{{ $seasonalGood->name }}</a>
+                                        <a href="{{ url_product($seasonalGood->name_slug, $model->language) }}">{{ $seasonalGood->name }}</a>
                                     </div>
                                     <div class="star-holder inline"><div class="star" data-score="4"></div></div>
                                     <div class="product-comments product-comments-smoll"><a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> <span></span> Залишити відгук</a></div>
@@ -104,10 +108,10 @@
                         @foreach($model->promotionalProduct->images as $image)
                             <div class="single-product-gallery-item" id="slide{{ $href_slide }}">
                                 <a data-rel="prettyphoto"
-                                   href="/product/{{ $model->promotionalProduct->name_slug }}">
+                                   href="{{ url_product($model->promotionalProduct->name_slug, $model->language) }}">
                                     {{--<img alt="" src="/img/blank.gif" data-echo="{{ $image->medium }}">--}}
                                     {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg">--}}
-                                    <img alt="" src="{{ $image->medium }}">
+                                    <img alt="{{ $model->promotionalProduct->name }}" src="{{ $image->medium }}">
                                 </a>
                             </div><!-- /.single-product-gallery-item -->
 {{--                            @php($data_slide++)--}}
@@ -116,9 +120,9 @@
 
                     @else
                         <div class="single-product-gallery-item" id="slide1">
-                            <a data-rel="prettyphoto" href="/product/{{ $model->promotionalProduct->name_slug }}">
+                            <a data-rel="prettyphoto" href="{{ url_product($model->promotionalProduct->name_slug, $model->language) }}">
                                 {{--<img alt="" src="/img/blank.gif" data-echo="{{ $model->promotionalProduct->images[0]->medium }}" />--}}
-                                <img alt="" src="{{ $model->promotionalProduct->images[0]->medium }}">
+                                <img alt="{{ $model->promotionalProduct->name }}" src="{{ $model->promotionalProduct->images[0]->medium }}">
                             </a>
                         </div><!-- /.single-product-gallery-item -->
                     @endif
@@ -182,7 +186,7 @@
                 <div class="body">
                     <div class="label-discount clear"></div>
                     <div class="title">
-                        <a href="{{ $model->promotionalProduct->name_slug }}">{{ $model->promotionalProduct->name }}</a>
+                        <a href="{{ url_product($model->promotionalProduct->name_slug, $model->language) }}">{{ $model->promotionalProduct->name }}</a>
                     </div>
                     <div class="star-holder inline"><div class="star" data-score="4"></div></div>
                     <div class="product-comments"><a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> <span>10</span> відгуків</a></div>

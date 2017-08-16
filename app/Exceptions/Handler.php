@@ -2,9 +2,14 @@
 
 namespace App\Exceptions;
 
+use App\Helpers\Languages;
+use App\Helpers\UrlBuilder;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -20,6 +25,8 @@ class Handler extends ExceptionHandler
         \Illuminate\Database\Eloquent\ModelNotFoundException::class,
         \Illuminate\Session\TokenMismatchException::class,
         \Illuminate\Validation\ValidationException::class,
+
+        NotFoundHttpException::class,
     ];
 
     /**
@@ -44,6 +51,16 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        $language = Languages::DEFAULT_LANGUAGE;
+
+        if ($exception instanceof BadRequestHttpException) {
+            return redirect(UrlBuilder::error(400, $language));
+        } else if ($exception instanceof AccessDeniedHttpException) {
+            return redirect(UrlBuilder::error(403, $language));
+        } else if($exception instanceof NotFoundHttpException) {
+            return redirect(UrlBuilder::error(404, $language));
+        }
+        
         return parent::render($request, $exception);
     }
 

@@ -2,216 +2,22 @@
 <footer id="footer" class="color-bg">
     <div class="container">
         <div class="row no-margin widgets-row">
+
             <div class="col-xs-12  col-sm-4 no-margin-left">
                 <!-- ============================================================= FEATURED PRODUCTS ============================================================= -->
-                <div class="widget">
-                    <h2>Рекомендовані товари</h2>
-                    <div class="body">
-                        <ul>
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="">
-                                            {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />--}}
-                                            <img alt="" src="/img/products/liqui_moly_diesel_.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 ">
-                                        <a href="single-product.html">Netbook Acer Travel B113-E-10072</a>.
-                                        <div class="price">
-
-                                            <div class="price-current">$1873</div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="">
-                                            {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui-moly_3901.jpg" />--}}
-                                            <img alt="" src="/img/products/liqui_moly_diesel_.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 ">
-                                        <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
-                                        <div class="price">
-
-                                            <div class="price-current">$1873</div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="">
-                                            {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui-moly_3901.jpg" />--}}
-                                            <img alt="" src="/img/products/liqui_moly_diesel_.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 ">
-                                        <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
-                                        <div class="price">
-
-                                            <div class="price-current">$1873</div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </li>
-                        </ul>
-                    </div><!-- /.body -->
-                </div> <!-- /.widget -->
+                @include('partial.footer.recommended-products')
                 <!-- ============================================================= FEATURED PRODUCTS : END ============================================================= -->
             </div><!-- /.col -->
 
             <div class="col-xs-12 col-sm-4 ">
                 <!-- ============================================================= ON SALE PRODUCTS ============================================================= -->
-                <div class="widget">
-                    <h2>Найкращі знижки</h2>
-                    <div class="body">
-                        <ul>
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="">
-                                            {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui-moly_3901.jpg" />--}}
-                                            <img alt="" src="/img/products/liqui_moly_diesel_.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9">
-                                        <a href="single-product.html">HP Scanner 2910P</a>
-                                        <div class="price">
-
-                                            <div class="price-current">$1873</div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="">
-                                            {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui-moly_3901.jpg" />--}}
-                                            <img alt="" src="/img/products/liqui_moly_diesel_.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9">
-                                        <a href="single-product.html">Galaxy Tab 3 GT-P5210 16GB, Wi-Fi, 10.1in - White</a>
-                                        <div class="price">
-
-                                            <div class="price-current">$1873</div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="">
-                                            {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui-moly_3901.jpg" />--}}
-                                            <img alt="" src="/img/products/liqui_moly_diesel_.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9">
-                                        <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
-                                        <div class="price">
-
-                                            <div class="price-current">$1873</div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </li>
-                        </ul>
-                    </div><!-- /.body -->
-                </div> <!-- /.widget -->
+                @include('partial.footer.best-discounts')
                 <!-- ============================================================= ON SALE PRODUCTS : END ============================================================= -->
             </div><!-- /.col -->
 
             <div class="col-xs-12 col-sm-4 ">
                 <!-- ============================================================= TOP RATED PRODUCTS ============================================================= -->
-                <div class="widget">
-                    <h2>Найпопулярніші товари</h2>
-                    <div class="body">
-                        <ul>
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="">
-                                            {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui-moly_3901.jpg" />--}}
-                                            <img alt="" src="/img/products/liqui_moly_diesel_.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9">
-                                        <a href="single-product.html">Galaxy Tab GT-P5210, 10" 16GB Wi-Fi</a>
-                                        <div class="price">
-
-                                            <div class="price-current">$1873</div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="">
-                                            {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui-moly_3901.jpg" />--}}
-                                            <img alt="" src="/img/products/liqui_moly_diesel_.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9">
-                                        <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
-                                        <div class="price">
-
-                                            <div class="price-current">$1873</div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="">
-                                            {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui-moly_3901.jpg" />--}}
-                                            <img alt="" src="/img/products/liqui_moly_diesel_.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9">
-                                        <a href="single-product.html">Surface RT 64GB, Wi-Fi, 10.6in - Dark Titanium</a>
-                                        <div class="price">
-
-                                            <div class="price-current">$1873</div>
-                                        </div>
-                                    </div>
-
-
-
-                                </div>
-                            </li>
-                        </ul>
-                    </div><!-- /.body -->
-                </div><!-- /.widget -->
+                @include('partial.footer.popular-products')
                 <!-- ============================================================= TOP RATED PRODUCTS : END ============================================================= -->
             </div><!-- /.col -->
         </div><!-- /.widgets-row-->

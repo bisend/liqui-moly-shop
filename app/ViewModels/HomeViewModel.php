@@ -20,8 +20,6 @@ class HomeViewModel extends LayoutViewModel
     
     public $promotionalProduct;
     
-    public $visitedProducts;
-    
     /**
      * HomeViewModel constructor.
      * @param null|string $language

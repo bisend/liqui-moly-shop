@@ -8,12 +8,14 @@
                     {{--<img alt="" src="/img/blank.gif" data-echo="{{ $topSale->images[0]->small }}" />--}}
                     {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui-moly_3901.jpg" />--}}
                     {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />--}}
-                    <img alt="" src="{{ $topSale->images[0]->small }}">
+                    <a href="{{ url_product($topSale->name_slug, $model->language) }}">
+                        <img alt="" src="{{ $topSale->images[0]->small }}">
+                    </a>
                 </div>
                 <div class="body">
 
                     <div class="title title-product-tabs" >
-                        <a href="/product/{{ $topSale->name_slug }}">{{ $topSale->name }} </a>
+                        <a href="{{ url_product($topSale->name_slug, $model->language) }}">{{ $topSale->name }} </a>
                     </div>
                     <div class="star-holder inline"><div class="star" data-score="4"></div></div>
                     <div class="product-comments"><a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> <span></span> Залишити відгук</a></div>

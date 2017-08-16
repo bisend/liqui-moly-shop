@@ -16,6 +16,8 @@ class ProductViewModel extends LayoutViewModel
     
     public $properties;
     
+    public $visitedProducts;
+    
     public function __construct($productSlug, $language)
     {
         parent::__construct('product', $language);

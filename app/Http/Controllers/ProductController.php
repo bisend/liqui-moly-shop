@@ -31,6 +31,8 @@ class ProductController extends Controller
         $this->productService->fill($model);
 
         $this->historyService->storeProduct($model->product->id);
+        
+        $this->historyService->fillVisitedProducts($model);
 
         return view('pages.product.product', compact('model'));
     }

@@ -29,12 +29,10 @@ class CategoryService extends LayoutService
      * @param CategoryRepository $categoryRepository
      * @param ProductRepository $productRepository
      */
-    public function __construct(
-        CategoryRepository $categoryRepository,
-        ProductRepository $productRepository
+    public function __construct(CategoryRepository $categoryRepository, ProductRepository $productRepository
     )
     {
-        parent::__construct($categoryRepository);
+        parent::__construct($categoryRepository, $productRepository);
         
         $this->productRepository = $productRepository;
     }
@@ -58,14 +56,21 @@ class CategoryService extends LayoutService
     }
 
     /**
+     * fill current category with related categories 
      * @param $model
      */
     private function fillCurrentCategory($model)
     {
         $model->currentCategory = $this->categoryRepository->getCurrentCategoryBySlugAndLanguage($model->slug, $model->language);
+
+        if ($model->currentCategory == null)
+        {
+            abort(404);
+        }
     }
 
     /**
+     * fill count with number of category products
      * @param $model
      */
     private function fillCountCategoryProducts($model)
@@ -74,11 +79,11 @@ class CategoryService extends LayoutService
     }
 
     /**
+     * fill categoryProducts with products related to this category, and sort it
      * @param $model
      */
     private function fillCategoryProducts($model)
     {
-//        $model->categoryProducts = $this->categoryRepository->getAllProductsForCategoryByLanguage($model->currentCategory, $model->language);
         $model->categoryProducts = $this->productRepository->getAllProductsForCategoryByLanguage($model->currentCategory, $model->sort, $model->categoryProductsLimit, $model->categoryProductsOffset, $model->language);
         
         if ($model->page != '1' && $model->categoryProducts->count() == 0 )
@@ -86,12 +91,20 @@ class CategoryService extends LayoutService
             abort(404);
         }
     }
-    
+
+    /**
+     * fill categories sidebar top sales products
+     * @param $model
+     */
     private function fillCategoryTopSalesProducts($model)
     {
         $model->categoryTopSalesProducts = $this->productRepository->getTopSalesProductsByLanguage($model->language);
     }
-    
+
+    /**
+     * fill categories sidebar novelty products
+     * @param $model
+     */
     private function fillCategoryNoveltyProducts($model)
     {
         $model->categoryNoveltyProducts = $this->productRepository->getNoveltyProductsByLanguage($model->language);
