@@ -43,6 +43,10 @@
 
     </div><!-- /.wrapper -->
 
+    <!--FORCE RELOAD BEGIN-->
+    <input id="reload-value" type="hidden" name="reload-value" value="">
+    <!--FORCE RELOAD END-->
+
     {{--JS BEGIN--}}
     @include('partial.layout.body-js')
     {{--JS END--}}

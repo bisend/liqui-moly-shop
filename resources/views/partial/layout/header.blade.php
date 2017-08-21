@@ -35,65 +35,24 @@
             </div><!-- /.contact-row -->
             <!-- ============================================================= SEARCH AREA ============================================================= -->
 
-            <form class="search-form">
-                <input class="search-field" placeholder="Пошук..." />
-                <a class="search-form-btn" href="">Пошук</a>
+            <form class="search-form" action="/search/_SERIES_"
+                  method="GET"
+                  autocomplete="off"
+                  accept-charset="UTF-8"
+                  data-desktop-search-form>
+
+                <input type="text" class="search-field" placeholder="Пошук..." data-desktop-search-input data-desktop-series-param="_SERIES_">
+                {{--<a class="search-form-btn" href="">Пошук</a>--}}
+                <button class="search-form-btn" type="submit" data-desktop-search-submit>
+                    Пошук
+                </button>
                 <!-- <a class="search-form-btn-close" href=""><i class="fa fa-times" aria-hidden="true"></i></a> -->
             </form>
 
             {{--SEARCH RESULT CONTAINER BEGIN--}}
-            {{--<div class="result_search">--}}
-                {{--<div class="empty-search">--}}
-                    {{--<b>По вашому запиту результати відсутні</b>--}}
-                {{--</div>--}}
-                {{--<div class="search-result-products">--}}
-                    {{--<div class="product-item product-item-holder">--}}
-                        {{--<div class="row">--}}
-                            {{--<div class="col-xs-12 col-sm-3 image-holder">--}}
-                                {{--<div class="image">--}}
-                                    {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/product-01.jpg" />--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="no-margin col-xs-12 col-sm-5 body-holder">--}}
-                                {{--<div class="body">--}}
-                                    {{--<div class="title">--}}
-                                        {{--<a href="single-product.html">VAIO Fit Laptop - Windows 8 SVF14322CXW</a>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="no-margin col-xs-12 col-sm-3 price-area">--}}
-                                {{--<div class="right-clmn">--}}
-                                    {{--<div class="price-current">1199.00 грн</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="product-item product-item-holder">--}}
-                        {{--<div class="row">--}}
-                            {{--<div class="col-xs-12 col-sm-3 image-holder">--}}
-                                {{--<div class="image">--}}
-                                    {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/product-01.jpg" />--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="no-margin col-xs-12 col-sm-5 body-holder">--}}
-                                {{--<div class="body">--}}
-                                    {{--<div class="title">--}}
-                                        {{--<a href="single-product.html">VAIO Fit Laptop - Windows 8 SVF14322CXW</a>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="no-margin col-xs-12 col-sm-3 price-area">--}}
-                                {{--<div class="right-clmn">--}}
-                                    {{--<div class="price-current">1199.00 грн</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="seeAllSearchProduct">--}}
-                        {{--<a href="" class="seeAllProdSearch">Переглянути усі результати пошуку</a>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
+            <div class="result_search" data-desktop-async-search-result>
+
+            </div>
             {{--SEARCH RESULT CONTAINER END--}}
             <!-- ============================================================= SEARCH AREA : END ============================================================= -->
 

@@ -4267,6 +4267,7 @@ header .top-search-holder .search-area .search-button{
 
 
 .result_search {
+    display: none;
     position: absolute;
     width: 100%;
     left: 0;
@@ -4274,9 +4275,9 @@ header .top-search-holder .search-area .search-button{
     background: #fefefe;
     z-index: 5000;
     overflow: hidden;
-    display: block;
+    /*display: block;*/
     height: auto;
-    max-height: 427px;
+    max-height: 450px;
    /* visibility: hidden;*/
     -webkit-box-shadow: 0 7px 8px 0 rgba(0,0,0,.1);
     -moz-box-shadow: 0 7px 8px 0 rgba(0,0,0,.1);
@@ -4813,7 +4814,7 @@ header .top-search-holder .contact-row .order-a-calll a i {
   font-size: 20px;
  }
 
-/ VALIDATION BEGIN /
+/*/ VALIDATION BEGIN /*/
 /*.error-not-valid {*/
     /*border: 1px solid red;*/
 /*}*/
@@ -5381,5 +5382,9 @@ div.dropdown-menu ul.dropdown-menu-list{
 }
 .category-list-view .product-item-holder.hover .product-item .hover-area .add-cart-button:before{
   width: 0;
+}
+
+.mini-size-img {
+    width: 50px;
 }
 /* ------------ SEROGA STYLE END-----------------------*/

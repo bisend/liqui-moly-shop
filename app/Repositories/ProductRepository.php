@@ -13,6 +13,14 @@ use App\Helpers\Languages;
  */
 class ProductRepository
 {
+
+    protected $wordsSeparator = '+';
+
+    protected $likeSeparator = '%';
+
+
+
+
     /**
      * Get Top sales products by lang
      * @param string $language
@@ -344,12 +352,127 @@ class ProductRepository
                 'price',
             ]);
     }
-
-
-
-    public function getSearchProducts()
+    
+    /**
+     * @param $series
+     * @param string $sort
+     * @param $searchProductsLimit
+     * @param int $searchProductsOffset
+     * @param string $language
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function getSearchProducts($series, 
+                                      $sort = 'default', 
+                                      $searchProductsLimit, 
+                                      $searchProductsOffset = 0, 
+                                      $language = Languages::DEFAULT_LANGUAGE)
     {
-        return ;
+        $orderByRaw = 'name';
+
+        if ($sort == 'price-asc')
+        {
+            $orderByRaw = 'price asc, name';
+        }
+        elseif ($sort == 'price-desc')
+        {
+            $orderByRaw = 'price desc, name';
+        }
+
+
+        $words = explode($this->wordsSeparator, $series);
+        $wordsReverse = array_reverse($words);
+        $seriesReverse = implode($this->likeSeparator, $wordsReverse);
+        $series = implode($this->likeSeparator, $words);
+        
+        $query = Product::with([
+            'images'
+        ])
+            ->where(function ($query) use ($series, $seriesReverse) {
+                $query->where("name_uk", 'like', '%' . $series . '%');
+                $query->orWhere("name_uk", 'like', '%' . $seriesReverse . '%');
+            })
+            ->orWhere(function ($query) use ($series, $seriesReverse) {
+                $query->where("name_ru", 'like', '%' . $series . '%');
+                $query->orWhere("name_ru", 'like', '%' . $seriesReverse . '%');
+            })
+            ->orderByRaw($orderByRaw)
+            ->limit($searchProductsLimit)
+            ->offset($searchProductsOffset);
+
+
+        return $query->get([
+            'id',
+            'category_id',
+            'product_status_id',
+            "name_$language as name",
+            'name_slug',
+            'old_price',
+            'price',
+        ]);
+
+    }
+
+    /**
+     * @param $series
+     * @param $language
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function getAsyncSearchProducts($series, $language)
+    {
+        $orderByRaw = 'name';
+        
+        $words = explode($this->wordsSeparator, $series);
+        $wordsReverse = array_reverse($words);
+        $seriesReverse = implode($this->likeSeparator, $wordsReverse);
+        $series = implode($this->likeSeparator, $words);
+
+        $query = Product::with([
+            'images'
+        ])
+            ->where(function ($query) use ($series, $seriesReverse) {
+                $query->where("name_uk", 'like', '%' . $series . '%');
+                $query->orWhere("name_uk", 'like', '%' . $seriesReverse . '%');
+            })
+            ->orWhere(function ($query) use ($series, $seriesReverse) {
+                $query->where("name_ru", 'like', '%' . $series . '%');
+                $query->orWhere("name_ru", 'like', '%' . $seriesReverse . '%');
+            })
+            ->orderByRaw($orderByRaw)
+            ->limit(5);
+
+        return $query->get([
+            'id',
+            'category_id',
+            'product_status_id',
+            "name_$language as name",
+            'name_slug',
+            'old_price',
+            'price',
+        ]);
+    }
+
+    /**
+     * @param $series
+     * @return int
+     */
+    public function getCountSearchProducts($series)
+    {
+        $words = explode($this->wordsSeparator, $series);
+        $wordsReverse = array_reverse($words);
+        $seriesReverse = implode($this->likeSeparator, $wordsReverse);
+        $series = implode($this->likeSeparator, $words);
+
+
+        return Product::
+        where(function ($query) use ($series, $seriesReverse) {
+            $query->where("name_uk", 'like', '%' . $series . '%');
+            $query->orWhere("name_uk", 'like', '%' . $seriesReverse . '%');
+        })
+            ->orWhere(function ($query) use ($series, $seriesReverse) {
+                $query->where("name_ru", 'like', '%' . $series . '%');
+                $query->orWhere("name_ru", 'like', '%' . $seriesReverse . '%');
+            })
+            ->count();
     }
 
 

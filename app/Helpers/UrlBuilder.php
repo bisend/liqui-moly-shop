@@ -273,6 +273,58 @@ class UrlBuilder
 
     // -----------------------------------------------------------------------------------------------------------------
     /**
+     * Build search page url
+     *
+     * @param null|string $series
+     * @param string $language
+     *
+     * @return null|string
+     */
+    public static function search($series = null, $language = Languages::DEFAULT_LANGUAGE)
+    {
+        if (!$series) {
+            $series = self::SERIES_PARAM;
+        }
+
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::SEARCH_PAGE,
+            $series
+        ]);
+
+        return self::localize($url, $language);
+    }
+
+    /**
+     * Build search(per page) page url
+     *
+     * @param null|string $series
+     * @param int $page
+     * @param string $language
+     *
+     * @return null|string
+     */
+    public static function searchPerPage($series = null, $page = 1, $language = Languages::DEFAULT_LANGUAGE)
+    {
+        if (!$series) {
+            $series = self::SERIES_PARAM;
+        }
+
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::SEARCH_PAGE,
+            $series
+        ]);
+
+        if ($page > 1) {
+            $url = self::concatParts([$url, $page]);
+        }
+
+        return self::localize($url, $language);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    /**
      * Clear language param in the given url
      *
      * @param null|string $url

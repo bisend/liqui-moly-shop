@@ -170,7 +170,7 @@
     <!-- ========================================= SINGLE PRODUCT TAB : END ========================================= -->
 
     <!-- ========================================= RECENTLY VIEWED ========================================= -->
-    @include('partial.home-page.viewed-products')
+    @include('partial.product-page.viewed-products')
     <!-- ========================================= RECENTLY VIEWED : END ========================================= -->
 
 @endsection

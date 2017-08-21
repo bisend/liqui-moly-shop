@@ -115,13 +115,19 @@ function Category() {
 
         //click on list button
         $body.on('click', elems.grid.listViewBtn, function () {
-            $elems.grid.productGrid.closest('.tab-content').css('display', 'none').fadeIn(600);
+            if (!$elems.grid.listLi.hasClass('active'))
+            {
+                $elems.grid.productGrid.closest('.tab-content').css('display', 'none').fadeIn(300);
+            }
             setListViewStatus();
         });
 
         //click on grid button
         $body.on('click', elems.grid.gridViewBtn, function () {
-            $elems.grid.productGrid.closest('.tab-content').css('display', 'none').fadeIn(600);
+            if (!$elems.grid.gridLi.hasClass('active'))
+            {
+                $elems.grid.productGrid.closest('.tab-content').css('display', 'none').fadeIn(300);
+            }
             setGridViewStatus();
         });
 

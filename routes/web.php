@@ -72,8 +72,34 @@ Route::group(['prefix' => 'errors'], function ()
 
 Route::group(['prefix' => 'search'], function ()
 {
-    Route::get('/{params}/{language?}', 'SearchController@index');
+    Route::get('/{series}/{language?}', 'SearchController@index')
+        ->where([
+            'language' => '^(uk|ru)?$'
+        ]);
 
+    Route::get('/{series}/{sort}/{language?}', 'SearchController@indexSort')
+        ->where([
+            'sort' => '^(price-asc|price-desc)$',
+            'language' => '^(uk|ru)?$'
+        ]);
+
+    Route::get('/{series}/{page}/{language?}', 'SearchController@indexPagination')
+        ->where([
+            'page' => '^[2-9]{1}|[1-9]{1}[0-9]+$',
+            'language' => '^(uk|ru)?$'
+        ]);
+    
+    Route::get('/{series}/{sort}/{page}/{language?}', 'SearchController@indexPaginationSort')
+        ->where([
+            'sort' => '^(price-asc|price-desc)$',
+            'page' => '^[2-9]{1}|[1-9]{1}[0-9]+$',
+            'language' => '^(uk|ru)?$'
+        ]);
+
+    Route::get('/async/{series}/{language?}', 'SearchController@indexAsync')
+        ->where([
+            'language' => '^(uk|ru)?$'
+        ]);
 });
 
 //Route::get('login', 'HomeController@showLoginForm')->middleware('guest');

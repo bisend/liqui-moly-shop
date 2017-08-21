@@ -104,3 +104,44 @@ if (!function_exists('url_product')) {
         return UrlBuilder::product($slug, $language);
     }
 }
+
+// ---------------------------------------------------------------------------------------------------------------------
+/**
+ * url_search
+ */
+if (!function_exists('url_search')) {
+
+    /**
+     * Get the search page url
+     *
+     * @param null|string $series
+     * @param string $language
+     *
+     * @return null|string
+     */
+    function url_search($series = null, $language = Languages::DEFAULT_LANGUAGE)
+    {
+        return UrlBuilder::search($series, $language);
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+/**
+ * url_search_per_page
+ */
+if (!function_exists('url_search_per_page')) {
+
+    /**
+     * Get the search(per page) page url
+     *
+     * @param null|string $series
+     * @param int $page
+     * @param string $language
+     *
+     * @return string
+     */
+    function url_search_per_page($series = null, $page = 1, $language = Languages::DEFAULT_LANGUAGE)
+    {
+        return UrlBuilder::searchPerPage($series, $page, $language);
+    }
+}
