@@ -26,7 +26,12 @@
 
 {{--custom scripts--}}
 <script src="/js/launch.js"></script>
+<script src="/js/jclient.validation.js"></script>
 <script src="/js/search/search-desktop.js"></script>
+<script src="/js/auth/logout.js"></script>
+<script src="/js/auth/login.js"></script>
+<script src="/js/auth/register.js"></script>
+<script src="/js/auth/restore-password.js"></script>
 
 <!--Page JS BEGIN-->
 @stack('js')

@@ -5388,3 +5388,82 @@ div.dropdown-menu ul.dropdown-menu-list{
     width: 50px;
 }
 /* ------------ SEROGA STYLE END-----------------------*/
+
+/*VLAD STYLE*/
+
+.pop-up-message {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1050; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    /*overflow: auto; !* Enable scroll if needed *!*/
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.pop-up-message .close {
+    font-size: 25px;
+    line-height: 35px;
+    color: #fff;
+}
+
+    /* Modal Header */
+.pop-up-message-header {
+  padding: 2px 16px;
+  background-color: #005aab;
+  color: white;
+}
+
+.pop-up-message-title {
+    color: white;
+}
+
+/* Modal Body */
+.pop-up-message-body {
+    /*padding: 2px 16px;*/
+}
+
+/* Modal Content */
+.pop-up-message-content {
+
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    /*padding: 20px;*/
+    border: 1px solid #888;
+    height: 250px;
+    width: 30%; /* Could be more or less, depending on screen size */
+    position: relative;
+    padding: 0;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.pop-up-message-text-box {
+    display: table;
+    height: 208px;
+    width: 100%;
+    text-align: center;
+}
+
+.pop-up-message-text {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+/*VLAD STYLE END*/

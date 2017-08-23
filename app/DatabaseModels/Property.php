@@ -22,6 +22,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Property wherePropertyValueId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Property whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\DatabaseModels\PropertyName $propertyName
+ * @property-read \App\DatabaseModels\PropertyValue $propertyValue
  */
 class Property extends Model
 {

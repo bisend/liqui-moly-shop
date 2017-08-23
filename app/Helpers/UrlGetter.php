@@ -22,6 +22,18 @@ if (!function_exists('url_home')) {
         return UrlBuilder::home($language);
     }
 }
+// ---------------------------------------------------------------------------------------------------------------------
+
+if (!function_exists('url_confirmation'))
+{
+    function url_confirmation($confirmationToken = null, $language = Languages::DEFAULT_LANGUAGE)
+    {
+        return UrlBuilder::confirmation($confirmationToken, $language);
+    }
+}
+
+
+
 
 // ---------------------------------------------------------------------------------------------------------------------
 /**

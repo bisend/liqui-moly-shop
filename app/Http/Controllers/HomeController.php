@@ -6,6 +6,7 @@ use App\Helpers\Languages;
 use App\Services\HistoryService;
 use App\Services\HomeService;
 use App\ViewModels\HomeViewModel;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class HomeController extends LayoutController
@@ -28,7 +29,7 @@ class HomeController extends LayoutController
         $this->homeService->fill($model);
 
         $this->historyService->fillVisitedProducts($model);
-
+        
         return view('pages.home.home', compact('model'));
     }
 
@@ -55,16 +56,6 @@ class HomeController extends LayoutController
     
     
     
-//    public function showLoginForm()
-//    {
-//        return view('login');
-//    }
-//
-//    public function showRegisterForm()
-//    {
-//        return view('register');
-//    }
-//
 //    public function login()
 //    {
 //        if (!auth()->guard()->attempt(request(['email', 'password'])))
@@ -75,11 +66,7 @@ class HomeController extends LayoutController
 //        return redirect('/');
 //    }
 //
-//    public function logout()
-//    {
-//        auth()->guard()->logout();
-//        return redirect('/');
-//    }
+
 //
 //    public function changePassword()
 //    {
@@ -97,10 +84,5 @@ class HomeController extends LayoutController
 //            $user->save();
 //        }
 //        return redirect('/');
-//    }
-//
-//    public function showChangePasswordForm()
-//    {
-//        return view('change-password');
 //    }
 }

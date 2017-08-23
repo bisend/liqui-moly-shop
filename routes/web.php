@@ -102,12 +102,20 @@ Route::group(['prefix' => 'search'], function ()
         ]);
 });
 
-//Route::get('login', 'HomeController@showLoginForm')->middleware('guest');
-//Route::get('register', 'HomeController@showRegisterForm')->middleware('guest');
+Route::post('/login', 'User\LoginController@login');
+Route::post('/logout', 'User\LoginController@logout');
+Route::post('/register', 'User\RegisterController@register');
+Route::get('/confirm/{confirmationToken}/{language?}', 'User\ConfirmationEmailController@confirm')
+    ->where([
+        'language' => '^(uk|ru)?$'
+    ]);
+Route::post('/restore-password', 'User\RestorePasswordController@restore');
 
-Route::post('login', 'Auth\LoginController@login');
-Route::post('register', 'Auth\RegisterController@register');
-Route::post('logout', 'HomeController@logout');
+
+
+
+//Route::post('register', 'Auth\RegisterController@register');
+//Route::post('logout', 'HomeController@logout');
 Route::get('change-password', 'HomeController@showChangePasswordForm');
 Route::post('change-password', 'HomeController@changePassword');
 

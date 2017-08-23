@@ -35,6 +35,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\DatabaseModels\ProductCategory $product_category
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Product whereOldPrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Product wherePrice($value)
+ * @property-read \App\DatabaseModels\Property $properties
  */
 class Product extends Model
 {

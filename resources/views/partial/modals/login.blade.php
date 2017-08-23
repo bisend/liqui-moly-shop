@@ -4,7 +4,10 @@
         <div class="modal-content">
             <div class="modal-header">
 
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close"
+                        data-login-close
+                        data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
 
                 <div class="row">
@@ -13,7 +16,11 @@
                     </div>
 
                     <div class="col-md-6 no-margin-left">
-                        <a data-toggle="modal" data-target="#ModalRegistr"  data-dismiss="modal" aria-label="Close" class="le-button modal-header-btn btn-registr">Реєстрація</a>
+                        <a data-toggle="modal"
+                           data-target="#ModalRegistr"
+                           data-dismiss="modal"
+                           aria-label="Close"
+                           class="le-button modal-header-btn btn-registr">Реєстрація</a>
                     </div>
                 </div>
 
@@ -23,38 +30,62 @@
 
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" role="form">
+
+                {{--FORM--}}
+                <form class="form-horizontal" role="form" method="post" action="/login" data-login-form>
+                    {{ csrf_field() }}
                     <div class="form-group">
 
                         <div class="col-sm-12">
-                            <input type="email" class="form-control incorrect-field" id="inputEmail3" placeholder="Електронна адреса">
+                            <input type="email"
+                                   name="email"
+                                   class="form-control"
+                                   id="inputEmail3"
+                                   data-login-email
+                                   placeholder="Електронна адреса">
                         </div>
                     </div>
                     <div class="form-group">
 
                         <div class="col-sm-12">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Пароль">
+                            <input type="password"
+                                   name="password"
+                                   class="form-control"
+                                   id="inputPassword3"
+                                   data-login-password
+                                   placeholder="Пароль">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox"> Запам'ятати мене?
+                                    <input name="remember"
+                                           data-login-remember
+                                           type="checkbox"> Запам'ятати мене
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <button type="submit" class="le-button">Увійти</button>
+                            <button type="submit"
+                                    data-login-submit
+                                    class="le-button">Увійти</button>
                         </div>
                     </div>
                 </form>
+                {{--FORM END--}}
+                <a href="" data-toggle="modal"
+                   data-target="#ModalReturnLogin"
+                   data-dismiss="modal"
+                   aria-label="Close"
+                   class="restore-password">Відновити пароль</a>
 
-                <a href="" data-toggle="modal" data-target="#ModalReturnLogin" data-dismiss="modal" aria-label="Close" class="restore-password">Відновити пароль</a>
-
-                <p>Ви ще не зареєстровані?  <a data-toggle="modal" data-target="#ModalRegistr"  data-dismiss="modal" aria-label="Close">Реєстрація</a></p>
+                <p>Ви ще не зареєстровані?  <a data-toggle="modal"
+                                               data-target="#ModalRegistr"
+                                               data-dismiss="modal"
+                                               aria-label="Close">Реєстрація</a></p>
 
             </div>
         </div>

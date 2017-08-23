@@ -17,6 +17,7 @@
     @include('partial.modals.restore-password')
     @include('partial.modals.call')
     @include('partial.modals.register')
+    @include('partial.modals.popUp')
     {{--Modals END--}}
 
     <div class="wrapper">

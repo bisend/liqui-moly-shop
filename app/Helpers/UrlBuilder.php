@@ -58,6 +58,12 @@ class UrlBuilder
     const SEARCH_PAGE = 'search';
 
     /**
+     * confirm page
+     * @var string
+     */
+    const CONFIRMATION_PAGE = 'confirm';
+
+    /**
      * Search async method name
      *
      * @var string
@@ -209,6 +215,28 @@ class UrlBuilder
             url(self::URL_ROOT),
             self::CATEGORY_PAGE,
             $slug
+        ]);
+
+        return self::localize($url, $language);
+    }
+
+    /**
+     * confirmation email url
+     * @param null $confirmationToken
+     * @param string $language
+     * @return string
+     */
+    public static function confirmation($confirmationToken = null, $language = Languages::DEFAULT_LANGUAGE)
+    {
+        if (!$confirmationToken)
+        {
+            return self::UNDEFINED_URL;
+        }
+
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::CONFIRMATION_PAGE,
+            $confirmationToken
         ]);
 
         return self::localize($url, $language);

@@ -1,6 +1,16 @@
 var LANGUAGE = $('html').attr('lang'),
     DEFAULT_LANGUAGE = 'uk';
 
+var IncorrectFieldClass = 'incorrect-field',
+    RequiredFieldText = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Обов`язкове поле' : 'Обязательное поле',
+    IncorrectFieldText = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Невірно введені дані' : 'Неправильные данные',
+    ServerError = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Сталася помилка, спробуйте ще' : 'Произошла ошибка, попробуйте еще',
+    EmailNotValid = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Користувач з таким e-mail вже існує' : 'Пользователь c таким e-mail уже существует',
+    EmailConfirmNotValid = (LANGUAGE == DEFAULT_LANGUAGE) ? 'E-mail не підтверджено' : 'E-mail не подтвержден',
+    EmailNotExists = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Такого e-mail не існує' : 'Такого e-mail не существует',
+    RegisterSuccess = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Реєстрація пройшла успішно, на вказаний e-mail відправлено лист для підтвердження' : 'Регистрация прошла успешно, на указанный e-mail отправлено письмо для подтверждения',
+    RestoreSuccess = (LANGUAGE == DEFAULT_LANGUAGE) ? 'На ваш e-mail відправлено лист з паролем для входу' : 'На ваш e-mail отправлено письмо с паролем для входа';
+
 function Launch() {
     var ctx = this;
     
@@ -72,3 +82,31 @@ function buildSearchUrl(series)
 
     return series;
 }
+
+
+//////////////////////////////TODO MOVE TO POPUP CLASS
+function showPopup(message) {
+    var popup = $('[data-popup]'),
+        popupMessage = $('[data-popup-text]');
+    popupMessage.text(message);
+    popup.fadeIn();
+}
+
+function hidePopup() {
+    var popup = $('[data-popup]'),
+        popupMessage = $('[data-popup-text]');
+    popup.fadeOut();
+    popupMessage.text('');
+}
+
+$('body').on('click', '[data-popup-close]', function () {
+    hidePopup();
+});
+
+$('body').on('click', '[data-popup]', function (e) {
+    if ($(e.target).hasClass('pop-up-message'))
+    {
+        hidePopup();
+    }
+});
+////////////////////////////////

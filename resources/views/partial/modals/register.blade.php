@@ -3,7 +3,11 @@
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button"
+                        data-register-close
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
                 <div class="row">
                     <div class="col-md-6 no-margin-right">
@@ -21,38 +25,69 @@
 
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" role="form">
+
+                {{--FORM--}}
+                <form class="form-horizontal" role="form" method="post" action="/register" data-register-form>
+                    {{ csrf_field() }}
                     <div class="form-group">
 
                         <div class="col-sm-12">
-                            <input type="email" class="form-control incorrect-field" id="inputEmail3" placeholder="Електронна адреса">
+                            <input type="email"
+                                   name="email"
+                                   data-register-email
+                                   class="form-control"
+                                   id="inputEmail3"
+                                   placeholder="Електронна адреса"
+                                   >
                         </div>
                     </div>
                     <div class="form-group">
 
                         <div class="col-sm-12">
-                            <input type="user" class="form-control" id="inputLogin3" placeholder="Ім'я">
+                            <input type="text"
+                                   name="name"
+                                   data-register-name
+                                   class="form-control"
+                                   id="inputLogin3"
+                                   placeholder="Ім'я"
+                                   >
                         </div>
                     </div>
                     <div class="form-group">
 
                         <div class="col-sm-12">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Пароль">
+                            <input type="password"
+                                   name="password"
+                                   data-register-password
+                                   class="form-control"
+                                   id="inputPassword3"
+                                   placeholder="Пароль"
+                                   >
                         </div>
                     </div>
                     <div class="form-group">
 
                         <div class="col-sm-12">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Підтвердіть пароль">
+                            <input type="password"
+                                   name="password_confirmation"
+                                   data-register-password-confirmation
+                                   class="form-control"
+                                   id="inputPassword3"
+                                   placeholder="Підтвердіть пароль"
+                                   >
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <button type="submit" class="le-button">ЗАРЕЄСТРУВАТИСЯ</button>
+                            <button type="submit"
+                                    data-register-submit
+                                    class="le-button">ЗАРЕЄСТРУВАТИСЯ</button>
                         </div>
                     </div>
                 </form>
+                {{--FORM--}}
+
                 <p>Вже зареєстровані? <a href="" data-toggle="modal" data-target="#ModalLogin"  data-dismiss="modal" aria-label="Close">Увійдіть</a></p>
 
             </div>

@@ -17,7 +17,11 @@
                 @include('partial.top-bar.languages')
 
                 {{--Auth part--}}
-                @include('partial.top-bar.not-logged')
+                @if(auth()->check())
+                    @include('partial.top-bar.logged')
+                @else
+                    @include('partial.top-bar.not-logged')
+                @endif
             </ul>
         </div><!-- /.col -->
     </div><!-- /.container -->

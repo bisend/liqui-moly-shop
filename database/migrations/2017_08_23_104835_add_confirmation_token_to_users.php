@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCategoryPathToProducts extends Migration
+class AddConfirmationTokenToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddCategoryPathToProducts extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            // Extra price
-            $table->string('category_path')->nullable();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('confirmation_token')->nullable()->after('active');
         });
     }
 
@@ -26,8 +25,8 @@ class AddCategoryPathToProducts extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('category_path');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('confirmation_token');
         });
     }
 }
