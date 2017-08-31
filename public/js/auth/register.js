@@ -151,7 +151,7 @@ function Register()
         register = function () {
 
             vars.register.isDataProcessing = true;
-            
+            showLoader();
             $.ajax({
                 type: 'post',
                 url: '/register',
@@ -179,7 +179,7 @@ function Register()
                     }
 
                     vars.register.isDataProcessing = false;
-
+                    hideLoader();
                 },
                 error: function (data) {
                     $elems.register.close.click();
@@ -187,6 +187,8 @@ function Register()
                     showPopup(ServerError);
                     
                     vars.register.isDataProcessing = false;
+
+                    hideLoader();
                 }
             });
         };

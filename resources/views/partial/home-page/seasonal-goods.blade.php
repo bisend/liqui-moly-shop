@@ -35,7 +35,10 @@
                                 </div>
                                 <div class="hover-area">
                                     <div class="add-cart-button">
-                                        <a href="single-product.html" class="le-button">В кошик</a>
+                                        <a href="javascript:void(0);"
+                                           data-in-cart="false"
+                                           data-add-to-cart="{{ $seasonalGood->id }}"
+                                           class="le-button">В кошик</a>
                                     </div>
                                     <div class="wish-compare">
                                         <a class="btn-add-to-wishlist" href="#">В обране</a>
@@ -79,7 +82,10 @@
                                 </div>
                                 <div class="hover-area">
                                     <div class="add-cart-button">
-                                        <a href="single-product.html" class="le-button">В кошик</a>
+                                        <a href="javascript:void(0);"
+                                           data-in-cart="false"
+                                           data-add-to-cart="{{ $seasonalGood->id }}"
+                                           class="le-button">В кошик</a>
                                     </div>
                                     <div class="wish-compare">
                                         <a class="btn-add-to-wishlist" href="#">В обране</a>
@@ -186,7 +192,8 @@
                 <div class="body">
                     <div class="label-discount clear"></div>
                     <div class="title">
-                        <a href="{{ url_product($model->promotionalProduct->name_slug, $model->language) }}">{{ $model->promotionalProduct->name }}</a>
+                        <a href="{{ url_product($model->promotionalProduct->name_slug, $model->language) }}">
+                            {{ $model->promotionalProduct->name }}</a>
                     </div>
                     <div class="star-holder inline"><div class="star" data-score="4"></div></div>
                     <div class="product-comments"><a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> <span>10</span> відгуків</a></div>
@@ -194,7 +201,10 @@
                 <div class="prices text-right">
                     {{--<div class="price-prev" style="text-decoration: line-through;">{{ $model->promotionalProduct->old_price }}</div>--}}
                     <div class="price-current inline">{{ $model->promotionalProduct->price }} грн</div>
-                    <a href="cart.html" class="le-button big inline">В кошик</a>
+                    <a href="javascript:void(0);"
+                       data-in-cart="false"
+                       data-add-to-cart="{{ $model->promotionalProduct->id }}"
+                       class="le-button big inline">В кошик</a>
                 </div>
             </div><!-- /.product-item-holder -->
         </div><!-- /.col -->

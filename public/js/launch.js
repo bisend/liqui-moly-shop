@@ -9,7 +9,9 @@ var IncorrectFieldClass = 'incorrect-field',
     EmailConfirmNotValid = (LANGUAGE == DEFAULT_LANGUAGE) ? 'E-mail не підтверджено' : 'E-mail не подтвержден',
     EmailNotExists = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Такого e-mail не існує' : 'Такого e-mail не существует',
     RegisterSuccess = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Реєстрація пройшла успішно, на вказаний e-mail відправлено лист для підтвердження' : 'Регистрация прошла успешно, на указанный e-mail отправлено письмо для подтверждения',
-    RestoreSuccess = (LANGUAGE == DEFAULT_LANGUAGE) ? 'На ваш e-mail відправлено лист з паролем для входу' : 'На ваш e-mail отправлено письмо с паролем для входа';
+    RestoreSuccess = (LANGUAGE == DEFAULT_LANGUAGE) ? 'На ваш e-mail відправлено лист з паролем для входу' : 'На ваш e-mail отправлено письмо с паролем для входа',
+    InCart = (LANGUAGE == DEFAULT_LANGUAGE) ? 'В кошику' : 'В корзине',
+    AddToCart = (LANGUAGE == DEFAULT_LANGUAGE) ? 'В кошик' : 'В корзину';
 
 function Launch() {
     var ctx = this;
@@ -28,27 +30,22 @@ function Launch() {
     
     ctx.launch = function () {
         ctx.init();
+        
+
+        
     };
     
     ctx.launch();
 }
-
 var launch = new Launch();
 
+$(document).ready(function() {
+    cart.cartFunctions.initCart();
+});
 
-
-
-
-
-
-
-
-
-// $(document).ready()
-// {
-// }
-
-
+$(window).load(function () {
+    
+});
 
 
 
@@ -56,6 +53,15 @@ var launch = new Launch();
 
 
 //helpers
+function showLoader() {
+    $('[data-big-loader]').fadeIn();
+}
+
+function hideLoader() {
+    $('[data-big-loader]').fadeOut();
+}
+
+
 
 //URL WITH LANGUAGE
 function buildUrlWithLang(url) 

@@ -11,6 +11,7 @@ namespace App\Services;
 
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
+use Session;
 
 /**
  * Class ProductService
@@ -56,6 +57,12 @@ class ProductService extends LayoutService
     private function fillProduct($model)
     {
         $model->product = $this->productRepository->getProductBySlugAndLanguage($model->productSlug, $model->language);
+        
+        if (Session::has('cart.' . $model->product->id))
+        {
+            $item = Session::get('cart.' . $model->product->id);
+            $model->product->productCount = $item['productCount'];
+        }
 
         if ($model->product == null)
         {

@@ -34,7 +34,10 @@
                                 </div>
                                 <div class="hover-area">
                                     <div class="add-cart-button">
-                                        <a href="single-product.html" class="le-button">В кошик</a>
+                                        <a href="javascript:void(0);"
+                                           data-in-cart="false"
+                                           data-add-to-cart="{{ $visitedProduct->id }}"
+                                           class="le-button">В кошик</a>
                                     </div>
                                     <div class="wish-compare">
                                         <a class="btn-add-to-wishlist" href="#">В обране</a>

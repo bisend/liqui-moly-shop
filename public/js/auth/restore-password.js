@@ -66,6 +66,9 @@ function RestorePassword() {
 
         restore = function () {
             vars.restore.isDataProcessing = true;
+
+            showLoader();
+
             $.ajax({
                 type: 'post',
                 url: '/restore-password',
@@ -92,6 +95,7 @@ function RestorePassword() {
 
                     vars.restore.isDataProcessing = false;
 
+                    hideLoader();
                 },
                 error: function (data) {
                     $elems.restore.close.click();
@@ -99,6 +103,8 @@ function RestorePassword() {
                     showPopup(ServerError);
                     
                     vars.restore.isDataProcessing = false;
+
+                    hideLoader();
                 }
             });
         };

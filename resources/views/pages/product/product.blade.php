@@ -24,7 +24,7 @@
     </div>
 
 
-    <div id="single-product">
+    <div id="single-product" data-single-poduct-id="{{ $model->product->id }}">
         <div class="container">
 
             <div class="no-margin col-xs-12 col-sm-6 col-md-5 gallery-holder">
@@ -38,7 +38,8 @@
                             @foreach($model->product->images as $image)
                                 <div class="single-product-gallery-item" id="slide{{ $counter }}">
                                     <a data-rel="prettyphoto" href="{{ $image->medium }}">
-                                        <img class="img-responsive" alt="{{ $model->product->name }}" src="{{ $image->medium }}">
+                                        <img class="img-responsive" alt="{{ $model->product->name }}"
+                                             src="{{ $image->medium }}">
                                     </a>
                                 </div><!-- /.single-product-gallery-item -->
                             @php($counter++)
@@ -46,7 +47,8 @@
                         @else
                             <div class="single-product-gallery-item" id="slide1">
                                 <a data-rel="prettyphoto" href="{{ $model->product->images[0]->medium }}">
-                                    <img class="img-responsive" alt="{{ $model->product->name }}" src="{{ $model->product->images[0]->medium }}">
+                                    <img class="img-responsive" alt="{{ $model->product->name }}"
+                                         src="{{ $model->product->images[0]->medium }}">
                                 </a>
                             </div><!-- /.single-product-gallery-item -->
                         @endif
@@ -105,24 +107,44 @@
 
                     <div class="prices">
                         <div class="price-current">
-                            Ціна : <span>{{ $model->product->price }}</span> грн
+                            Ціна : <span data-single-product-price="{{ $model->product->id }}">
+                                {{ $model->product->price }}</span> грн
                         </div>
                     </div>
 
                     <div class="qnt-holder">
                         <div class="le-quantity">
                             <form>
-                                <a class="minus" href="#reduce"></a>
-                                <input name="quantity" readonly="readonly" type="text" value="1">
-                                <a class="plus" href="#add"></a>
+                                <a class="minus"
+                                   data-cart-minus
+                                   href="javascript:void(0);"></a>
+
+                                <input name="quantity"
+                                       readonly="readonly"
+                                       type="text"
+                                       data-product-count="{{ $model->product->id }}"
+                                       value="{{ isset($model->product->productCount) ? $model->product->productCount : 1 }}">
+                                <a class="plus"
+                                   data-cart-plus
+                                   href="javascript:void(0);"></a>
                             </form>
                         </div>
 
                         <div class="total-price-single-prod">
-                            Сума : <span>{{ $model->product->price }}</span> грн
+                            Сума : <span data-product-sum="{{ $model->product->id }}">{{ set_format_price($model->product->price,
+                            isset($model->product->productCount) ? $model->product->productCount : 1) }}</span> грн
                         </div>
-                        <a id="addto-cart" href="cart.html" class="le-button huge">Додати в кошик</a>
-                        <a id="addto-cart" data-toggle="modal" data-target="#buy-one-click" class="le-button-red huge">Купити в 1 клік</a>
+
+                        <a id="addto-cart"
+                           href="javascript:void(0);"
+                           data-in-cart="false"
+                           data-add-to-cart="{{ $model->product->id }}"
+                           class="le-button huge">В кошик</a>
+
+                        <a id="addto-cart"
+                           data-toggle="modal"
+                           data-target="#buy-one-click"
+                           class="le-button-red huge">Купити в 1 клік</a>
                         <div class="buttons-holder">
                             <a class="btn-add-to-wishlist" href="#">У список бажань</a>
                             <!-- <a class="btn-add-to-compare" href="#">Додати до порівняння</a> -->
@@ -170,7 +192,7 @@
     <!-- ========================================= SINGLE PRODUCT TAB : END ========================================= -->
 
     <!-- ========================================= RECENTLY VIEWED ========================================= -->
-    @include('partial.product-page.viewed-products')
+    @include('partial.viewed-products')
     <!-- ========================================= RECENTLY VIEWED : END ========================================= -->
 
 @endsection

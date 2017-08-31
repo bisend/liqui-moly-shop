@@ -31,7 +31,7 @@ class HistoryService
     /**
      * @var array
      */
-    protected $items = [];
+    protected $productIds = [];
 
     /**
      * @var int
@@ -53,25 +53,25 @@ class HistoryService
      */
     public function storeProduct($productId)
     {
-        $this->items = Session::pull($this->sessionKey);
+        $this->productIds = Session::pull($this->sessionKey);
 
-        if (count($this->items) != 0)
+        if (count($this->productIds) != 0)
         {
-            if (!in_array($productId, $this->items))
+            if (!in_array($productId, $this->productIds))
             {
-                if (count($this->items) == $this->maxElements)
+                if (count($this->productIds) == $this->maxElements)
                 {
-                    array_pop($this->items);
+                    array_pop($this->productIds);
                 }
-                array_unshift($this->items, $productId);
+                array_unshift($this->productIds, $productId);
             }
         }
         else
         {
-            $this->items[] = $productId;
+            $this->productIds[] = $productId;
         }
 
-        Session::put($this->sessionKey, $this->items);
+        Session::put($this->sessionKey, $this->productIds);
     }
 
     /**
@@ -80,11 +80,11 @@ class HistoryService
      */
     public function fillVisitedProducts($model)
     {
-        $this->items = Session::get($this->sessionKey);
+        $this->productIds = Session::get($this->sessionKey);
 
-        if ($this->items != null)
+        if ($this->productIds != null)
         {
-            $model->visitedProducts = $this->productRepository->getVisitedProducts($this->items, $model->language);
+            $model->visitedProducts = $this->productRepository->getVisitedProducts($this->productIds, $model->language);
         }
     }
 }

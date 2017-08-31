@@ -99,6 +99,8 @@ function Login() {
 
             vars.login.isDataProcessing = true;
 
+            showLoader();
+
             $.ajax({
                 type: 'post',
                 url: '/login',
@@ -132,6 +134,8 @@ function Login() {
                     }
 
                     vars.login.isDataProcessing = false;
+
+                    hideLoader();
                 },
                 error: function (data) {
                     $elems.login.close.click();
@@ -139,6 +143,8 @@ function Login() {
                     showPopup(ServerError);
 
                     vars.login.isDataProcessing = false;
+
+                    hideLoader();
                 }
             });
         };

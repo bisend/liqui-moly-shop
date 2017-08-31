@@ -18,20 +18,24 @@
                         <a href="{{ url_product($topSale->name_slug, $model->language) }}">{{ $topSale->name }} </a>
                     </div>
                     <div class="star-holder inline"><div class="star" data-score="4"></div></div>
-                    <div class="product-comments"><a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> <span></span> Залишити відгук</a></div>
+                    <div class="product-comments">
+                        <a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> <span></span> Залишити відгук</a>
+                    </div>
 
                 </div>
                 <div class="prices">
                     <div class="price-current">{{ $topSale->price }} грн</div>
-
                 </div>
 
                 <div class="hover-area">
                     <div class="add-cart-button">
-                        <a data-toggle="modal" data-target="#ModalCart" class="le-button">В кошик</a>
+                        {{--<a data-toggle="modal" data-target="#ModalCart" class="le-button">В кошик</a>--}}
+                        <a href="javascript:void(0);" class="le-button"
+                           data-in-cart="false"
+                           data-add-to-cart="{{ $topSale->id }}">В кошик</a>
                     </div>
                     <div class="wish-compare">
-                        <a class="btn-add-to-wishlist" href="#">В обране</a>
+                        <a class="btn-add-to-wishlist" href="javascript:void(0);">В обране</a>
                         <!--  <a class="btn-add-to-compare" href="#">Порівняти</a> -->
                     </div>
                 </div>

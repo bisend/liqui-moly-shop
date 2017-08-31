@@ -461,20 +461,37 @@ class ProductRepository
         $wordsReverse = array_reverse($words);
         $seriesReverse = implode($this->likeSeparator, $wordsReverse);
         $series = implode($this->likeSeparator, $words);
-
-
+        
         return Product::
-        where(function ($query) use ($series, $seriesReverse) {
-            $query->where("name_uk", 'like', '%' . $series . '%');
-            $query->orWhere("name_uk", 'like', '%' . $seriesReverse . '%');
-        })
-            ->orWhere(function ($query) use ($series, $seriesReverse) {
-                $query->where("name_ru", 'like', '%' . $series . '%');
-                $query->orWhere("name_ru", 'like', '%' . $seriesReverse . '%');
-            })
-            ->count();
+                where(function ($query) use ($series, $seriesReverse) {
+                    $query->where("name_uk", 'like', '%' . $series . '%');
+                    $query->orWhere("name_uk", 'like', '%' . $seriesReverse . '%');
+                })
+                ->orWhere(function ($query) use ($series, $seriesReverse) {
+                    $query->where("name_ru", 'like', '%' . $series . '%');
+                    $query->orWhere("name_ru", 'like', '%' . $seriesReverse . '%');
+                })
+                ->count();
     }
 
+    public function getCartProducts($inCartIds, $language)
+    {
+        $idsImploded = implode(',', $inCartIds);
 
+        return Product::with([
+            'images'
+        ])
+            ->whereIn('id', $inCartIds)
+            ->orderByRaw("field(id,{$idsImploded})", $inCartIds)
+            ->get([
+                'id',
+                'category_id',
+                'product_status_id',
+                "name_$language as name",
+                'name_slug',
+                'old_price',
+                'price',
+            ]);
+    }
 
 }

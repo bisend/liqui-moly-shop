@@ -83,7 +83,7 @@
     </section><!-- /#category-grid -->
 
     <!-- ========================================= RECENTLY VIEWED ========================================= -->
-    @include('partial.category-page.viewed-products')
+    @include('partial.viewed-products')
     <!-- ========================================= RECENTLY VIEWED : END ========================================= -->
 @endsection
 

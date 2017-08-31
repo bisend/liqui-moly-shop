@@ -1,6 +1,31 @@
 <!-- ============================================================= HEADER ============================================================= -->
 
 <header class="no-padding-bottom header-alt">
+
+
+    {{--LOADER--}}
+    <div class="sk-circle-background" data-big-loader>
+        <div class="sk-circle-container">
+            <div class="sk-circle">
+                <div class="sk-circle1 sk-child"></div>
+                <div class="sk-circle2 sk-child"></div>
+                <div class="sk-circle3 sk-child"></div>
+                <div class="sk-circle4 sk-child"></div>
+                <div class="sk-circle5 sk-child"></div>
+                <div class="sk-circle6 sk-child"></div>
+                <div class="sk-circle7 sk-child"></div>
+                <div class="sk-circle8 sk-child"></div>
+                <div class="sk-circle9 sk-child"></div>
+                <div class="sk-circle10 sk-child"></div>
+                <div class="sk-circle11 sk-child"></div>
+                <div class="sk-circle12 sk-child"></div>
+            </div>
+        </div>
+    </div>
+    {{--LOADER--}}
+
+
+
     <div class="container no-padding">
         <div class="col-xs-12 col-md-4 logo-holder">
             <!-- ============================================================= LOGO ============================================================= -->
@@ -44,7 +69,21 @@
                 <input type="text" class="search-field" placeholder="Пошук..." data-desktop-search-input data-desktop-series-param="_SERIES_">
                 {{--<a class="search-form-btn" href="">Пошук</a>--}}
                 <button class="search-form-btn" type="submit" data-desktop-search-submit>
-                    Пошук
+                    <span data-desktop-search-text>Пошук</span>
+                    <div class="sk-fading-circle" data-desktop-search-loader>
+                        <div class="sk-circle1 sk-circle"></div>
+                        <div class="sk-circle2 sk-circle"></div>
+                        <div class="sk-circle3 sk-circle"></div>
+                        <div class="sk-circle4 sk-circle"></div>
+                        <div class="sk-circle5 sk-circle"></div>
+                        <div class="sk-circle6 sk-circle"></div>
+                        <div class="sk-circle7 sk-circle"></div>
+                        <div class="sk-circle8 sk-circle"></div>
+                        <div class="sk-circle9 sk-circle"></div>
+                        <div class="sk-circle10 sk-circle"></div>
+                        <div class="sk-circle11 sk-circle"></div>
+                        <div class="sk-circle12 sk-circle"></div>
+                    </div>
                 </button>
                 <!-- <a class="search-form-btn-close" href=""><i class="fa fa-times" aria-hidden="true"></i></a> -->
             </form>
@@ -174,123 +213,25 @@
                 <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
                 <div class="top-cart-holder dropdown animate-dropdown">
                     <div class="basket">
-
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <a class="dropdown-toggle"
+                           data-open-mini-cart
+                           data-toggle="dropdown"
+                           href="javascript:void(0);">
                             <div class="basket-item-count">
-                                <span class="count">3</span>
+                                <span class="count" data-cart-total-count>0</span>
                                 <img src="/img/icon-cart.png" alt="" />
                             </div>
 
                             <div class="total-price-basket">
                                 <span class="lbl">Ваш кошик:</span>
 						                    <span class="total-price">
-						                        <span class="value">3219,00</span><span class="sign">грн</span>
+						                        <span class="value" data-cart-total-sum>0.00</span><span class="sign"> грн</span>
 						                    </span>
                             </div>
                         </a>
                         {{--cart drpdwn--}}
-                        <div class="dropdown-menu">
-                            <ul class="dropdown-menu-list">
-                                <li>
-                                    <div class="basket-item">
-                                        <div class="row">
-                                            <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                                <div class="thumb">
-                                                    <a href="">
-                                                        <img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-8 col-sm-8">
-                                                <div class="title"><a href="">PAG AIR CONDITIONING OIL 100 R-1234 YF</a></div>
-                                                <div class="price">$270.00</div>
-                                            </div>
-                                        </div>
-                                        <a class="close-btn" href="#"></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="basket-item">
-                                        <div class="row">
-                                            <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                                <div class="thumb">
-                                                    <a href="">
-                                                        <img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-8 col-sm-8">
-                                                <div class="title"><a href="">PAG AIR CONDITIONING OIL 100 R-1234 YF</a></div>
-                                                <div class="price">$270.00</div>
-                                            </div>
-                                        </div>
-                                        <a class="close-btn" href="#"></a>
-                                    </div>
-                                </li>
+                        <div class="dropdown-menu" data-mini-cart-container>
 
-                                <li>
-                                    <div class="basket-item">
-                                        <div class="row">
-                                            <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                                <div class="thumb">
-                                                    <a href="">
-                                                        <img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-8 col-sm-8">
-                                                <div class="title"> <a href="">Blueberry</a></div>
-                                                <div class="price">$270.00</div>
-                                            </div>
-                                        </div>
-                                        <a class="close-btn" href="#"></a>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="basket-item">
-                                        <div class="row">
-                                            <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                                <div class="thumb">
-                                                    <a href="">
-                                                        <img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-8 col-sm-8">
-                                                <div class="title"> <a href="">Blueberry</a></div>
-                                                <div class="price">$270.00</div>
-                                            </div>
-                                        </div>
-                                        <a class="close-btn" href="#"></a>
-                                    </div>
-                                </li>
-
-
-
-                            </ul>
-                            <div class="checkout">
-
-                                <div class="basket-item">
-                                    <div class="row dropdown-total-count">
-                                        <div class="col-md-6 no-margin-left">
-                                            Кількісь : <span>5</span>
-                                        </div>
-
-                                        <div class="col-md-6 no-margin-right dropdown-total-price">
-                                            Сума : <span>1000</span> грн
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-6 no-margin-left">
-                                            <a href="cart.html" class="le-button inverse">Відкрити кошик</a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-6 no-margin-right">
-                                            <a href="checkout.html" class="le-button">Оформити</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div><!-- /.basket -->
                 </div><!-- /.top-cart-holder -->

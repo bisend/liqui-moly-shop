@@ -3,7 +3,6 @@
 namespace App\ViewModels;
 
 use App\Helpers\Languages;
-use Illuminate\Database\Eloquent\Model;
 
 abstract class LayoutViewModel extends ViewModel
 {
@@ -16,7 +15,7 @@ abstract class LayoutViewModel extends ViewModel
     public $bestDiscountsProducts;
     
     public $popularProducts;
-
+    
     /**
      * LayoutViewModel constructor.
      * @param null $view

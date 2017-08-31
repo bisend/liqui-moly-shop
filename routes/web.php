@@ -113,11 +113,25 @@ Route::post('/restore-password', 'User\RestorePasswordController@restore');
 
 
 
+Route::group(['prefix' => 'cart'], function ()
+{
+    Route::get('/init-cart/{language?}', 'CartController@index')
+        ->where([
+            'language' => '^(uk|ru)?$'
+        ]);
 
-//Route::post('register', 'Auth\RegisterController@register');
-//Route::post('logout', 'HomeController@logout');
-Route::get('change-password', 'HomeController@showChangePasswordForm');
-Route::post('change-password', 'HomeController@changePassword');
+    Route::post('/add-to-cart', 'CartController@addToCart');
+    
+    Route::post('/delete-from-cart', 'CartController@deleteFromCart');
+    
+    Route::post('/update-cart', 'CartController@updateCart');
+
+    Route::post('/clear-cart', 'CartController@clearCart');
+});
+
+
+//Route::get('change-password', 'HomeController@showChangePasswordForm');
+//Route::post('change-password', 'HomeController@changePassword');
 
 
 //Auth::routes();

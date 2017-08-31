@@ -58,7 +58,7 @@
     </section><!-- /#category-grid -->
 
     <!-- ========================================= RECENTLY VIEWED ========================================= -->
-    @include('partial.search-page.viewed-products')
+    @include('partial.viewed-products')
     <!-- ========================================= RECENTLY VIEWED : END ========================================= -->
 
 

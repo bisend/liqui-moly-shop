@@ -70,10 +70,14 @@
                                     </div>
                                     <div class="hover-area">
                                         <div class="add-cart-button">
-                                            <a href="single-product.html" class="le-button">В кошик</a>
+                                            <a href="javascript:void(0);"
+                                               data-in-cart="false"
+                                               data-add-to-cart="{{ $searchProduct->id }}"
+                                               class="le-button">В кошик</a>
                                         </div>
                                         <div class="wish-compare">
-                                            <a class="btn-add-to-wishlist" href="#">У список бажань</a>
+                                            <a class="btn-add-to-wishlist"
+                                               href="javascript:void(0);">У список бажань</a>
                                             <!--  <a class="btn-add-to-compare" href="#">Порівняти</a> -->
                                         </div>
                                     </div>

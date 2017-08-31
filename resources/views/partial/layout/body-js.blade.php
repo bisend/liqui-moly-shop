@@ -20,7 +20,7 @@
 <script src="/js/template/jquery.raty.min.js"></script>
 <script src="/js/template/jquery.prettyPhoto.min.js"></script>
 <script src="/js/template/jquery.customSelect.min.js"></script>
-<script src="/js/template/wow.min.js"></script>
+{{--<script src="/js/template/wow.min.js"></script>--}}
 {{--<script src="/js/template/buttons.js"></script>--}}
 <script src="/js/template/scripts.js"></script>
 
@@ -32,6 +32,8 @@
 <script src="/js/auth/login.js"></script>
 <script src="/js/auth/register.js"></script>
 <script src="/js/auth/restore-password.js"></script>
+<script src="/js/cart/cart.js"></script>
+
 
 <!--Page JS BEGIN-->
 @stack('js')

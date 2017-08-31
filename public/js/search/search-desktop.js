@@ -75,6 +75,8 @@ function SearchDesktop() {
             {
                 isSearchInProcess = true;
 
+                $('[data-desktop-search-text]').css('display', 'none');
+                $('[data-desktop-search-loader]').css('display', 'block');
 
                 var text = $elems.search.submit.text();
                 $elems.search.submit.text();
@@ -86,9 +88,13 @@ function SearchDesktop() {
                         isSearchInProcess = false;
                         
                         showResultBox(data.view);
+                        $('[data-desktop-search-text]').css('display', 'block');
+                        $('[data-desktop-search-loader]').css('display', 'none');
                     },
                     error: function () {
                         isSearchInProcess = false;
+                        $('[data-desktop-search-text]').css('display', 'block');
+                        $('[data-desktop-search-loader]').css('display', 'none');
                     }
                 });
             }

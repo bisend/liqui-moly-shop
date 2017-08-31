@@ -157,3 +157,15 @@ if (!function_exists('url_search_per_page')) {
         return UrlBuilder::searchPerPage($series, $page, $language);
     }
 }
+
+// ---------------------------------------------------------------------------------------------------------------------
+/*
+ * setting formatted price
+ */
+if (!function_exists('set_format_price')) {
+
+    function set_format_price($price, $product_count = 1)
+    {
+        return sprintf('%0.2f', round($price, 2, PHP_ROUND_HALF_UP) * $product_count);
+    }
+}

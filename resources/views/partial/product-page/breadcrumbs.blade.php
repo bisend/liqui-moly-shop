@@ -59,7 +59,7 @@
         <li class="dropdown breadcrumb-item">
             @php($currentCategoryChilds = $model->currentCategory->childCategories)
             @if($currentCategoryChilds->count() > 0)
-                <a href="{{ $model->currentCategory->name_slug }}" class="dropdown-toggle" data-hover="dropdown">
+                <a href="{{ url_category($model->currentCategory->name_slug, $model->language) }}" class="dropdown-toggle" data-hover="dropdown">
                     {{ $model->currentCategory->name }}
                 </a>
                 <ul class="dropdown-menu">
