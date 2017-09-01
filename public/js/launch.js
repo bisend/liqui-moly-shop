@@ -53,6 +53,17 @@ $(window).load(function () {
 
 
 //helpers
+
+//REDIRECT TO '/' IF EMPTY CART
+function redirectEmptyCart() {
+    if (document.URL.indexOf('order') !== -1) {
+        window.location.href = buildUrlWithLang('http://liqui-moly.app');
+    }
+}
+
+
+
+
 function showLoader() {
     $('[data-big-loader]').fadeIn();
 }

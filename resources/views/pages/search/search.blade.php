@@ -65,5 +65,5 @@
 @endsection
 
 @push('js')
-    <script src="/js/search/common.js"></script>
+    <script defer src="/js/search/common.js"></script>
 @endpush

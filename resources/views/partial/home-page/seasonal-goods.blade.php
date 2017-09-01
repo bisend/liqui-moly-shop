@@ -105,7 +105,7 @@
         {{--Promotional product BEGIN--}}
         <div class="col-xs-12 col-md-5 no-margin">
             <div class="product-item-holder size-big single-product-gallery small-gallery">
-                <div class="ribbon green"><span>Акція</span></div>
+                <div class="ribbon green"><span>Топ продаж</span></div>
 
                 <div id="best-seller-single-product-slider" class="single-product-slider owl-carousel">
                     @if(count($model->promotionalProduct->images) > 1)

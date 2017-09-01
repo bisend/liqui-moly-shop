@@ -46,7 +46,8 @@ function Cart() {
         initButtons: undefined,
         initTotalAmount: undefined,
         initProductsCount: undefined,
-        initSingleProductSum: undefined
+        initSingleProductSum: undefined,
+        redirectEmptyCart: undefined
 
     };
 
@@ -121,8 +122,13 @@ function Cart() {
                     if (data.inCartIds < 1)
                     {
                         ctx.cartFunctions.closeBigCart();
+                        redirectEmptyCart();
                     }
+
                     $('[data-cart-product-id="' + productId + '"]').slideUp();
+
+                    $('[data-order-product-container="' + productId + '"]').slideUp();
+
                     ctx.cartFunctions.initButtons(data.inCartIds);
                     ctx.cartFunctions.initTotalAmount(data.totalProductsAmount);
                     ctx.cartFunctions.initProductsCount(data.totalProductsCount);
@@ -226,11 +232,13 @@ function Cart() {
         };
 
 
-        // init SUM of single product in cart and product page
+        // init SUM of single product in cart and product page and order page
         ctx.cartFunctions.initSingleProductSum = function (productId, productCount) {
             var $cartElem = $('[data-cart-product-price="' + productId + '"]');
             var $singleProductElem = $('[data-single-product-price="' + productId + '"]');
+            
             var productPrice = 0;
+            
             if ($cartElem.length > 0)
             {
                 productPrice = parseFloat($cartElem.text()).toFixed(2);
@@ -242,10 +250,9 @@ function Cart() {
             }
 
             var productSum = parseInt(productCount) * productPrice;
-
+            
             $('[data-product-sum="' + productId + '"]').text(productSum.toFixed(2));
         };
-        
 
     };
 
@@ -332,9 +339,11 @@ function Cart() {
 
             $productCountElem.val(productCount);
 
-            if ($('[data-add-to-cart="' + productId +'"]').attr('data-in-cart') === 'true')
+            $('[data-order-product-count="' + productId + '"]').text(productCount);
+
+            if ($('[data-cart-product-id="' + productId +'"]').length > 0)
             {
-                if (!IS_DATA_PROCESSING){
+                if (!IS_DATA_PROCESSING && currentCount > 1){
                     if (timer) {
                         clearTimeout(timer);
                         timer = undefined;
@@ -359,8 +368,9 @@ function Cart() {
             var currentCount = parseInt($productCountElem.val());
             var productCount = currentCount + 1;
             $productCountElem.val(productCount);
+            $('[data-order-product-count="' + productId + '"]').text(productCount);
 
-            if ($('[data-add-to-cart="' + productId +'"]').attr('data-in-cart') === 'true')
+            if ($('[data-cart-product-id="' + productId +'"]').length > 0)
             {
                 if (!IS_DATA_PROCESSING){
                     if (timer) {

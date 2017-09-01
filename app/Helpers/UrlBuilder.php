@@ -298,7 +298,25 @@ class UrlBuilder
 
         return self::localize($url, $language);
     }
+    
+    // -----------------------------------------------------------------------------------------------------------------
+    /**
+     * Build order page url
+     *
+     * @param string $language
+     *
+     * @return null|string
+     */
+    public static function order($language = Languages::DEFAULT_LANGUAGE)
+    {
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::ORDER
+        ]);
 
+        return self::localize($url, $language);
+    }
+    
     // -----------------------------------------------------------------------------------------------------------------
     /**
      * Build search page url

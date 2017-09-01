@@ -1,0 +1,197 @@
+@extends('layout')
+
+@section('content')
+    <div class="animate-dropdown">
+        <!-- ========================================= BREADCRUMB ========================================= -->
+        <div id="top-mega-nav">
+            <div class="container">
+                <nav>
+                    <ul class="inline">
+
+                        {{--BREADCRUMBS--}}
+                        @include('partial.order-page.breadcrumbs')
+
+                    </ul><!-- /.inline -->
+                </nav>
+
+            </div><!-- /.container -->
+        </div><!-- /#top-mega-nav -->
+        <!-- ========================================= BREADCRUMB : END ========================================= -->
+    </div>
+
+
+    <div class="checkout-section">
+        <div class="container">
+            <div class="section-title-checkout">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Оформлення замовлення</h2>
+                    </div>
+                    <div class="col-md-6">
+                        <a class="le-button" data-toggle="modal" data-target="#ModalCart">Редагувати замовлення</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="login-box login-box-form">
+                        <div class="login-box-title">
+                            Особисті дані
+                        </div>
+                        <div class="row">
+
+                            <form class="form-horizontal" role="form">
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Ім'я">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Електронна адреса">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="inputPassword3" placeholder="Номер телефону">
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="login-box-title">
+                                        Оплата та доставка
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="drop-menu-select">
+                                        <div class="select">
+                                            <span>Доставка</span>
+                                            <i class="fa fa-chevron-down"></i>
+                                        </div>
+                                        <input type="hidden" name="gender">
+                                        <ul class="dropeddown">
+
+                                            <li id="">Нова пошта</li>
+                                            <li id="">Автолюкс</li>
+                                            <li id="">Інтайм</li>
+                                            <li id="">Самовивіз</li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 nova-poshta no-margin">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="inputEmail3" placeholder="Введіть місто">
+
+                                    </div>
+                                    <div class="col-md-6">
+
+                                        <input type="text" class="form-control" id="inputEmail3" placeholder="Введіть номер відділення або адресу ">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="drop-menu-select">
+                                        <div class="select">
+                                            <span>Оплата</span>
+                                            <i class="fa fa-chevron-down"></i>
+                                        </div>
+                                        <input type="hidden" name="gender">
+                                        <ul class="dropeddown">
+
+                                            <li id="">Готівкою</li>
+                                            <li id="">Накладений платіж</li>
+                                            <li id="">Безготівковий розрахунок</li>
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Адреса доставки">
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <button type="submit" class="le-button">Замовити</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="login-box">
+                        <div class="login-box-title">
+                            Ваше замовлення
+                        </div>
+
+                        <div class="main-content wishlist-section" id="main-content">
+                            <div class="row">
+                                <div class="col-lg-12 center-block page-wishlist style-cart-page">
+
+                                    <div class="items-holder">
+                                        <div class="container-fluid wishlist_table">
+
+                                            @foreach($model->orderProducts as $orderProduct)
+                                                <div class="row cart-item cart_item" id="yith-wcwl-row-1"
+                                                     data-order-product-container="{{ $orderProduct->id }}">
+                                                    <div class="col-xs-12 col-sm-2 no-margin">
+                                                        <a href="{{ url_product($orderProduct->name_slug, $model->language) }}">
+                                                            <img width="93"
+                                                                 height="63"
+                                                                 alt="{{ $orderProduct->name }}"
+                                                                 class="attachment-shop_thumbnail wp-post-image"
+                                                                 src="{{ $orderProduct->images[0]->small }}">
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-5">
+                                                        <div class="title">
+                                                            <a href="{{ url_product($orderProduct->name_slug, $model->language) }}">
+                                                                {{ $orderProduct->name }}
+                                                            </a>
+                                                        </div><!-- /.title -->
+                                                        <div class="price">
+                                                            <span class="amount">
+                                                                {{ set_format_price($orderProduct->price) }}
+                                                            </span> <span class="amount">грн</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xs-12 col-sm-1 no-margin">
+                                                        x <span data-order-product-count="{{ $orderProduct->id }}">
+                                                            {{ $orderProduct->productCount }}</span>
+                                                    </div>
+
+                                                    <div class="col-xs-12 col-sm-4 no-margin">
+                                                        <div class="text-right">
+                                                            <div class="checkout-total-price-product">
+                                                                <span data-product-sum="{{ $orderProduct->id }}">
+                                                                    {{ set_format_price($orderProduct->price, $orderProduct->productCount) }}
+                                                                </span> <span>грн</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div><!-- /.cart-item -->
+                                            @endforeach
+
+                                        </div><!-- /.wishlist-table -->
+                                    </div><!-- /.items-holder -->
+
+                                </div><!-- .large-->
+                            </div><!-- .row-->
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="checkout-total-price">
+                                    Сума замовлення : <span data-cart-total-sum>
+                                        {{ set_format_price($model->totalOrderAmount) }}
+                                    </span> <span>грн</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

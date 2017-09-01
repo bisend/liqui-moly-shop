@@ -30,7 +30,8 @@
                                         <a href="{{ url_product($cartProduct->name_slug, $model->language) }}">
                                             {{ $cartProduct->name }}</a>
                                     </div>
-                                    <div class="price-current"><span data-cart-product-price="{{ $cartProduct->id }}">{{ $cartProduct->price }}</span> грн</div>
+                                    <div class="price-current"><span data-cart-product-price="{{ $cartProduct->id }}">
+                                            {{ $cartProduct->price }}</span> грн</div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-2 no-margin">
@@ -82,7 +83,7 @@
             <div class="modal-footer">
                 <button type="button" class="le-button-active" data-dismiss="modal">Продовжити покупки</button>
 
-                <button type="button" class="le-button">Оформити замовлення</button>
+                <a href="{{ url_order($model->language) }}" class="le-button">Оформити замовлення</a>
             </div>
         </div>
     </div>

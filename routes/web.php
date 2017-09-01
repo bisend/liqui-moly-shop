@@ -129,6 +129,10 @@ Route::group(['prefix' => 'cart'], function ()
     Route::post('/clear-cart', 'CartController@clearCart');
 });
 
+Route::get('/order/{language?}', 'OrderController@index')
+    ->where([
+        'language' => '^(uk|ru)?$'
+    ]);
 
 //Route::get('change-password', 'HomeController@showChangePasswordForm');
 //Route::post('change-password', 'HomeController@changePassword');

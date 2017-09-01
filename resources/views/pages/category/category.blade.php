@@ -88,5 +88,5 @@
 @endsection
 
 @push('js')
-    <script src="/js/category/category.js"></script>
+    <script defer src="/js/category/category.js"></script>
 @endpush

@@ -118,6 +118,26 @@ if (!function_exists('url_product')) {
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
+
+/**
+ * url order
+ */
+if (!function_exists('url_order')) {
+
+    /**
+     * Get the order page url
+     *
+     * @param string $language
+     *
+     * @return string
+     */
+    function url_order($language = Languages::DEFAULT_LANGUAGE)
+    {
+        return UrlBuilder::order($language);
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
 /**
  * url_search
  */
