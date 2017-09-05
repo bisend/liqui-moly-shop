@@ -47,8 +47,14 @@ function Cart() {
         initTotalAmount: undefined,
         initProductsCount: undefined,
         initSingleProductSum: undefined,
-        redirectEmptyCart: undefined
+        redirectEmptyCart: undefined,
+        onInitCallback: undefined
+    };
 
+    ctx.onInit = function (callback) {
+        if (callback) {
+            ctx.cartFunctions.onInitCallback = callback;
+        }
     };
 
     //initialize functions
@@ -56,29 +62,40 @@ function Cart() {
 
         //initializing cart on page loading
         ctx.cartFunctions.initCart = function () {
+
             $.ajax({
                 type: 'get',
                 url: buildUrlWithLang('/cart/init-cart'),
+                // cache: false,
                 success: function (data) {
                     ctx.cartFunctions.renderBigCart(data.bigCartView);
                     ctx.cartFunctions.renderMiniCart(data.miniCartView);
                     ctx.cartFunctions.initButtons(data.inCartIds);
                     ctx.cartFunctions.initTotalAmount(data.totalProductsAmount);
                     ctx.cartFunctions.initProductsCount(data.totalProductsCount);
+
+                    if (ctx.cartFunctions.onInitCallback) {
+                        ctx.cartFunctions.onInitCallback();
+                    }
                 },
                 error: function (data) {
                     // showPopup(ServerError);
                 }
             });
+
         };
 
         //add to cart handler
         ctx.cartFunctions.addToCart = function (productId, productCount) {
+
             if (IS_DATA_PROCESSING){
                 return false;
             }
+
             IS_DATA_PROCESSING = true;
+
             showLoader();
+
             $.ajax({
                 type: 'post',
                 url: '/cart/add-to-cart',
@@ -106,11 +123,15 @@ function Cart() {
         
         //delete from cart handler
         ctx.cartFunctions.deleteFromCart = function (productId) {
+
             if (IS_DATA_PROCESSING){
                 return false;
             }
+
             IS_DATA_PROCESSING = true;
+
             showLoader();
+
             $.ajax({
                 type: 'post',
                 url: '/cart/delete-from-cart',
@@ -146,6 +167,7 @@ function Cart() {
 
         //update cart
         ctx.cartFunctions.updateCart = function (productId, productCount) {
+
             if (IS_DATA_PROCESSING){
                 return false;
             }
@@ -394,17 +416,19 @@ function Cart() {
     ctx.launch = function () {
         ctx.init();
         ctx.subscribe();
+        ctx.cartFunctions.initCart();
     };
 
     ctx.launch();
 }
-var cart = new Cart();
+
+(new Cart()).onInit(Launch);
 
 // $(window).load(function () {
 //
 // });
 
-$(document).ready(function()
-{
 
-});
+// $(document).ready(function()
+// {
+// });

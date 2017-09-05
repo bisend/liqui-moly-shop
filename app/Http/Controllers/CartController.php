@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Languages;
 use App\Services\CartService;
 use App\ViewModels\CartViewModel;
+use Session;
 use View;
 
 /**
@@ -97,7 +98,7 @@ class CartController extends LayoutController
 
         $bigCartView = View::make('partial.cart.big-cart', compact('model'))->render();
         $miniCartView = View::make('partial.cart.mini-cart', compact('model'))->render();
-
+        
         return response()->json([
             'status' => 'success',
             'inCartIds' => $model->inCartIds,

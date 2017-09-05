@@ -45,7 +45,7 @@
                        class="le-button inverse">Відкрити кошик</a>
                 </div>
                 <div class="col-xs-12 col-sm-6 no-margin-right">
-                    <a href="javascript:void(0);" class="le-button">Оформити</a>
+                    <a href="{{ url_order($model->language) }}" class="le-button">Оформити</a>
                 </div>
             </div>
         </div>

@@ -96,7 +96,10 @@ function Login() {
         };
 
         login = function () {
-
+            if (vars.login.isDataProcessing) {
+                return false;
+            }
+            
             vars.login.isDataProcessing = true;
 
             showLoader();

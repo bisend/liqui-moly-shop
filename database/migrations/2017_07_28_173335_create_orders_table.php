@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             
             
             //foreign key references to id on users table
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->nullable()->unsigned();
             //foreign key references to id on payments table
             $table->integer('payment_id')->unsigned();
             //foreign key references to id on deliveries table
@@ -39,7 +39,7 @@ class CreateOrdersTable extends Migration
             //phone number of user
             $table->string('phone_number');
             //order number
-            $table->integer('order_number');
+            $table->integer('order_number')->nullable();
             //comment to order
             $table->text('comment')->nullable();
             //1c

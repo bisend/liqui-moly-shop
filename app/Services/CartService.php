@@ -216,6 +216,9 @@ class CartService
      */
     public function clearCart()
     {
-        
+        if (Session::has('cart'))
+        {
+            Session::forget('cart');
+        }
     }
 }

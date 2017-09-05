@@ -224,9 +224,9 @@
 
                             <div class="total-price-basket">
                                 <span class="lbl">Ваш кошик:</span>
-						                    <span class="total-price">
-						                        <span class="value" data-cart-total-sum>0.00</span><span class="sign"> грн</span>
-						                    </span>
+                                <span class="total-price">
+                                    <span class="value" data-cart-total-sum>0.00</span><span class="sign"> грн</span>
+                                </span>
                             </div>
                         </a>
                         {{--cart drpdwn--}}

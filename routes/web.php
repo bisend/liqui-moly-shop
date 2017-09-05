@@ -19,6 +19,8 @@ Route::get('/{language?}', 'HomeController@index')
     ->where('language', '^(uk|ru)?$')
     ->name('home');
 
+Route::get('/main-ajax', 'MainAjaxController@index');
+
 /**
  * Category page
  */
@@ -133,6 +135,8 @@ Route::get('/order/{language?}', 'OrderController@index')
     ->where([
         'language' => '^(uk|ru)?$'
     ]);
+
+Route::post('/create-order', 'OrderController@createOrder');
 
 //Route::get('change-password', 'HomeController@showChangePasswordForm');
 //Route::post('change-password', 'HomeController@changePassword');

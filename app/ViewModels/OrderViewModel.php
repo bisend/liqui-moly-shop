@@ -18,6 +18,14 @@ class OrderViewModel extends LayoutViewModel
 
     public $totalProductsCount = 0;
 
+    public $payments;
+
+    public $deliveries;
+    
+    public $orderId;
+    
+    public $order;
+
     public function __construct($language)
     {
         parent::__construct('order', $language);

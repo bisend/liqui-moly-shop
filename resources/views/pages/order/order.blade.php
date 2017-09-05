@@ -1,3 +1,4 @@
+@php($user = (auth()->check()) ? auth()->user() : null)
 @extends('layout')
 
 @section('content')
@@ -40,34 +41,73 @@
                         </div>
                         <div class="row">
 
-                            <form class="form-horizontal" role="form">
+                            <form class="form-horizontal" role="form" method="post" action="/create-order">
+                                {{ csrf_field() }}
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Ім'я">
+                                    <input type="text"
+                                           name="name"
+                                           data-order-name
+                                           class="form-control"
+                                           id="inputEmail3"
+                                           value="{{ $user ? $user->name : '' }}"
+                                           placeholder="Ім'я">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Електронна адреса">
+                                    <input type="email"
+                                           name="email"
+                                           data-order-email
+                                           class="form-control"
+                                           id="inputEmail3"
+                                           value="{{ $user ? $user->email : '' }}"
+                                           placeholder="Електронна адреса">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="inputPassword3" placeholder="Номер телефону">
+                                    <input type="text"
+                                           name="phone"
+                                           data-order-phone
+                                           class="form-control"
+                                           id="inputPassword3"
+                                           value="0960000000"
+                                           placeholder="Номер телефону">
                                 </div>
+
                                 <div class="col-sm-12">
                                     <div class="login-box-title">
                                         Оплата та доставка
                                     </div>
                                 </div>
+
                                 <div class="col-sm-12">
-                                    <div class="drop-menu-select">
-                                        <div class="select">
-                                            <span>Доставка</span>
+                                    <div class="drop-menu-select" data-payment-select>
+                                        <div class="select" data-payment-select-border>
+                                            <span data-payment-selected-item>Оплата</span>
                                             <i class="fa fa-chevron-down"></i>
                                         </div>
-                                        <input type="hidden" name="gender">
-                                        <ul class="dropeddown">
 
-                                            <li id="">Нова пошта</li>
-                                            <li id="">Автолюкс</li>
-                                            <li id="">Інтайм</li>
-                                            <li id="">Самовивіз</li>
+                                        <ul class="dropeddown" data-payment-dropdown-menu>
+
+                                            @foreach($model->payments as $payment)
+                                                <li data-payment-id="{{ $payment->id }}">
+                                                    {{ $payment->name }}
+                                                </li>
+                                            @endforeach
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="drop-menu-select" data-delivery-select>
+                                        <div class="select" data-delivery-select-border>
+                                            <span data-delivery-selected-item>Доставка</span>
+                                            <i class="fa fa-chevron-down"></i>
+                                        </div>
+
+                                        <ul class="dropeddown" data-delivery-dropdown-menu>
+
+                                            @foreach($model->deliveries as $delivery)
+                                                <li data-delivery-id="{{ $delivery->id }}">{{ $delivery->name }}</li>
+                                            @endforeach
 
                                         </ul>
                                     </div>
@@ -75,39 +115,39 @@
 
                                 <div class="col-md-12 nova-poshta no-margin">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" id="inputEmail3" placeholder="Введіть місто">
+                                        <input type="text"
+                                               name="city"
+                                               data-order-city
+                                               class="form-control"
+                                               id="inputEmail3"
+                                               value="Rivne"
+                                               placeholder="Введіть місто">
 
                                     </div>
                                     <div class="col-md-6">
 
-                                        <input type="text" class="form-control" id="inputEmail3" placeholder="Введіть номер відділення або адресу ">
+                                        <input type="text"
+                                               name="address"
+                                               data-order-address
+                                               class="form-control"
+                                               id="inputEmail3"
+                                               value="adresa dostavki 1231"
+                                               placeholder="Введіть номер відділення або адресу ">
                                     </div>
                                 </div>
 
-                                <div class="col-sm-12">
-                                    <div class="drop-menu-select">
-                                        <div class="select">
-                                            <span>Оплата</span>
-                                            <i class="fa fa-chevron-down"></i>
-                                        </div>
-                                        <input type="hidden" name="gender">
-                                        <ul class="dropeddown">
-
-                                            <li id="">Готівкою</li>
-                                            <li id="">Накладений платіж</li>
-                                            <li id="">Безготівковий розрахунок</li>
 
 
-                                        </ul>
-                                    </div>
-                                </div>
+                                {{--<div class="col-sm-12">--}}
+                                    {{--<input type="text" class="form-control" id="inputEmail3" placeholder="Адреса доставки">--}}
+                                {{--</div>--}}
 
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Адреса доставки">
-                                </div>
-
-                                <div class="col-sm-12">
-                                    <button type="submit" class="le-button">Замовити</button>
+                                    <button type="submit"
+                                            data-order-submit
+                                            class="le-button">
+                                        Замовити
+                                    </button>
                                 </div>
 
                             </form>
@@ -195,3 +235,7 @@
         </div>
     </div>
 @endsection
+
+@push('js')
+    <script defer src="/js/order/order.js"></script>
+@endpush

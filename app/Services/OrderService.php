@@ -10,7 +10,12 @@ namespace App\Services;
 
 
 use App\Repositories\CategoryRepository;
+use App\Repositories\DeliveryRepository;
+use App\Repositories\OrderProductRepository;
+use App\Repositories\OrderRepository;
+use App\Repositories\PaymentRepository;
 use App\Repositories\ProductRepository;
+use App\Repositories\UserRepository;
 use Session;
 
 class OrderService extends LayoutService
@@ -20,6 +25,16 @@ class OrderService extends LayoutService
      */
     protected $productRepository;
 
+    protected $deliveryRepository;
+
+    protected $paymentRepository;
+    
+    protected $orderRepository;
+
+    protected $orderProductRepository;
+
+    protected $userRepository;
+    
     /**
      * @var string
      */
@@ -31,18 +46,26 @@ class OrderService extends LayoutService
     protected $cart = [];
     
     
-    public function __construct(CategoryRepository $categoryRepository, ProductRepository $productRepository)
+    public function __construct(CategoryRepository $categoryRepository, ProductRepository $productRepository,
+                                DeliveryRepository $deliveryRepository, PaymentRepository $paymentRepository,
+                                OrderRepository $orderRepository, OrderProductRepository $orderProductRepository,
+                                UserRepository $userRepository)
     {
         parent::__construct($categoryRepository, $productRepository);
         
         $this->productRepository = $productRepository;
+        $this->deliveryRepository = $deliveryRepository;
+        $this->paymentRepository = $paymentRepository;
+        $this->orderRepository = $orderRepository;
+        $this->orderProductRepository = $orderProductRepository;
+        $this->userRepository = $userRepository;
     }
     
     public function fill($model)
     {
         parent::fill($model);
         
-        $this->fillCart($model);
+        $this->fillCart();
 
         $this->fillInCartIds($model);
 
@@ -51,12 +74,16 @@ class OrderService extends LayoutService
         $this->fillTotalOrderAmount($model);
 
         $this->fillTotalProductsCount($model);
+        
+        $this->fillDeliveries($model);
+        
+        $this->fillPayments($model);
     }
 
     /**
      * fill Local cart array with Session cart array
      */
-    public function fillCart($model)
+    public function fillCart()
     {
         if (Session::has($this->sessionKey))
         {
@@ -110,4 +137,59 @@ class OrderService extends LayoutService
             }
         }
     }
+    
+    public function fillDeliveries($model)
+    {
+        $model->deliveries = $this->deliveryRepository->getAllDeliveriesByLanguage($model->language);
+    }
+    
+    public function fillPayments($model)
+    {
+        $model->payments = $this->paymentRepository->getAllPaymentsByLanguage($model->language);
+    }
+    
+    
+    
+    
+    public function createOrder($data, $userId, $model)
+    {
+        $model->order = $this->orderRepository->createOrder($data, $userId, $model);
+        
+        $model->orderId = $model->order->id;
+    }
+    
+    public function createOrderProducts($model)
+    {
+        $this->orderProductRepository->createOrderProducts($model);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //MAYBE WILL USE
+//    public function createUser($email, $username)
+//    {
+//        $this->userRepository->createUser($email, $username);
+//    }
+//    
+//    public function checkIfUserExists($email)
+//    {
+//        $this->userRepository->checkIfUserExists($email);
+//    }
+//
+//    public function getUser($email)
+//    {
+//        $this->userRepository->getUserByEmail($email);
+//    }
+    
 }

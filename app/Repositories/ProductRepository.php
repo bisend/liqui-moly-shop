@@ -490,6 +490,7 @@ class ProductRepository
                 "name_$language as name",
                 'name_slug',
                 'old_price',
+                'code_1c',
                 'price',
             ]);
     }

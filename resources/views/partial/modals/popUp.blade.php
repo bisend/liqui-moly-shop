@@ -11,7 +11,7 @@
         <div class="pop-up-message-body">
             <div class="pop-up-message-text-box">
                 <span data-popup-text class="pop-up-message-text"></span>
-                <button data-popup-close class="le-button" style="position: absolute; top: 190px; left: 170px;">OK</button>
+                <button data-popup-close class="le-button" style="position: absolute; top: 190px; left: 181px;">OK</button>
             </div>
         </div>
     </div>
