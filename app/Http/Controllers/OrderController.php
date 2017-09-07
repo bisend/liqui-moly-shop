@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Languages;
 use App\Mail\OrderReport;
+use App\Mail\OrderReportManager;
 use App\Services\CartService;
 use App\Services\OrderService;
 use App\ViewModels\OrderViewModel;
@@ -11,18 +12,38 @@ use DB;
 use Illuminate\Http\Request;
 use Session;
 
+/**
+ * Class OrderController
+ * @package App\Http\Controllers
+ */
 class OrderController extends LayoutController
 {
+    /**
+     * @var OrderService
+     */
     public $orderService;
 
+    /**
+     * @var CartService
+     */
     public $cartService;
 
+    /**
+     * OrderController constructor.
+     * @param OrderService $orderService
+     * @param CartService $cartService
+     */
     public function __construct(OrderService $orderService, CartService $cartService)
     {
         $this->orderService = $orderService;
         $this->cartService = $cartService;
     }
 
+    /**
+     * render order page
+     * @param string $language
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function index($language = Languages::DEFAULT_LANGUAGE)
     {
         if (!Session::has('cart'))
@@ -37,6 +58,10 @@ class OrderController extends LayoutController
         return view('pages.order.order', compact('model'));
     }
 
+    /**
+     * save order and products in DB and sending email to user and manager
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function createOrder()
     {
         $data = request()->all();
@@ -63,12 +88,14 @@ class OrderController extends LayoutController
         try 
         {
             \Mail::to(request('email'))->send(new OrderReport($model, request('name')));
+
+            \Mail::to(config('mail.from.address'))->send(new OrderReportManager($model, request('name')));
         }
         catch (\Exception $e)
         {
 
             DB::rollBack();
-            \Debugbar::info($e);
+            
             return response()->json([
                 'status' => 'error'
             ]);
@@ -76,8 +103,6 @@ class OrderController extends LayoutController
         
         $this->cartService->clearCart();
         
-//        \Debugbar::info(request()->all());
-
         DB::commit();
         
         Session::put('isOrderCreated', true);

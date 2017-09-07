@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vlad_
- * Date: 01.09.2017
- * Time: 10:48
- */
 
 namespace App\Services;
-
 
 use App\Repositories\CategoryRepository;
 use App\Repositories\DeliveryRepository;
@@ -18,6 +11,10 @@ use App\Repositories\ProductRepository;
 use App\Repositories\UserRepository;
 use Session;
 
+/**
+ * Class OrderService
+ * @package App\Services
+ */
 class OrderService extends LayoutService
 {
     /**
@@ -25,14 +22,29 @@ class OrderService extends LayoutService
      */
     protected $productRepository;
 
+    /**
+     * @var DeliveryRepository
+     */
     protected $deliveryRepository;
 
+    /**
+     * @var PaymentRepository
+     */
     protected $paymentRepository;
-    
+
+    /**
+     * @var OrderRepository
+     */
     protected $orderRepository;
 
+    /**
+     * @var OrderProductRepository
+     */
     protected $orderProductRepository;
 
+    /**
+     * @var UserRepository
+     */
     protected $userRepository;
     
     /**
@@ -44,8 +56,17 @@ class OrderService extends LayoutService
      * @var array
      */
     protected $cart = [];
-    
-    
+
+    /**
+     * OrderService constructor.
+     * @param CategoryRepository $categoryRepository
+     * @param ProductRepository $productRepository
+     * @param DeliveryRepository $deliveryRepository
+     * @param PaymentRepository $paymentRepository
+     * @param OrderRepository $orderRepository
+     * @param OrderProductRepository $orderProductRepository
+     * @param UserRepository $userRepository
+     */
     public function __construct(CategoryRepository $categoryRepository, ProductRepository $productRepository,
                                 DeliveryRepository $deliveryRepository, PaymentRepository $paymentRepository,
                                 OrderRepository $orderRepository, OrderProductRepository $orderProductRepository,
@@ -60,7 +81,10 @@ class OrderService extends LayoutService
         $this->orderProductRepository = $orderProductRepository;
         $this->userRepository = $userRepository;
     }
-    
+
+    /**
+     * @param $model
+     */
     public function fill($model)
     {
         parent::fill($model);
@@ -106,6 +130,10 @@ class OrderService extends LayoutService
         }
     }
 
+    /**
+     * fill order products with count from cart
+     * @param $model
+     */
     public function fillOrderProducts($model)
     {
         $model->orderProducts = $this->productRepository->getCartProducts($model->inCartIds, $model->language);
@@ -116,6 +144,10 @@ class OrderService extends LayoutService
         }
     }
 
+    /**
+     * fill total order amount
+     * @param $model
+     */
     public function fillTotalOrderAmount($model)
     {
         if ($model->orderProducts)
@@ -127,6 +159,10 @@ class OrderService extends LayoutService
         }
     }
 
+    /**
+     * fill total products count
+     * @param $model
+     */
     public function fillTotalProductsCount($model)
     {
         if ($model->orderProducts)
@@ -137,27 +173,42 @@ class OrderService extends LayoutService
             }
         }
     }
-    
+
+    /**
+     * fill deliveries by lang
+     * @param $model
+     */
     public function fillDeliveries($model)
     {
         $model->deliveries = $this->deliveryRepository->getAllDeliveriesByLanguage($model->language);
     }
-    
+
+    /**
+     * fill payments by lang
+     * @param $model
+     */
     public function fillPayments($model)
     {
         $model->payments = $this->paymentRepository->getAllPaymentsByLanguage($model->language);
     }
-    
-    
-    
-    
+
+    /**
+     * creating order (save to DB)
+     * @param $data
+     * @param $userId
+     * @param $model
+     */
     public function createOrder($data, $userId, $model)
     {
         $model->order = $this->orderRepository->createOrder($data, $userId, $model);
         
         $model->orderId = $model->order->id;
     }
-    
+
+    /**
+     * creating order products (save to DB)
+     * @param $model
+     */
     public function createOrderProducts($model)
     {
         $this->orderProductRepository->createOrderProducts($model);

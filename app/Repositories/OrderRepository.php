@@ -10,6 +10,13 @@ use App\DatabaseModels\Order;
  */
 class OrderRepository
 {
+    /**
+     * save order to DB and return Order
+     * @param $data
+     * @param $userId
+     * @param $model
+     * @return Order
+     */
     public function createOrder($data, $userId, $model)
     {
         $order = new Order();

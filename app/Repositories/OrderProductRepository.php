@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vlad_
- * Date: 05.09.2017
- * Time: 12:05
- */
 
 namespace App\Repositories;
 
@@ -16,6 +10,10 @@ use App\DatabaseModels\OrderProduct;
  */
 class OrderProductRepository
 {
+    /**
+     * save order products in DB
+     * @param $model
+     */
     public function createOrderProducts($model)
     {
         foreach ($model->orderProducts as $orderProd)
