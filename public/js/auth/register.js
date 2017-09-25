@@ -151,7 +151,9 @@ function Register()
         register = function () {
 
             vars.register.isDataProcessing = true;
+            
             showLoader();
+            
             $.ajax({
                 type: 'post',
                 url: '/register',

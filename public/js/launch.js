@@ -12,7 +12,11 @@ var IncorrectFieldClass = 'incorrect-field',
     RestoreSuccess = (LANGUAGE == DEFAULT_LANGUAGE) ? 'На ваш e-mail відправлено лист з паролем для входу.' : 'На ваш e-mail отправлено письмо с паролем для входа.',
     InCart = (LANGUAGE == DEFAULT_LANGUAGE) ? 'В кошику' : 'В корзине',
     AddToCart = (LANGUAGE == DEFAULT_LANGUAGE) ? 'В кошик' : 'В корзину',
-    ORDER_CREATED_MESSAGE = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Замовлення прийнято. Незабаром з вами зв\'яжеться наш менеджер.' : 'Заказ принят. Скоро с вами свяжется наш менеджер.';
+    ORDER_CREATED_MESSAGE = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Замовлення прийнято. Незабаром з вами зв\'яжеться наш менеджер.' : 'Заказ принят. Скоро с вами свяжется наш менеджер.',
+    PERSONAL_INFO_SAVED = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Дані збережено.' : 'Данные сохранены.',
+    EMAIL_CHANGED_MESSAGE = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Дані збережено. Ви змінили e-mail, Вам відправлено лист для підтвердження нової електронної адреси.' : 'Данные сохранены. Вы изменили e-mail, Вам отправлено письмо для подтверждения нового електронного адреса.',
+    PASSWORD_CHANGED_MESSAGE = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Пароль змінено.' : 'Пароль сохранен.',
+    WRONG_OLD_PASSWORD = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Неправильний старий пароль.' : 'Неверный старый пароль.';
 
 $.ajaxSetup({
     headers: {

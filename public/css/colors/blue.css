@@ -134,7 +134,8 @@ color: #ed1c24;
     background-color: #2b94d9; }
 
 .nav-tabs li.active a, .nav-tabs li.active a:focus {
-  background-color: #ed1c24  !important; }
+  /*background-color: #ed1c24  !important; */
+}
 .nav-tabs li.active a:hover {
   background-color: #45a1de; }
 

@@ -7,6 +7,7 @@ use App\Mail\OrderReport;
 use App\Mail\OrderReportManager;
 use App\Services\CartService;
 use App\Services\OrderService;
+use App\Services\ProfileService;
 use App\ViewModels\OrderViewModel;
 use DB;
 use Illuminate\Http\Request;
@@ -29,14 +30,21 @@ class OrderController extends LayoutController
     public $cartService;
 
     /**
+     * @var ProfileService
+     */
+    public $profileService;
+
+    /**
      * OrderController constructor.
      * @param OrderService $orderService
      * @param CartService $cartService
+     * @param ProfileService $profileService
      */
-    public function __construct(OrderService $orderService, CartService $cartService)
+    public function __construct(OrderService $orderService, CartService $cartService, ProfileService $profileService)
     {
         $this->orderService = $orderService;
         $this->cartService = $cartService;
+        $this->profileService = $profileService;
     }
 
     /**
@@ -54,6 +62,13 @@ class OrderController extends LayoutController
         $model = new OrderViewModel($language);
 
         $this->orderService->fill($model);
+
+        if (auth()->check())
+        {
+            $user = auth()->user();
+
+            $this->orderService->fillProfile($model, $user->id);
+        }
 
         return view('pages.order.order', compact('model'));
     }

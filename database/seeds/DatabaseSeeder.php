@@ -1,5 +1,6 @@
 <?php
 
+use App\DatabaseModels\Promotion;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -42,5 +43,7 @@ class DatabaseSeeder extends Seeder
 //        $this->call(ProductCategoryTableSeeder::class);
         
 //        $this->call(ProductsCategoryPathSeeder::class);
+        
+//        $this->call(PromotionsTableSeeder::class);
     }
 }

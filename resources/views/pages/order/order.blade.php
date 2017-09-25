@@ -67,7 +67,7 @@
                                            data-order-phone
                                            class="form-control"
                                            id="inputPassword3"
-                                           value="0960000000"
+                                           value="{{ $model->profile ? $model->profile->phone_number : '' }}"
                                            placeholder="Номер телефону">
                                 </div>
 
@@ -80,7 +80,20 @@
                                 <div class="col-sm-12">
                                     <div class="drop-menu-select" data-payment-select>
                                         <div class="select" data-payment-select-border>
-                                            <span data-payment-selected-item>Оплата</span>
+                                            {{--<span data-payment-selected-item>Оплата</span>--}}
+                                            @if($model->profile != null && $model->profile->payment_id != null)
+                                                @foreach($model->payments as $payment)
+                                                    @if($payment->id == $model->profile->payment_id)
+                                                        <span data-payment-selected-item="{{ $model->profile->payment_id }}">
+                                                            {{ $payment->name }}
+                                                        </span>
+                                                    @endif
+                                                @endforeach
+                                            @else
+                                                <span data-payment-selected-item>
+                                                    Оплата
+                                                </span>
+                                            @endif
                                             <i class="fa fa-chevron-down"></i>
                                         </div>
 
@@ -99,7 +112,20 @@
                                 <div class="col-sm-12">
                                     <div class="drop-menu-select" data-delivery-select>
                                         <div class="select" data-delivery-select-border>
-                                            <span data-delivery-selected-item>Доставка</span>
+                                            {{--<span data-delivery-selected-item>Доставка</span>--}}
+                                            @if($model->profile != null && $model->profile->delivery_id != null)
+                                                @foreach($model->deliveries as $delivery)
+                                                    @if($delivery->id == $model->profile->delivery_id)
+                                                        <span data-delivery-selected-item="{{ $model->profile->delivery_id }}">
+                                                        {{ $delivery->name }}
+                                                    </span>
+                                                    @endif
+                                                @endforeach
+                                            @else
+                                                <span data-delivery-selected-item>
+                                                Доставка
+                                            </span>
+                                            @endif
                                             <i class="fa fa-chevron-down"></i>
                                         </div>
 
@@ -114,24 +140,24 @@
                                 </div>
 
                                 <div class="col-md-12 nova-poshta no-margin">
-                                    <div class="col-md-6">
-                                        <input type="text"
-                                               name="city"
-                                               data-order-city
-                                               class="form-control"
-                                               id="inputEmail3"
-                                               value="Rivne"
-                                               placeholder="Введіть місто">
+                                    {{--<div class="col-md-6">--}}
+                                        {{--<input type="text"--}}
+                                               {{--name="city"--}}
+                                               {{--data-order-city--}}
+                                               {{--class="form-control"--}}
+                                               {{--id="inputEmail3"--}}
+                                               {{--value="Rivne"--}}
+                                               {{--placeholder="Введіть місто">--}}
 
-                                    </div>
-                                    <div class="col-md-6">
+                                    {{--</div>--}}
+                                    <div class="col-md-12">
 
                                         <input type="text"
                                                name="address"
                                                data-order-address
                                                class="form-control"
                                                id="inputEmail3"
-                                               value="adresa dostavki 1231"
+                                               value="{{ $model->profile ? $model->profile->address_delivery : '' }}"
                                                placeholder="Введіть номер відділення або адресу ">
                                     </div>
                                 </div>

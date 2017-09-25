@@ -22,6 +22,7 @@
                                         <img class="lazy"
                                              alt="{{ $cartProduct->name }}"
                                              src="{{ $cartProduct->images[0]->small }}">
+                                             {{--src="/img/900.jpg">--}}
                                     </a>
                                 </div>
 

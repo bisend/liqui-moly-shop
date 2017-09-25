@@ -6,7 +6,6 @@
             <h1>{{ $bottomBanner->big_text }}</h1>
             <span class="tagline">{{ $bottomBanner->medium_text }}</span>
         </div>
-        {{--<img class="banner-image" alt="" src="/img/blank.gif" data-echo="{{ $bottomBanner->image->original }}" />--}}
         <img class="banner-image" alt="" src="{{ $bottomBanner->image->original }}">
     </a>
 </div>

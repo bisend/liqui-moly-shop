@@ -3,13 +3,6 @@
         <h1 class="section-title">{{ $model->currentCategory->name }} {{ $model->countCategoryProducts }}</h1>
 
         <div class="control-bar">
-            <!--     <div id="popularity-sort" class="le-select" >
-                    <select data-placeholder="sort by popularity">
-                        <option value="1">Сортувати</option>
-                        <option value="2">Спочатку дешевші</option>
-                        <option value="3">Спочатку дорощі</option>
-                    </select>
-                </div> -->
 
             @include('partial.category-page.sort-menu')
 
@@ -45,19 +38,17 @@
                                 <div class="product-item">
 
                                     <div class="image">
-                                        {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/a5e5942s-960.jpg" />--}}
-                                        {{--<img alt="" src="/img/blank.gif" data-echo="{{ $categoryProduct->products[0]->images[0]->small }}" />--}}
-{{--                                        <img alt="" src="/img/blank.gif" data-echo="{{ $categoryProduct->images[0]->small }}" />--}}
-                                        {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />--}}
                                         <a href="{{ url_product($categoryProduct->name_slug, $model->language) }}">
                                             <img src="{{ $categoryProduct->images[0]->small }}" alt="{{ $categoryProduct->name }}">
+                                            {{--<img src="/img/900.jpg" alt="{{ $categoryProduct->name }}">--}}
                                         </a>
                                     </div>
                                     <div class="body">
 
                                         <div class="title">
-                                            {{--<a href="single-product.html">{{ $categoryProduct->products[0]->name }}</a>--}}
-                                            <a href="{{ url_product($categoryProduct->name_slug, $model->language) }}">{{ $categoryProduct->name }}</a>
+                                            <a href="{{ url_product($categoryProduct->name_slug, $model->language) }}">
+                                                {{ $categoryProduct->name }}
+                                            </a>
                                         </div>
                                         <div class="star-holder inline">
                                             <div class="star" data-score="4"></div>

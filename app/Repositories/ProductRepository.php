@@ -18,98 +18,110 @@ class ProductRepository
 
     protected $likeSeparator = '%';
 
-
-
-
+    
     /**
-     * Get Top sales products by lang
+     * Get Top sales products by lang (4)
      * @param string $language
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getTopSalesProductsByLanguage($language = Languages::DEFAULT_LANGUAGE)
     {
-        return Product::whereProductStatusId(1)
-            ->with([
-                'images'
+        return Product::with([
+            'images'
         ])
-            ->orderBy('name')
+            ->join('promotions', 'promotions.product_id', '=', 'products.id')
+            ->join('product_statuses', 'promotions.product_status_id', '=', 'product_statuses.id')
+            ->orderByRaw('promotions.priority desc', 'name')
+            ->where('promotions.product_status_id', '=', 2)
+            ->limit(4)
             ->get([
-                'id',
-                'category_id',
-                'product_status_id',
-                'old_price',
-                'price',
-                "name_$language as name",
-                "name_slug"
+                'products.id',
+                'products.category_id',
+                'products.old_price',
+                'products.price',
+                'products.priority',
+                "products.name_$language as name",
+                "products.name_slug"
             ]);
     }
 
     /**
-     * get novelty products by lang
+     * get novelty products by lang (4)
      * @param string $language
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getNoveltyProductsByLanguage($language = Languages::DEFAULT_LANGUAGE)
     {
-        return Product::whereProductStatusId(2)
-            ->with([
-                'images'
-            ])
-            ->orderBy('name')
+        return Product::with([
+            'images'
+        ])
+            ->join('promotions', 'promotions.product_id', '=', 'products.id')
+            ->join('product_statuses', 'promotions.product_status_id', '=', 'product_statuses.id')
+            ->orderByRaw('promotions.priority desc', 'name')
+            ->where('promotions.product_status_id', '=', 1)
+            ->limit(4)
             ->get([
-                'id',
-                'category_id',
-                'product_status_id',
-                'old_price',
-                'price',
-                "name_$language as name",
-                "name_slug"
+                'products.id',
+                'products.category_id',
+                'products.old_price',
+                'products.price',
+                'products.priority',
+                "products.name_$language as name",
+                "products.name_slug"
             ]);
     }
 
     /**
-     * get seasonal products by lang
+     * get seasonal products by lang, return first (6) seasonal products
      * @param string $language
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getSeasonalGoodsByLanguage($language = Languages::DEFAULT_LANGUAGE)
     {
-        return Product::whereProductStatusId(3)
-            ->with([
-                'images'
-            ])
-            ->orderBy('name')
+        return Product::with([
+            'images'
+        ])
+            ->join('promotions', 'promotions.product_id', '=', 'products.id')
+            ->join('product_statuses', 'promotions.product_status_id', '=', 'product_statuses.id')
+            ->orderByRaw('promotions.priority desc', 'name')
+            ->where('promotions.product_status_id', '=', 3)
+            ->limit(6)
             ->get([
-                'id',
-                'category_id',
-                'product_status_id',
-                'old_price',
-                'price',
-                "name_$language as name",
-                "name_slug"
+                'products.id',
+                'products.category_id',
+                'products.old_price',
+                'products.price',
+                'products.priority',
+                "products.name_$language as name",
+                "products.name_slug"
             ]);
     }
 
     /**
-     * get promotion product on home page by language
+     * get promotion product on home page by language, this is 7th product (big)
      * @param string $language
      * @return mixed
      */
     public function getPromotionalProductByLanguage($language = Languages::DEFAULT_LANGUAGE)
     {
-        return Product::whereProductStatusId(4)
-            ->with([
-                'images'
-            ])
-            ->first([
-                'id',
-                'category_id',
-                'product_status_id',
-                'old_price',
-                'price',
-                "name_$language as name",
-                "name_slug"
+        $products =  Product::with([
+            'images'
+        ])
+            ->join('promotions', 'promotions.product_id', '=', 'products.id')
+            ->join('product_statuses', 'promotions.product_status_id', '=', 'product_statuses.id')
+            ->orderByRaw('promotions.priority desc', 'name')
+            ->where('promotions.product_status_id', '=', 3)
+            ->get([
+                'products.id',
+                'products.category_id',
+                'products.old_price',
+                'products.price',
+                'products.priority',
+                "products.name_$language as name",
+                "products.name_slug"
             ]);
+
+        return $products[6];
     }
 
     /**
@@ -195,12 +207,12 @@ class ProductRepository
         return Product::select([
             'id',
             'category_id',
-            'product_status_id',
             "name_$language as name",
             'name_slug',
             'old_price',
             'price',
-            'description'
+            "description_$language as description",
+            'in_stock'
         ])->with([
             'images',
         ])
@@ -258,7 +270,6 @@ class ProductRepository
             ->get([
                 'id',
                 'category_id',
-                'product_status_id',
                 "name_$language as name",
                 'name_slug',
                 'old_price',
@@ -267,85 +278,72 @@ class ProductRepository
     }
 
     /**
-     * get recommended products
+     * get recommended products (3)
      * @param string $language
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getRecommendedProducts($language = Languages::DEFAULT_LANGUAGE)
     {
-        $ids = [];
-        $max = Product::max('id');
-        for ($i = 0; $i < 3; $i++)
-        {
-            $ids[] = rand(1, $max);
-        }
-        //TODO SELECT LOGIC
         return Product::with([
             'images'
         ])
-            ->whereIn('id', $ids)
+            ->join('promotions', 'promotions.product_id', '=', 'products.id')
+            ->join('product_statuses', 'promotions.product_status_id', '=', 'product_statuses.id')
+            ->orderByRaw('promotions.priority desc', 'name')
+            ->where('promotions.product_status_id', '=', 4)
+            ->limit(3)
             ->get([
-                'id',
-                'category_id',
-                'product_status_id',
-                "name_$language as name",
-                'name_slug',
-                'old_price',
-                'price',
+                'products.id',
+                'products.category_id',
+                'products.old_price',
+                'products.price',
+                'products.priority',
+                "products.name_$language as name",
+                "products.name_slug"
             ]);
     }
 
     /**
-     * get best discounts products
+     * get best prices products (3)
      * @param string $language
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getBestDiscountsProducts($language = Languages::DEFAULT_LANGUAGE)
     {
-        $ids = [];
-        $max = Product::max('id');
-        for ($i = 0; $i < 3; $i++)
-        {
-            $ids[] = rand(1, $max);
-        }
-        //TODO SELECT LOGIC
         return Product::with([
             'images'
         ])
-            ->whereIn('id', $ids)
+            ->join('promotions', 'promotions.product_id', '=', 'products.id')
+            ->join('product_statuses', 'promotions.product_status_id', '=', 'product_statuses.id')
+            ->orderByRaw('promotions.priority desc', 'name')
+            ->where('promotions.product_status_id', '=', 5)
+            ->limit(3)
             ->get([
-                'id',
-                'category_id',
-                'product_status_id',
-                "name_$language as name",
-                'name_slug',
-                'old_price',
-                'price',
+                'products.id',
+                'products.category_id',
+                'products.old_price',
+                'products.price',
+                'products.priority',
+                "products.name_$language as name",
+                "products.name_slug"
             ]);
     }
 
     /**
-     * get popular products
+     * get popular products (3)
      * @param string $language
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getPopularProducts($language = Languages::DEFAULT_LANGUAGE)
     {
-        $ids = [];
-        $max = Product::max('id');
-        for ($i = 0; $i < 3; $i++)
-        {
-            $ids[] = rand(1, $max);
-        }
-        //TODO SELECT LOGIC
         return Product::with([
             'images'
         ])
-            ->whereIn('id', $ids)
+            ->orderByRaw('number_of_views desc', 'name')
+            ->limit(3)
             ->get([
                 'id',
                 'category_id',
-                'product_status_id',
                 "name_$language as name",
                 'name_slug',
                 'old_price',
@@ -353,7 +351,7 @@ class ProductRepository
             ]);
     }
     
-    /**
+    /**get search products
      * @param $series
      * @param string $sort
      * @param $searchProductsLimit
@@ -403,7 +401,6 @@ class ProductRepository
         return $query->get([
             'id',
             'category_id',
-            'product_status_id',
             "name_$language as name",
             'name_slug',
             'old_price',
@@ -412,7 +409,7 @@ class ProductRepository
 
     }
 
-    /**
+    /**get async search products
      * @param $series
      * @param $language
      * @return \Illuminate\Database\Eloquent\Collection|static[]
@@ -443,7 +440,6 @@ class ProductRepository
         return $query->get([
             'id',
             'category_id',
-            'product_status_id',
             "name_$language as name",
             'name_slug',
             'old_price',
@@ -451,7 +447,7 @@ class ProductRepository
         ]);
     }
 
-    /**
+    /**get count of search products
      * @param $series
      * @return int
      */
@@ -474,6 +470,11 @@ class ProductRepository
                 ->count();
     }
 
+    /**get products for CART
+     * @param $inCartIds
+     * @param $language
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function getCartProducts($inCartIds, $language)
     {
         $idsImploded = implode(',', $inCartIds);
@@ -486,13 +487,20 @@ class ProductRepository
             ->get([
                 'id',
                 'category_id',
-                'product_status_id',
                 "name_$language as name",
                 'name_slug',
                 'old_price',
                 'code_1c',
                 'price',
             ]);
+    }
+
+    /**increase value of product views by 1
+     * @param $model
+     */
+    public function incrementProductNumberOfViews($model)
+    {
+        $model->product->increment('number_of_views');
     }
 
 }

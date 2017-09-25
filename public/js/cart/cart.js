@@ -147,6 +147,8 @@ function Cart() {
                     }
 
                     $('[data-cart-product-id="' + productId + '"]').slideUp();
+                    
+                    $('[data-cart-product-id="' + productId + '"]').remove();
 
                     $('[data-order-product-container="' + productId + '"]').slideUp();
 
@@ -390,6 +392,7 @@ function Cart() {
             var currentCount = parseInt($productCountElem.val());
             var productCount = currentCount + 1;
             $productCountElem.val(productCount);
+
             $('[data-order-product-count="' + productId + '"]').text(productCount);
 
             if ($('[data-cart-product-id="' + productId +'"]').length > 0)
@@ -400,7 +403,9 @@ function Cart() {
                         timer = undefined;
                     }
                     timer = setTimeout(function () {
+
                         ctx.cartFunctions.updateCart(productId, productCount);
+
                     }, 400);
                 }
             }

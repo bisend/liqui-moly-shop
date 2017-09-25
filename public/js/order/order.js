@@ -74,31 +74,37 @@ function Order()
         createOrder;
 
     ctx.init = function () {
-
+        
+        // show payment menu select
         showPaymentMenu = function () {
             $elems.paymentMenu.select.attr('tabindex', 1).focus().toggleClass('active');
             $elems.paymentMenu.dropDownMenu.stop(true, true).slideToggle(300);
         };
-
+        
+        // hide payment menu select
         hidePaymentMenu = function () {
             $elems.paymentMenu.select.removeClass('active');
             $elems.paymentMenu.dropDownMenu.stop(true, true).slideUp(300);
         };
-
+        
+        // set payment selected item
         setPaymentSelectedItem = function (paymentId, paymentText) {
             $elems.paymentMenu.selectedItem.attr('data-payment-selected-item', paymentId).text(paymentText);
         };
-
+        
+        // show delivery menu select
         showDeliveryMenu = function () {
             $elems.deliveryMenu.select.attr('tabindex', 1).focus().toggleClass('active');
             $elems.deliveryMenu.dropDownMenu.stop(true, true).slideToggle(300);
         };
-
+        
+        // hide delivery menu select
         hideDeliveryMenu = function () {
             $elems.deliveryMenu.select.removeClass('active');
             $elems.deliveryMenu.dropDownMenu.stop(true, true).slideUp(300);
         };
-
+        
+        // set delivery selected item
         setDeliverySelectedItem = function (deliveryId, deliveryText) {
             $elems.deliveryMenu.selectedItem.attr('data-delivery-selected-item', deliveryId).text(deliveryText);
         };
@@ -169,7 +175,8 @@ function Order()
             requiredErrorMessage: RequiredFieldText,
             regExErrorMessage: IncorrectFieldText
         });
-
+        
+        // validating inputs
         validate = function () {
             var isValid = true;
 
@@ -189,22 +196,24 @@ function Order()
                 isValid = false;
             }
 
-            validators.order.city.Validate();
-            if (!validators.order.city.IsValid()) {
-                isValid = false;
-            }
+            // validators.order.city.Validate();
+            // if (!validators.order.city.IsValid()) {
+            //     isValid = false;
+            // }
 
             validators.order.address.Validate();
             if (!validators.order.address.IsValid()) {
                 isValid = false;
             }
-
+            
+            // validating payment
             if ($elems.paymentMenu.selectedItem.attr('data-payment-selected-item') == '')
             {
                 $('[data-payment-select-border]').css('border', '1px solid red');
                 isValid = false;
             }
-
+            
+            // validating delivery
             if ($elems.deliveryMenu.selectedItem.attr('data-delivery-selected-item') == '')
             {
                 $('[data-delivery-select-border]').css('border', '1px solid red');
@@ -219,7 +228,8 @@ function Order()
             return isValid;
 
         };
-
+        
+        // send ajax to create order
         createOrder = function () {
             if (vars.order.isDataProcessing) {
                 return false;
@@ -238,7 +248,7 @@ function Order()
                     phone: $elems.order.phone.val(),
                     paymentId: $elems.paymentMenu.selectedItem.attr('data-payment-selected-item'),
                     deliveryId: $elems.deliveryMenu.selectedItem.attr('data-delivery-selected-item'),
-                    city: $elems.order.city.val(),
+                    // city: $elems.order.city.val(),
                     address: $elems.order.address.val(),
                     language: LANGUAGE
                 },
@@ -267,18 +277,21 @@ function Order()
 
         
     };
-
+    
+    // subscribe functions on event handlers
     ctx.subscribe = function () {
-
+        
+        // click on payment select
         $body.on('click', elems.paymentMenu.select, function () {
             showPaymentMenu();
         });
 
-        //focusout of sort menu
+        //focusout of payment menu
         $body.on('focusout', elems.paymentMenu.select, function () {
             hidePaymentMenu();
         });
-
+        
+        // click on payment menu item
         $body.on('click', elems.paymentMenu.paymentItem, function () {
             var paymentId = $(this).attr('data-payment-id');
             var paymentText = $(this).text();
@@ -287,16 +300,18 @@ function Order()
 
             setPaymentSelectedItem(paymentId, paymentText);
         });
-
+        
+        // click on delivery menu select
         $body.on('click', elems.deliveryMenu.select, function () {
             showDeliveryMenu();
         });
 
-        //focusout of sort menu
+        //focusout of delivery menu
         $body.on('focusout', elems.deliveryMenu.select, function () {
             hideDeliveryMenu();
         });
-
+        
+        // click on delivery menu item
         $body.on('click', elems.deliveryMenu.deliveryItem, function () {
             var paymentId = $(this).attr('data-delivery-id');
             var paymentText = $(this).text();
@@ -305,7 +320,8 @@ function Order()
 
             setDeliverySelectedItem(paymentId, paymentText);
         });
-
+        
+        // click on order submit button
         $body.on('click', elems.order.submit, function (e) {
             e.preventDefault();
             if (validate())

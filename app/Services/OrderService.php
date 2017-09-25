@@ -8,6 +8,7 @@ use App\Repositories\OrderProductRepository;
 use App\Repositories\OrderRepository;
 use App\Repositories\PaymentRepository;
 use App\Repositories\ProductRepository;
+use App\Repositories\ProfileRepository;
 use App\Repositories\UserRepository;
 use Session;
 
@@ -46,6 +47,11 @@ class OrderService extends LayoutService
      * @var UserRepository
      */
     protected $userRepository;
+
+    /**
+     * @var ProfileRepository
+     */
+    protected $profileRepository;
     
     /**
      * @var string
@@ -70,7 +76,7 @@ class OrderService extends LayoutService
     public function __construct(CategoryRepository $categoryRepository, ProductRepository $productRepository,
                                 DeliveryRepository $deliveryRepository, PaymentRepository $paymentRepository,
                                 OrderRepository $orderRepository, OrderProductRepository $orderProductRepository,
-                                UserRepository $userRepository)
+                                UserRepository $userRepository, ProfileRepository $profileRepository)
     {
         parent::__construct($categoryRepository, $productRepository);
         
@@ -80,6 +86,7 @@ class OrderService extends LayoutService
         $this->orderRepository = $orderRepository;
         $this->orderProductRepository = $orderProductRepository;
         $this->userRepository = $userRepository;
+        $this->profileRepository = $profileRepository;
     }
 
     /**
@@ -213,8 +220,16 @@ class OrderService extends LayoutService
     {
         $this->orderProductRepository->createOrderProducts($model);
     }
-    
-    
+
+    /**
+     * fill profile if authorized
+     * @param $model
+     * @param $userId
+     */
+    public function fillProfile($model, $userId)
+    {
+        $model->profile = $this->profileRepository->getProfile($userId);
+    }
     
     
     

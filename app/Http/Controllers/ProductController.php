@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
  * Class ProductController
  * @package App\Http\Controllers
  */
-class ProductController extends Controller
+class ProductController extends LayoutController
 {
     public $productService;
 
@@ -27,12 +27,14 @@ class ProductController extends Controller
     public function index($slug = null, $language = Languages::DEFAULT_LANGUAGE)
     {
         $model = new ProductViewModel($slug, $language);
-
+        
         $this->productService->fill($model);
 
         $this->historyService->storeProduct($model->product->id);
         
         $this->historyService->fillVisitedProducts($model);
+        
+        $this->productService->incrementProductNumberOfViews($model);
 
         return view('pages.product.product', compact('model'));
     }

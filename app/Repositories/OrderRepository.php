@@ -36,4 +36,30 @@ class OrderRepository
         
         return $order;
     }
+
+    public function getCountOrders($userId)
+    {
+        return Order::whereUserId($userId)->count();
+    }
+
+    public function getOrdersByUserId($userId, $model)
+    {
+        return Order::with([
+            'order_products.product' => function ($query) use ($model) {
+                $query->select([
+                    'id',
+                    'category_id',
+                    "name_$model->language as name",
+                    'name_slug'
+                ])->with([
+                    'images'
+                ]);
+            }
+        ])
+            ->whereUserId($userId)
+            ->orderBy('created_at', 'desc')
+            ->offset($model->ordersOffset)
+            ->limit(7)
+            ->get();
+    }
 }

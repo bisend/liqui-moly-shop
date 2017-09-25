@@ -64,6 +64,12 @@ class UrlBuilder
     const CONFIRMATION_PAGE = 'confirm';
 
     /**
+     * new email confirm page
+     * @var string
+     */
+    const NEW_EMAIL_CONFIRMATION_PAGE = 'confirm-new-email';
+
+    /**
      * Search async method name
      *
      * @var string
@@ -142,10 +148,28 @@ class UrlBuilder
 
 
     /*
-     * Profile page
+     * Personal info page
      * @var string
      */
-    const PROFILE_PAGE = 'profile';
+    const PERSONAL_INFO_PAGE = 'profile/personal-info';
+    
+    /*
+     * Change password page
+     * @var string
+     */
+    const CHANGE_PASSWORD_PAGE = 'profile/change-password';
+    
+    /*
+     * My orders page
+     * @var string
+     */
+    const MY_ORDERS_PAGE = 'profile/my-orders';
+
+    /*
+     * Wishlist page
+     * @var string
+     */
+    const WISHLIST_PAGE = 'profile/wish-list';
 
     /*
      * Compare page
@@ -243,6 +267,28 @@ class UrlBuilder
     }
 
     /**
+     * confirmation new email url
+     * @param null $confirmationToken
+     * @param string $language
+     * @return string
+     */
+    public static function newEmailConfirmation($confirmationToken = null, $language = Languages::DEFAULT_LANGUAGE)
+    {
+        if (!$confirmationToken)
+        {
+            return self::UNDEFINED_URL;
+        }
+
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::NEW_EMAIL_CONFIRMATION_PAGE,
+            $confirmationToken
+        ]);
+
+        return self::localize($url, $language);
+    }
+
+    /**
      * Build category page url
      *
      * @param null|string $slug
@@ -268,6 +314,34 @@ class UrlBuilder
             $slug
         ]);
         
+        if ($page > 1) {
+            $url = self::concatParts([$url, $page]);
+        }
+
+        return self::localize($url, $language);
+    }
+
+    /**
+     * Build orders per page page url
+     *
+     * 
+     * @param int $page
+     * @param string $language
+     *
+     * @return null|string
+     */
+    public static function ordersPerPage($page = 1, $language = Languages::DEFAULT_LANGUAGE)
+    {
+        if ($page < 1)
+        {
+            $page = 1;
+        }
+
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::MY_ORDERS_PAGE
+        ]);
+
         if ($page > 1) {
             $url = self::concatParts([$url, $page]);
         }
@@ -316,6 +390,79 @@ class UrlBuilder
 
         return self::localize($url, $language);
     }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    /**
+     * Build personal-info page url
+     *
+     * @param string $language
+     *
+     * @return null|string
+     */
+    public static function personalInfo($language = Languages::DEFAULT_LANGUAGE)
+    {
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::PERSONAL_INFO_PAGE
+        ]);
+
+        return self::localize($url, $language);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    /**
+     * Build change-password page url
+     *
+     * @param string $language
+     *
+     * @return null|string
+     */
+    public static function changePassword($language = Languages::DEFAULT_LANGUAGE)
+    {
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::CHANGE_PASSWORD_PAGE
+        ]);
+
+        return self::localize($url, $language);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    /**
+     * Build my-orders page url
+     *
+     * @param string $language
+     *
+     * @return null|string
+     */
+    public static function myOrders($language = Languages::DEFAULT_LANGUAGE)
+    {
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::MY_ORDERS_PAGE
+        ]);
+
+        return self::localize($url, $language);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    /**
+     * Build wish-list page url
+     *
+     * @param string $language
+     *
+     * @return null|string
+     */
+    public static function wishlist($language = Languages::DEFAULT_LANGUAGE)
+    {
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::WISHLIST_PAGE
+        ]);
+
+        return self::localize($url, $language);
+    }
+    
     
     // -----------------------------------------------------------------------------------------------------------------
     /**

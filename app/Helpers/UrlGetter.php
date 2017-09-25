@@ -32,6 +32,15 @@ if (!function_exists('url_confirmation'))
     }
 }
 
+// ---------------------------------------------------------------------------------------------------------------------
+
+if (!function_exists('url_new_email_confirmation'))
+{
+    function url_new_email_confirmation($confirmationToken = null, $language = Languages::DEFAULT_LANGUAGE)
+    {
+        return UrlBuilder::newEmailConfirmation($confirmationToken, $language);
+    }
+}
 
 
 
@@ -136,6 +145,101 @@ if (!function_exists('url_order')) {
         return UrlBuilder::order($language);
     }
 }
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+/**
+ * url personal_info
+ */
+if (!function_exists('url_personal_info')) {
+
+    /**
+     * Get the personal-info page url
+     *
+     * @param string $language
+     *
+     * @return string
+     */
+    function url_personal_info($language = Languages::DEFAULT_LANGUAGE)
+    {
+        return UrlBuilder::personalInfo($language);
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+/**
+ * url change_password
+ */
+if (!function_exists('url_change_password')) {
+
+    /**
+     * Get the change-password page url
+     *
+     * @param string $language
+     *
+     * @return string
+     */
+    function url_change_password($language = Languages::DEFAULT_LANGUAGE)
+    {
+        return UrlBuilder::changePassword($language);
+    }
+}
+
+/**
+ * url my_orders
+ */
+if (!function_exists('url_my_orders')) {
+
+    /**
+     * Get the my-orders page url
+     *
+     * @param string $language
+     *
+     * @return string
+     */
+    function url_my_orders($language = Languages::DEFAULT_LANGUAGE)
+    {
+        return UrlBuilder::myOrders($language);
+    }
+}
+
+/**
+ * url my_orders per page
+ */
+if (!function_exists('url_my_orders_per_page')) {
+
+    /**
+     * Get the my-orders per page page url
+     *
+     * @param string $language
+     *
+     * @return string
+     */
+    function url_my_orders_per_page($page = 1, $language = Languages::DEFAULT_LANGUAGE)
+    {
+        return UrlBuilder::ordersPerPage($page, $language);
+    }
+}
+
+/**
+ * url wish_list
+ */
+if (!function_exists('url_wish_list')) {
+
+    /**
+     * Get the wish-list page url
+     *
+     * @param string $language
+     *
+     * @return string
+     */
+    function url_wish_list($language = Languages::DEFAULT_LANGUAGE)
+    {
+        return UrlBuilder::wishlist($language);
+    }
+}
+
 
 // ---------------------------------------------------------------------------------------------------------------------
 /**

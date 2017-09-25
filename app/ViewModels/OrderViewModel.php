@@ -25,6 +25,8 @@ class OrderViewModel extends LayoutViewModel
     public $orderId;
     
     public $order;
+    
+    public $profile;
 
     public function __construct($language)
     {

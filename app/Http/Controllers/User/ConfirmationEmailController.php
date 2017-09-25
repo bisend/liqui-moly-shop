@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\User;
 
+use App\DatabaseModels\Profile;
 use App\DatabaseModels\User;
+use App\DatabaseModels\WishList;
 use App\Helpers\Languages;
 use App\Http\Controllers\LayoutController;
+use App\Repositories\ProfileRepository;
+use App\Repositories\WishListRepository;
 
 /**
  * Class ConfirmationEmailController
@@ -12,6 +16,17 @@ use App\Http\Controllers\LayoutController;
  */
 class ConfirmationEmailController extends LayoutController
 {
+    public $profileRepository;
+
+    public $wishListRepository;
+
+    public function __construct(ProfileRepository $profileRepository, WishListRepository $wishListRepository)
+    {
+        $this->profileRepository = $profileRepository;
+
+        $this->wishListRepository = $wishListRepository;
+    }
+
     /**
      * @param null $confirmationToken
      * @param string $language
@@ -32,10 +47,15 @@ class ConfirmationEmailController extends LayoutController
         }
 
         $user->active = true;
+
         $user->save();
         
         auth()->login($user);
-        
+
+        $this->profileRepository->createProfile($user->id);
+
+        $this->wishListRepository->createWishList($user->id);
+
         return redirect(url_home($language));
     }
 }

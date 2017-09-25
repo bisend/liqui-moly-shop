@@ -40,6 +40,7 @@
                                     <a data-rel="prettyphoto" href="{{ $image->medium }}">
                                         <img class="img-responsive" alt="{{ $model->product->name }}"
                                              src="{{ $image->medium }}">
+                                             {{--src="/img/900.jpg">--}}
                                     </a>
                                 </div><!-- /.single-product-gallery-item -->
                             @php($counter++)
@@ -49,6 +50,7 @@
                                 <a data-rel="prettyphoto" href="{{ $model->product->images[0]->medium }}">
                                     <img class="img-responsive" alt="{{ $model->product->name }}"
                                          src="{{ $model->product->images[0]->medium }}">
+                                         {{--src="/img/900.jpg">--}}
                                 </a>
                             </div><!-- /.single-product-gallery-item -->
                         @endif
@@ -67,6 +69,7 @@
                                        data-slide="{{ $counterSlide }}"
                                        href="#slide{{ $counter }}">
                                         <img width="67" alt="{{ $model->product->name }}" src="{{ $image->small }}">
+                                        {{--<img width="67" alt="{{ $model->product->name }}" src="/img/900.jpg">--}}
                                     </a>
                                 @php($counter++)
                                 @php($counterSlide++)
@@ -94,7 +97,9 @@
                     </div>
 
                     <div class="availability">
-                        <label></label><span class="available">  В наявності</span>
+                        <label></label><span class="available">
+                            {{ $model->product->in_stock == 0 ? 'Під замовлення' : 'В наявності' }}
+                        </span>
                     </div>
 
                     <div class="article-product">

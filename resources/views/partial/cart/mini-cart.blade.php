@@ -8,6 +8,7 @@
                             <div class="thumb">
                                 <a href="{{ url_product($cartProduct->name_slug, $model->language) }}">
                                     <img alt="{{ $cartProduct->name }}" src="{{ $cartProduct->images[0]->small }}">
+{{--                                    <img alt="{{ $cartProduct->name }}" src="/img/900.jpg">--}}
                                 </a>
                             </div>
                         </div>

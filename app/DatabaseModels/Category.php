@@ -27,6 +27,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\DatabaseModels\Category[] $childCategories
  * @property-read \App\DatabaseModels\Category|null $parentCategory
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\DatabaseModels\Product[] $products
+ * @property string|null $description_uk
+ * @property string|null $description_ru
+ * @property int $priority
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Category whereDescriptionRu($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Category whereDescriptionUk($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Category wherePriority($value)
  */
 class Category extends Model
 {

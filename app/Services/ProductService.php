@@ -87,4 +87,9 @@ class ProductService extends LayoutService
     {
         $model->properties = $this->productRepository->getProductProperties($model->product->id, $model->language);
     }
+
+    public function incrementProductNumberOfViews($model)
+    {
+        $this->productRepository->incrementProductNumberOfViews($model);
+    }
 }

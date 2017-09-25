@@ -17,17 +17,24 @@
                             <div class="product-item">
                                 {{--<div class="ribbon red"><span>sale</span></div>--}}
                                 <div class="image">
-                                    {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui-moly_3901.jpg" />--}}
                                     <a href="{{ url_product($visitedProduct->name_slug, $model->language) }}">
                                         <img alt="{{ $visitedProduct->name }}" src="{{ $visitedProduct->images[0]->small }}">
+{{--                                        <img alt="{{ $visitedProduct->name }}" src="/img/900.jpg">--}}
                                     </a>
                                 </div>
                                 <div class="body">
                                     <div class="title title-product-carousel">
-                                        <a href="{{ url_product($visitedProduct->name_slug, $model->language) }}">{{ $visitedProduct->name }}</a>
+                                        <a href="{{ url_product($visitedProduct->name_slug, $model->language) }}">
+                                            {{ $visitedProduct->name }}
+                                        </a>
                                     </div>
-                                    <div class="star-holder inline"><div class="star" data-score="4"></div></div>
-                                    <div class="product-comments product-comments-smoll"><a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> <span>10</span> відгуків</a></div>
+                                    <div class="star-holder inline">
+                                        <div class="star" data-score="4"></div>
+                                    </div>
+                                    <div class="product-comments product-comments-smoll"><a href="">
+                                            <i class="fa fa-comment-o" aria-hidden="true"></i>
+                                            <span>10</span> відгуків</a>
+                                    </div>
                                 </div>
                                 <div class="prices">
                                     <div class="price-current text-right">{{ $visitedProduct->price }} грн</div>

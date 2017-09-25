@@ -22,4 +22,9 @@ use Illuminate\Database\Eloquent\Model;
 class WishList extends Model
 {
     protected $table = 'wish_lists';
+    
+    public function wish_list_products()
+    {
+        return $this->hasMany(WishListProduct::class, 'wish_list_id', 'id');
+    }
 }

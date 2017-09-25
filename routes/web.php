@@ -112,7 +112,10 @@ Route::get('/confirm/{confirmationToken}/{language?}', 'User\ConfirmationEmailCo
         'language' => '^(uk|ru)?$'
     ]);
 Route::post('/restore-password', 'User\RestorePasswordController@restore');
-
+Route::get('/confirm-new-email/{confirmationToken}/{language?}', 'Profile\PersonalInfoController@confirmNewEmail')
+    ->where([
+        'language' => '^(uk|ru)?$'
+    ]);
 
 
 Route::group(['prefix' => 'cart'], function ()
@@ -137,6 +140,46 @@ Route::get('/order/{language?}', 'OrderController@index')
     ]);
 
 Route::post('/create-order', 'OrderController@createOrder');
+
+Route::group(['prefix' => 'profile'], function ()
+{
+    Route::get('/personal-info/{language?}', 'Profile\PersonalInfoController@index')
+        ->where([
+            'language' => '^(uk|ru)?$'
+        ]);
+    
+    Route::get('/change-password/{language?}', 'Profile\ChangePasswordController@index')
+        ->where([
+            'language' => '^(uk|ru)?$'
+        ]);
+    
+    Route::get('/my-orders/{language?}', 'Profile\MyOrdersController@index')
+        ->where([
+            'language' => '^(uk|ru)?$'
+        ]);
+
+    Route::get('/my-orders/{page}/{language?}', 'Profile\MyOrdersController@index')
+        ->where([
+            'page' => '^[2-9]{1}|[1-9]{1}[0-9]+$',
+            'language' => '^(uk|ru)?$'
+        ]);
+    
+    Route::get('/wish-list/{language?}', 'Profile\WishlistController@index')
+        ->where([
+            'language' => '^(uk|ru)?$'
+        ]);
+
+    Route::get('/wish-list/{page}/{language?}', 'Profile\WishlistController@index')
+        ->where([
+            'page' => '^[2-9]{1}|[1-9]{1}[0-9]+$',
+            'language' => '^(uk|ru)?$'
+        ]);
+    
+    Route::post('/save-personal-info', 'Profile\PersonalInfoController@savePersonalInfo');
+
+    Route::post('/change-password', 'Profile\ChangePasswordController@changePassword');
+});
+
 
 //Route::get('change-password', 'HomeController@showChangePasswordForm');
 //Route::post('change-password', 'HomeController@changePassword');

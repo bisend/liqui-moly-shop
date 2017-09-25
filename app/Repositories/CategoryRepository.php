@@ -24,15 +24,15 @@ class CategoryRepository
         return Category::whereNull('parent_id')
             ->with([
                 'childCategories' => function ($query) use ($language) {
-                    $query->select('id', 'parent_id', "name_$language as name", 'name_slug')->orderBy('name');
+                    $query->select('id', 'parent_id', "name_$language as name", 'name_slug')->orderByRaw('priority desc', 'name');
                     $query->with([
                         'childCategories' => function ($query) use ($language) {
-                            $query->select('id', 'parent_id', "name_$language as name", 'name_slug')->orderBy('name');
+                            $query->select('id', 'parent_id', "name_$language as name", 'name_slug')->orderByRaw('priority desc', 'name');
                         }
                     ]);
                 }
             ])
-            ->orderBy('name')
+            ->orderByRaw('priority desc', 'name')
             ->get([
                 'id', 
                 'parent_id', 

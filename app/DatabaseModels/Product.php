@@ -36,6 +36,16 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Product whereOldPrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Product wherePrice($value)
  * @property-read \App\DatabaseModels\Property $properties
+ * @property int $number_of_views
+ * @property int $priority
+ * @property bool $in_stock
+ * @property string|null $description_uk
+ * @property string|null $description_ru
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Product whereDescriptionRu($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Product whereDescriptionUk($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Product whereInStock($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Product whereNumberOfViews($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Product wherePriority($value)
  */
 class Product extends Model
 {
