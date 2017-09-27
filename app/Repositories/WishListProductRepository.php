@@ -40,6 +40,25 @@ class WishListProductRepository
             ->get();
     }
 
+    public function getMiniWishListProducts($language, $wishListId)
+    {
+        return WishListProduct::with([
+            'product' => function ($query) use ($language) {
+                $query->select([
+                    'id',
+                    'category_id',
+                    'price',
+                    "name_$language as name",
+                    'name_slug'
+                ])->with([
+                    'images'
+                ]);
+            }
+        ])
+            ->whereWishListId($wishListId)
+            ->get();
+    }
+
     public function addWishListProduct($wishListId, $productId)
     {
         $wishListProduct = new WishListProduct();
@@ -48,8 +67,24 @@ class WishListProductRepository
         $wishListProduct->save();
     }
 
-    public function deleteWishListProduct($wishListId, $productId)
+    public function deleteWishListProduct($wishListProductId)
     {
-        WishListProduct::whereWishListId($wishListId)->whereProductId($productId)->first();
+        WishListProduct::whereId($wishListProductId)->delete();
+    }
+    
+    public function getInWishIds($wishListId)
+    {
+        $wishListIds = WishListProduct::whereWishListId($wishListId)->get([
+            'product_id'
+        ]);
+
+        $wIds = [];
+
+        foreach ($wishListIds as $wishListId)
+        {
+            $wIds[] = $wishListId->product_id;
+        }
+
+        return $wIds;
     }
 }

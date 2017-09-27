@@ -99,113 +99,19 @@
 
         <div class="col-xs-12 col-md-3 top-cart-row no-margin">
             <div class="top-cart-row-container">
-                {{--<div class="wishlist-compare-holder">--}}
-                    {{--<div class="wishlist ">--}}
-                        {{--<a href="#"><i class="fa fa-heart"></i> Закладки <span class="value">(21)</span> </a>--}}
-                    {{--</div>--}}
-                    {{--<div class="compare">--}}
-                        {{--<a href="#"><i class="fa fa-exchange"></i> Порівняння <span class="value">(2)</span> </a>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
                 <div class="wish-block dropdown animate-dropdown">
                     <div class="wish-basket">
-                        <a data-toggle="dropdown" href="">
+                        <a data-toggle="dropdown"
+                           data-open-wish-list-mini
+                           href="javascript:void(0);">
                             <div class="wish-block-img">
-                                <span class="count">3</span>
+                                <span class="count" data-wish-list-mini-total-count>0</span>
                                 <img src="/img/heart2.png">
                             </div>
                         </a>
                         {{--wish drpdwn--}}
-                        <div class="dropdown-menu">
-                            <ul class="dropdown-menu-list">
-                                <li>
-                                    <div class="basket-item">
-                                        <div class="row">
-                                            <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                                <div class="thumb">
-                                                    <a href="">
-                                                        <img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-8 col-sm-8">
-                                                <div class="title"><a href="">PAG AIR CONDITIONING OIL 100</a></div>
-                                                <div class="price">$270.00</div>
-                                            </div>
-                                        </div>
-                                        <a class="close-btn" href="#"></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="basket-item">
-                                        <div class="row">
-                                            <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                                <div class="thumb">
-                                                    <a href="">
-                                                        <img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-8 col-sm-8">
-                                                <div class="title"><a href="">PAG AIR CONDITIONING OIL</a></div>
-                                                <div class="price">$270.00</div>
-                                            </div>
-                                        </div>
-                                        <a class="close-btn" href="#"></a>
-                                    </div>
-                                </li>
+                        <div class="dropdown-menu" data-wish-list-mini-container>
 
-                                <li>
-                                    <div class="basket-item">
-                                        <div class="row">
-                                            <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                                <div class="thumb">
-                                                    <a href="">
-                                                        <img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-8 col-sm-8">
-                                                <div class="title"> <a href="">Blueberry</a></div>
-                                                <div class="price">$270.00</div>
-                                            </div>
-                                        </div>
-                                        <a class="close-btn" href="#"></a>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="basket-item">
-                                        <div class="row">
-                                            <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                                <div class="thumb">
-                                                    <a href="">
-                                                        <img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-8 col-sm-8">
-                                                <div class="title"> <a href="">Blueberry</a></div>
-                                                <div class="price">$270.00</div>
-                                            </div>
-                                        </div>
-                                        <a class="close-btn" href="#"></a>
-                                    </div>
-                                </li>
-
-
-
-                            </ul>
-                            <div class="checkout">
-                                <div class="basket-item">
-                                    <div class="row">
-
-                                        <div class="col-xs-12 col-sm-12 no-margin basket-btn">
-                                            <a href="checkout.html" class="le-button">Переглянути</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

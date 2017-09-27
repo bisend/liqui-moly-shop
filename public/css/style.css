@@ -5772,6 +5772,28 @@ div.dropdown-menu ul.dropdown-menu-list{
   from {top: -300px; opacity: 0}
   to {top: 0; opacity: 1}
 }
+
+/*RED BTN IN-WISH*/
+.btn-add-to-wish-list-active {
+    color: #3D3D3D;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+.btn-add-to-wish-list-active:before {
+    content: '\f004';
+    font-family: fontawesome;
+}
+
+.btn-add-to-wish-list-active:before {
+    margin: 0 5px 0 0;
+    font-size: 18px;
+    transition: 0.3s ease;
+    color: #ed1c24;
+}
+/*RED BTN IN_WISH*/
+
+
 /*VLAD STYLE END*/
 
 

@@ -33,7 +33,10 @@
                                data-add-to-cart="{{ $topSale->id }}">В кошик</a>
                         </div>
                         <div class="wish-compare">
-                            <a class="btn-add-to-wishlist" href="javascript:void(0);">В обране</a>
+                            <a class="btn-add-to-wishlist"
+                               data-in-wish-list="false"
+                               data-add-to-wish-list="{{ $topSale->id }}"
+                               href="javascript:void(0);">В обране</a>
                             <!--  <a class="btn-add-to-compare" href="#">Порівняти</a> -->
                         </div>
                     </div>

@@ -151,7 +151,10 @@
                            data-target="#buy-one-click"
                            class="le-button-red huge">Купити в 1 клік</a>
                         <div class="buttons-holder">
-                            <a class="btn-add-to-wishlist" href="#">У список бажань</a>
+                            <a class="btn-add-to-wishlist"
+                               data-in-wish-list="false"
+                               data-add-to-wish-list="{{ $model->product->id }}"
+                               href="javascript:void(0);">В обране</a>
                             <!-- <a class="btn-add-to-compare" href="#">Додати до порівняння</a> -->
                         </div>
                     </div><!-- /.qnt-holder -->

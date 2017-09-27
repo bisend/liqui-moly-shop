@@ -1,6 +1,10 @@
 var LANGUAGE = $('html').attr('lang'),
     DEFAULT_LANGUAGE = 'uk';
 
+var IS_USER_AUTH = false,
+    WISH_W_S,
+    CART_W_S;
+
 var IncorrectFieldClass = 'incorrect-field',
     RequiredFieldText = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Обов`язкове поле.' : 'Обязательное поле.',
     IncorrectFieldText = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Невірно введені дані.' : 'Неправильные данные.',
@@ -16,7 +20,9 @@ var IncorrectFieldClass = 'incorrect-field',
     PERSONAL_INFO_SAVED = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Дані збережено.' : 'Данные сохранены.',
     EMAIL_CHANGED_MESSAGE = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Дані збережено. Ви змінили e-mail, Вам відправлено лист для підтвердження нової електронної адреси.' : 'Данные сохранены. Вы изменили e-mail, Вам отправлено письмо для подтверждения нового електронного адреса.',
     PASSWORD_CHANGED_MESSAGE = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Пароль змінено.' : 'Пароль сохранен.',
-    WRONG_OLD_PASSWORD = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Неправильний старий пароль.' : 'Неверный старый пароль.';
+    WRONG_OLD_PASSWORD = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Неправильний старий пароль.' : 'Неверный старый пароль.',
+    IN_WISH = (LANGUAGE == DEFAULT_LANGUAGE) ? 'В обраному' : 'В избранном',
+    ADD_TO_WISH = (LANGUAGE == DEFAULT_LANGUAGE) ? 'В обране' : 'В избранное';
 
 $.ajaxSetup({
     headers: {
@@ -31,15 +37,34 @@ function Launch() {
         $.ajax({
             type: 'get',
             url: '/main-ajax',
-            success: function (data) {
-                if (data.isOrderCreated && data.status == 'success')
-                {
-                    showPopup(ORDER_CREATED_MESSAGE);
-                }
-            },
-            error: function (data) {
+            success: WISH_W_S.wrap(
+                'mainAjax',
+                function (data) {
+                    if (data.isOrderCreated && data.status == 'success')
+                    {
+                        showPopup(ORDER_CREATED_MESSAGE);
+                    }
 
-            }
+                    if (data.isUserAuth && data.status == 'success')
+                    {
+                        IS_USER_AUTH = data.isUserAuth;
+                    }
+                }
+            ),
+            error: WISH_W_S.wrap(
+                'mainAjax',
+                function (data) {
+                    if (data.isOrderCreated && data.status == 'success')
+                    {
+                        showPopup(ORDER_CREATED_MESSAGE);
+                    }
+
+                    if (data.isUserAuth && data.status == 'success')
+                    {
+                        IS_USER_AUTH = data.isUserAuth;
+                    }
+                }
+            )
         });
     };
     
@@ -57,7 +82,7 @@ function Launch() {
 }
 
 $(document).ready(function() {
-    
+    new Launch();
     // cart.cartFunctions.initCart();
 });
 

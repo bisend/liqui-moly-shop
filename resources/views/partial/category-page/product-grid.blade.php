@@ -74,7 +74,10 @@
                                                class="le-button">В кошик</a>
                                         </div>
                                         <div class="wish-compare">
-                                            <a class="btn-add-to-wishlist" href="javascript:void(0);">У список бажань</a>
+                                            <a class="btn-add-to-wishlist"
+                                               data-in-wish-list="false"
+                                               data-add-to-wish-list="{{ $categoryProduct->id }}"
+                                               href="javascript:void(0);">У список бажань</a>
                                             <!--  <a class="btn-add-to-compare" href="#">Порівняти</a> -->
                                         </div>
                                     </div>

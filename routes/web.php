@@ -178,6 +178,12 @@ Route::group(['prefix' => 'profile'], function ()
     Route::post('/save-personal-info', 'Profile\PersonalInfoController@savePersonalInfo');
 
     Route::post('/change-password', 'Profile\ChangePasswordController@changePassword');
+    
+    Route::post('/delete-wish-list-product', 'Profile\WishListController@deleteFromWishList');
+    
+    Route::post('/add-to-wish-list-product', 'Profile\WishListController@addWishListProduct');
+    
+    Route::post('/init-wish-list', 'Profile\WishListController@initWishList');
 });
 
 

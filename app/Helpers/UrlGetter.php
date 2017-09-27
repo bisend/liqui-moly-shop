@@ -223,6 +223,24 @@ if (!function_exists('url_my_orders_per_page')) {
 }
 
 /**
+ * url wishListPerPage
+ */
+if (!function_exists('url_wish_list_per_page')) {
+
+    /**
+     * Get the wishListPerPage page url
+     *
+     * @param string $language
+     *
+     * @return string
+     */
+    function url_wish_list_per_page($page = 1, $language = Languages::DEFAULT_LANGUAGE)
+    {
+        return UrlBuilder::wishListPerPage($page, $language);
+    }
+}
+
+/**
  * url wish_list
  */
 if (!function_exists('url_wish_list')) {

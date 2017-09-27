@@ -24,6 +24,8 @@
 {{--<script src="/js/template/buttons.js"></script>--}}
 <script defer src="/js/template/scripts.js"></script>
 
+<script defer src="/js/waitsync.min.js"></script>
+
 {{--custom scripts--}}
 <script defer src="/js/launch.js"></script>
 <script defer src="/js/jclient.validation.js"></script>
@@ -33,6 +35,7 @@
 <script defer src="/js/auth/register.js"></script>
 <script defer src="/js/auth/restore-password.js"></script>
 <script defer src="/js/cart/cart.js"></script>
+<script defer src="/js/profile/wish-list.js"></script>
 
 
 <!--Page JS BEGIN-->

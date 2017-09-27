@@ -349,6 +349,34 @@ class UrlBuilder
         return self::localize($url, $language);
     }
 
+    /**
+     * Build wish_list_per_page page url
+     *
+     *
+     * @param int $page
+     * @param string $language
+     *
+     * @return null|string
+     */
+    public static function wishListPerPage($page = 1, $language = Languages::DEFAULT_LANGUAGE)
+    {
+        if ($page < 1)
+        {
+            $page = 1;
+        }
+
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::WISHLIST_PAGE
+        ]);
+
+        if ($page > 1) {
+            $url = self::concatParts([$url, $page]);
+        }
+
+        return self::localize($url, $language);
+    }
+
     // -----------------------------------------------------------------------------------------------------------------
     /**
      * Build product page url

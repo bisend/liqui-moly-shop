@@ -226,4 +226,14 @@ class ProfileService extends LayoutService
     {
         $model->wishListProducts = $this->wishListProductRepository->getWishListProducts($model, $model->wishList->id);
     }
+
+    public function deleteFromWishList($wishListProductId)
+    {
+        $this->wishListProductRepository->deleteWishListProduct($wishListProductId);
+    }
+    
+    public function addWishListProduct($wishListId, $productId)
+    {
+        $this->wishListProductRepository->addWishListProduct($wishListId, $productId);
+    }
 }

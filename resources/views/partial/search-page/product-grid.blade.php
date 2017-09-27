@@ -77,6 +77,8 @@
                                         </div>
                                         <div class="wish-compare">
                                             <a class="btn-add-to-wishlist"
+                                               data-in-wish-list="false"
+                                               data-add-to-wish-list="{{ $searchProduct->id }}"
                                                href="javascript:void(0);">У список бажань</a>
                                             <!--  <a class="btn-add-to-compare" href="#">Порівняти</a> -->
                                         </div>

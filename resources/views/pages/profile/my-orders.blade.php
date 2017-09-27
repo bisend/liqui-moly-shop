@@ -79,22 +79,23 @@
                                     <div class="items-holder myOrders-item">
                                         <div class="container-fluid wishlist_table">
 
-                                            <div class="row cart-item cart_item cart_item-header">
+                                            @if($model->orders->count() > 0)
+                                                <div class="row cart-item cart_item cart_item-header">
 
-                                                <div class="col-xs-12 col-sm-3 no-margin">
-                                                    Номер
-                                                </div>
+                                                    <div class="col-xs-12 col-sm-3 no-margin">
+                                                        Номер
+                                                    </div>
 
-                                                <div class="col-xs-12 col-sm-3 no-margin">
-                                                    К-сть товарів
-                                                </div>
+                                                    <div class="col-xs-12 col-sm-3 no-margin">
+                                                        К-сть товарів
+                                                    </div>
 
-                                                <div class="col-xs-12 col-sm-3 no-margin">
-                                                    Сума
-                                                </div>
-                                            </div><!-- /.cart-item -->
+                                                    <div class="col-xs-12 col-sm-3 no-margin">
+                                                        Сума
+                                                    </div>
+                                                </div><!-- /.cart-item -->
 
-                                            @if($model->orders)
+
                                                 @foreach($model->orders as $order)
                                                     <div class="row cart-item cart_item" id="yith-wcwl-row-1">
 
@@ -124,8 +125,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
-
                                                     </div><!-- /.cart-item -->
 
                                                     <div class="modal fade" id="order-detail-{{ $order->order_number }}"
@@ -239,6 +238,8 @@
                                                     </div>
 
                                                 @endforeach
+                                            @else
+                                                Пусто
                                             @endif
 
 

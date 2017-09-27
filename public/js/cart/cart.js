@@ -51,36 +51,37 @@ function Cart() {
         onInitCallback: undefined
     };
 
-    ctx.onInit = function (callback) {
-        if (callback) {
-            ctx.cartFunctions.onInitCallback = callback;
-        }
-    };
+    // ctx.onInit = function (callback) {
+    //     if (callback) {
+    //         ctx.cartFunctions.onInitCallback = callback;
+    //     }
+    // };
 
     //initialize functions
     ctx.init = function () {
 
         //initializing cart on page loading
         ctx.cartFunctions.initCart = function () {
+            CART_W_S = new WaitSync(function () {
+                $.ajax({
+                    type: 'get',
+                    url: buildUrlWithLang('/cart/init-cart'),
+                    // cache: false,
+                    success: function (data) {
+                        ctx.cartFunctions.renderBigCart(data.bigCartView);
+                        ctx.cartFunctions.renderMiniCart(data.miniCartView);
+                        ctx.cartFunctions.initButtons(data.inCartIds);
+                        ctx.cartFunctions.initTotalAmount(data.totalProductsAmount);
+                        ctx.cartFunctions.initProductsCount(data.totalProductsCount);
 
-            $.ajax({
-                type: 'get',
-                url: buildUrlWithLang('/cart/init-cart'),
-                // cache: false,
-                success: function (data) {
-                    ctx.cartFunctions.renderBigCart(data.bigCartView);
-                    ctx.cartFunctions.renderMiniCart(data.miniCartView);
-                    ctx.cartFunctions.initButtons(data.inCartIds);
-                    ctx.cartFunctions.initTotalAmount(data.totalProductsAmount);
-                    ctx.cartFunctions.initProductsCount(data.totalProductsCount);
-
-                    if (ctx.cartFunctions.onInitCallback) {
-                        ctx.cartFunctions.onInitCallback();
+                        // if (ctx.cartFunctions.onInitCallback) {
+                        //     ctx.cartFunctions.onInitCallback();
+                        // }
+                    },
+                    error: function (data) {
+                        // showPopup(ServerError);
                     }
-                },
-                error: function (data) {
-                    // showPopup(ServerError);
-                }
+                });
             });
 
         };
@@ -427,13 +428,15 @@ function Cart() {
     ctx.launch();
 }
 
-(new Cart()).onInit(Launch);
+// (new Cart()).onInit(Launch);
 
 // $(window).load(function () {
 //
 // });
 
 
-// $(document).ready(function()
-// {
-// });
+new Cart();
+
+$(document).ready(function()
+{
+});

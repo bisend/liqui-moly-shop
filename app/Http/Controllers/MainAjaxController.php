@@ -11,6 +11,8 @@ class MainAjaxController extends LayoutController
 {
     public $isOrderCreated = false;
 
+    public $isUserAuth = false;
+
     public function index()
     {
         if (Session::has('isOrderCreated'))
@@ -28,9 +30,15 @@ class MainAjaxController extends LayoutController
             }
         }
 
+        if (auth()->check())
+        {
+            $this->isUserAuth = true;
+        }
+
         return response()->json([
             'status' => 'success',
-            'isOrderCreated' => $this->isOrderCreated
+            'isOrderCreated' => $this->isOrderCreated,
+            'isUserAuth' => $this->isUserAuth
         ]);
     }
 }
