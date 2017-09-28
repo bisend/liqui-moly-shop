@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\OrderProduct whereProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\OrderProduct whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\DatabaseModels\Product $product
  */
 class OrderProduct extends Model
 {

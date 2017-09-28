@@ -1,3 +1,4 @@
+var WISH_LIST_PAGE = 1;
 function WishList() {
     var ctx = this,
         $body = $('body'),
@@ -7,7 +8,8 @@ function WishList() {
                 deleteFromWishList: '[data-delete-from-wish-list]',
                 wishListTotalCount: '[data-wish-list-mini-total-count]',
                 wishListOpenBtn: '[data-open-wish-list-mini]',
-                wishListMiniContainer: '[data-wish-list-mini-container]'
+                wishListMiniContainer: '[data-wish-list-mini-container]',
+                wishListContainer: '[data-wish-list-container]'
             }
         },
         $elems = {
@@ -16,7 +18,8 @@ function WishList() {
                 deleteFromWishList: $(elems.wishList.deleteFromWishList),
                 wishListTotalCount: $(elems.wishList.wishListTotalCount),
                 wishListOpenBtn: $(elems.wishList.wishListOpenBtn),
-                wishListMiniContainer: $(elems.wishList.wishListMiniContainer)
+                wishListMiniContainer: $(elems.wishList.wishListMiniContainer),
+                wishListContainer: $(elems.wishList.wishListContainer)
             }
         },
         vars = {
@@ -28,7 +31,8 @@ function WishList() {
     var initWishList,
         addToWishList,
         deleteFromWishList,
-        initButtons;
+        initButtons,
+        initAjaxWishView;
     
     ctx.init = function () {
         initButtons = function (inWishIds) {
@@ -119,7 +123,7 @@ function WishList() {
         };
 
 
-        deleteFromWishList = function (wishListProductId) {
+        deleteFromWishList = function (wishListProductId, page) {
             if (vars.wishList.isDataProcessing)
             {
                 return false;
@@ -134,6 +138,7 @@ function WishList() {
                 url: '/profile/delete-wish-list-product',
                 data: {
                     wishListProductId: wishListProductId,
+                    page: page,
                     language: LANGUAGE
                 },
                 success: function (data) {
@@ -143,7 +148,12 @@ function WishList() {
 
                     if (data.status == 'success')
                     {
-                        location.reload();
+                        // location.reload();
+                        $elems.wishList.wishListTotalCount.text(data.wishListTotalCount);
+
+                        $elems.wishList.wishListMiniContainer.html(data.miniWishListView);
+
+                        $elems.wishList.wishListContainer.html(data.bigWishListView);
                     }
                 },
                 error: function (error) {
@@ -155,9 +165,60 @@ function WishList() {
                 }
             });
         };
+
+        initAjaxWishView = function (page) {
+            if (vars.wishList.isDataProcessing)
+            {
+                return false;
+            }
+
+            vars.wishList.isDataProcessing = true;
+
+            showLoader();
+
+            $.ajax({
+                type: 'post',
+                url: '/profile/init-wish-list-view',
+                data: {
+                    page: page,
+                    language: LANGUAGE
+                },
+                success: function (data) {
+                    vars.wishList.isDataProcessing = false;
+
+                    hideLoader();
+
+                    if (data.status == 'success')
+                    {
+                        // location.reload();
+                        $elems.wishList.wishListContainer.html(data.bigWishListView);
+                    }
+                },
+                error: function (error) {
+                    vars.wishList.isDataProcessing = false;
+
+                    hideLoader();
+
+                    showPopup(ServerError);
+                }
+
+            });
+        };
     };
     
     ctx.subscribe = function () {
+        $('body').on('click', '[data-wish-list-pagination]', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            WISH_LIST_PAGE = $(this).attr('data-wish-list-pagination');
+
+            initAjaxWishView(WISH_LIST_PAGE);
+
+            // alert(WISH_LIST_PAGE);
+            // setProfileContent('orders');
+        });
+        
         $body.on('click', elems.wishList.addToWishList, function (e) {
 
             if (IS_USER_AUTH)
@@ -183,7 +244,7 @@ function WishList() {
         $body.on('click', elems.wishList.deleteFromWishList, function (e) {
             var wishListProductId = $(this).attr('data-delete-from-wish-list');
 
-            deleteFromWishList(wishListProductId);
+            deleteFromWishList(wishListProductId, WISH_LIST_PAGE);
         });
 
         $body.on('click', elems.wishList.wishListOpenBtn, function (e) {

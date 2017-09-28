@@ -66,11 +66,69 @@ class WishlistController extends LayoutController
     public function deleteFromWishList()
     {
         $wishListProductId = request('wishListProductId');
+
+        $language = request('language');
+
+        $page = request('page');
+
+        if (auth()->check())
+        {
+            $user = auth()->user();
+
+            $wishList = $this->wishListRepository->getWishList($user->id);
+
+            $wishListId = $wishList->id;
+        }
+        else
+        {
+            return response()->json([
+                'status' => 'error'
+            ]);
+        }
         
         $this->profileService->deleteFromWishList($wishListProductId);
+
+        $model = new WishlistViewModel($page, $language);
+
+        $this->profileService->fill($model);
+
+        $this->profileService->fillWishList($model, $user);
+
+        $this->profileService->fillCountWishListProducts($model);
+
+        $this->profileService->fillWishListProducts($model);
+
+        if ($page > 1 && $model->wishListProducts->count() < 1)
+        {
+            $page -= 1;
+
+            $model = new WishlistViewModel($page, $language);
+
+            $this->profileService->fill($model);
+
+            $this->profileService->fillWishList($model, $user);
+
+            $this->profileService->fillCountWishListProducts($model);
+
+            $this->profileService->fillWishListProducts($model);
+        }
+
+        $wishListTotalCount = $this->wishListProductRepository->getCountWishListProducts($wishListId);
+
+        $wishListProducts = $this->wishListProductRepository->getMiniWishListProducts($language, $wishListId);
+
+        $miniWishListView = view('pages.profile.wish-list-mini', compact('wishListProducts', 'language'))->render();
+        
+        $bigWishListView = view('pages.profile.wish-list-big', compact('model', 'language'))->render();
+
+        \Debugbar::info($page);
         
         return response()->json([
-            'status' => 'success'
+            'status' => 'success',
+            'wishListTotalCount' => $wishListTotalCount,
+            'miniWishListView' => $miniWishListView,
+            'bigWishListView' => $bigWishListView,
+            'page' => $page
         ]);
     }
 
@@ -139,12 +197,37 @@ class WishlistController extends LayoutController
             $miniWishListView = view('pages.profile.wish-list-mini', compact('wishListProducts', 'language'))->render();
         }
 
-
         return response()->json([
             'status' => 'success',
             'inWishIds' => $wishListIds,
             'wishListTotalCount' => $wishListTotalCount,
             'miniWishListView' => $miniWishListView
+        ]);
+    }
+
+    public function initWishListView()
+    {
+        $page = request('page');
+
+        $language = request('language');
+
+        $user = auth()->user();
+
+        $model = new WishlistViewModel($page, $language);
+
+        $this->profileService->fill($model);
+
+        $this->profileService->fillWishList($model, $user);
+
+        $this->profileService->fillCountWishListProducts($model);
+
+        $this->profileService->fillWishListProducts($model);
+
+        $bigWishListView = view('pages.profile.wish-list-big', compact('model', 'wishListProducts', 'language'))->render();
+        
+        return response()->json([
+            'status' => 'success',
+            'bigWishListView' => $bigWishListView
         ]);
     }
 }

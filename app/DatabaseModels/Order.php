@@ -38,6 +38,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Order whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Order whereUsername($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\DatabaseModels\OrderProduct[] $order_products
  */
 class Order extends Model
 {

@@ -26,6 +26,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Image whereSmall($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Image whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string|null $main_slider
+ * @property string|null $top_banner
+ * @property string|null $bottom_banner
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Image whereBottomBanner($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Image whereMainSlider($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Image whereTopBanner($value)
  */
 class Image extends Model
 {

@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\WishListProduct whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\WishListProduct whereWishListId($value)
  * @mixin \Eloquent
+ * @property-read \App\DatabaseModels\Product $product
  */
 class WishListProduct extends Model
 {

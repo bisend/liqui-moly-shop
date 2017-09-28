@@ -179,11 +179,13 @@ Route::group(['prefix' => 'profile'], function ()
 
     Route::post('/change-password', 'Profile\ChangePasswordController@changePassword');
     
-    Route::post('/delete-wish-list-product', 'Profile\WishListController@deleteFromWishList');
+    Route::post('/delete-wish-list-product', 'Profile\WishlistController@deleteFromWishList');
     
-    Route::post('/add-to-wish-list-product', 'Profile\WishListController@addWishListProduct');
+    Route::post('/add-to-wish-list-product', 'Profile\WishlistController@addWishListProduct');
     
-    Route::post('/init-wish-list', 'Profile\WishListController@initWishList');
+    Route::post('/init-wish-list', 'Profile\WishlistController@initWishList');
+    
+    Route::post('/init-wish-list-view', 'Profile\WishlistController@initWishListView');
 });
 
 

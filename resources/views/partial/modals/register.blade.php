@@ -29,6 +29,20 @@
                 {{--FORM--}}
                 <form class="form-horizontal" role="form" method="post" action="/register" data-register-form>
                     {{ csrf_field() }}
+
+                    <div class="form-group">
+
+                        <div class="col-sm-12">
+                            <input type="text"
+                                   name="name"
+                                   data-register-name
+                                   class="form-control"
+                                   id="inputLogin3"
+                                   placeholder="Ім'я"
+                            >
+                        </div>
+                    </div>
+
                     <div class="form-group">
 
                         <div class="col-sm-12">
@@ -41,18 +55,7 @@
                                    >
                         </div>
                     </div>
-                    <div class="form-group">
 
-                        <div class="col-sm-12">
-                            <input type="text"
-                                   name="name"
-                                   data-register-name
-                                   class="form-control"
-                                   id="inputLogin3"
-                                   placeholder="Ім'я"
-                                   >
-                        </div>
-                    </div>
                     <div class="form-group">
 
                         <div class="col-sm-12">

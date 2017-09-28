@@ -12,7 +12,9 @@
                     {{--PREV PAGE--}}
                     @if($isPrev)
                         <li>
-                            <a href="{{ url_wish_list_per_page($model->page - 1, $model->language) }}"
+                            {{--<a href="{{ url_wish_list_per_page($model->page - 1, $model->language) }}"--}}
+                            <a href="javascript:void(0);"
+                               data-wish-list-pagination="{{ $model->page - 1 }}"
                                class="disabled"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
                         </li>
                     @else
@@ -35,7 +37,9 @@
                                         {{ $page }}
                                     </a>
                                 @else
-                                    <a href="{{ url_wish_list_per_page($page, $model->language) }}">
+                                    {{--<a href="{{ url_wish_list_per_page($page, $model->language) }}">--}}
+                                    <a href="javascript:void(0);"
+                                       data-wish-list-pagination="{{ $page }}" >
                                         {{ $page }}
                                     </a>
                                 @endif
@@ -47,7 +51,9 @@
                     {{--NEXT PAGE--}}
                     @if($isNext)
                         <li>
-                            <a href="{{ url_wish_list_per_page($model->page + 1, $model->language) }}">
+{{--                            <a href="{{ url_wish_list_per_page($model->page + 1, $model->language) }}">--}}
+                            <a href="javascript:void(0);"
+                               data-wish-list-pagination="{{ $model->page + 1 }}" >
                                 <i class="fa fa-chevron-right" aria-hidden="true"></i>
                             </a>
                         </li>

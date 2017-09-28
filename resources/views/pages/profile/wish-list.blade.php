@@ -77,7 +77,7 @@
                                 <div class="col-lg-12 center-block page-wishlist style-cart-page">
 
                                     <div class="items-holder">
-                                        <div class="container-fluid wishlist_table">
+                                        <div class="container-fluid wishlist_table" data-wish-list-container>
                                             @if($model->wishListProducts->count() > 0)
                                                 @foreach($model->wishListProducts as $wishListProduct)
                                                     <div class="row cart-item cart_item" id="yith-wcwl-row-1">
