@@ -37,6 +37,7 @@
 <script defer src="/js/cart/cart.js"></script>
 <script defer src="/js/profile/wish-list.js"></script>
 <script defer src="/js/review/review.js"></script>
+<script defer src="/js/call/order-call.js"></script>
 
 
 <!--Page JS BEGIN-->

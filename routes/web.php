@@ -192,6 +192,8 @@ Route::group(['prefix' => 'profile'], function ()
 
 Route::post('/add-review', 'ReviewController@addReview');
 
+Route::post('/order-call', 'CallController@orderCall');
+
 //Route::get('change-password', 'HomeController@showChangePasswordForm');
 //Route::post('change-password', 'HomeController@changePassword');
 
