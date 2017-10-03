@@ -158,21 +158,12 @@ function Category() {
     // Launcher
     ctx.launch();
 }
-
-
-
-
-
-
-var category = new Category();
-
 // (function () {
 // })();
 //
-// $(document).ready()
-// {
-//
-// }
-
+new Category();
 // $(window).load( function () {
+// });
+
+// $(document).ready(function () {
 // });

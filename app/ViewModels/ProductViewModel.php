@@ -17,11 +17,25 @@ class ProductViewModel extends LayoutViewModel
     public $properties;
     
     public $visitedProducts;
+
+    public $productReviewsOffset;
+
+    public $productReviewsLimit = 5;
+
+    public $page = 1;
     
-    public function __construct($productSlug, $language)
+    public $productReviewsCount;
+    
+    public $productReviews;
+    
+    public function __construct($productSlug, $page = 1, $language)
     {
         parent::__construct('product', $language);
         
         $this->productSlug = $productSlug;
+        
+        $this->page = $page;
+
+        $this->productReviewsOffset = ($this->page - 1) * $this->productReviewsLimit;
     }
 }

@@ -22,7 +22,8 @@ var IncorrectFieldClass = 'incorrect-field',
     PASSWORD_CHANGED_MESSAGE = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Пароль змінено.' : 'Пароль сохранен.',
     WRONG_OLD_PASSWORD = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Неправильний старий пароль.' : 'Неверный старый пароль.',
     IN_WISH = (LANGUAGE == DEFAULT_LANGUAGE) ? 'В обраному' : 'В избранном',
-    ADD_TO_WISH = (LANGUAGE == DEFAULT_LANGUAGE) ? 'В обране' : 'В избранное';
+    ADD_TO_WISH = (LANGUAGE == DEFAULT_LANGUAGE) ? 'В обране' : 'В избранное',
+    REVIEW_ADDED = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Дякуємо! Модератор перегляне Ваш відгук, після чого він з`явиться на сайті.' : 'Спасибо! Модератор пересмотрит Ваш отзыв, после чего он появится на сайте.';
 
 $.ajaxSetup({
     headers: {

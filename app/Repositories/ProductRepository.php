@@ -6,6 +6,7 @@ use App\DatabaseModels\Product;
 use App\DatabaseModels\ProductCategory;
 use App\DatabaseModels\Property;
 use App\Helpers\Languages;
+use DB;
 
 /**
  * Class ProductRepository
@@ -27,7 +28,12 @@ class ProductRepository
     public function getTopSalesProductsByLanguage($language = Languages::DEFAULT_LANGUAGE)
     {
         return Product::with([
-            'images'
+            'images',
+            'reviews' => function($query) {
+                $query->select([
+                    'product_id'
+                ]);
+            }
         ])
             ->join('promotions', 'promotions.product_id', '=', 'products.id')
             ->join('product_statuses', 'promotions.product_status_id', '=', 'product_statuses.id')
@@ -40,8 +46,9 @@ class ProductRepository
                 'products.old_price',
                 'products.price',
                 'products.priority',
+                'products.avg_rating',
                 "products.name_$language as name",
-                "products.name_slug"
+                "products.name_slug",
             ]);
     }
 
@@ -53,7 +60,12 @@ class ProductRepository
     public function getNoveltyProductsByLanguage($language = Languages::DEFAULT_LANGUAGE)
     {
         return Product::with([
-            'images'
+            'images',
+            'reviews' => function($query) {
+                $query->select([
+                    'product_id'
+                ]);
+            }
         ])
             ->join('promotions', 'promotions.product_id', '=', 'products.id')
             ->join('product_statuses', 'promotions.product_status_id', '=', 'product_statuses.id')
@@ -66,6 +78,7 @@ class ProductRepository
                 'products.old_price',
                 'products.price',
                 'products.priority',
+                'products.avg_rating',
                 "products.name_$language as name",
                 "products.name_slug"
             ]);
@@ -79,7 +92,12 @@ class ProductRepository
     public function getSeasonalGoodsByLanguage($language = Languages::DEFAULT_LANGUAGE)
     {
         return Product::with([
-            'images'
+            'images',
+            'reviews' => function($query) {
+                $query->select([
+                    'product_id'
+                ]);
+            }
         ])
             ->join('promotions', 'promotions.product_id', '=', 'products.id')
             ->join('product_statuses', 'promotions.product_status_id', '=', 'product_statuses.id')
@@ -92,6 +110,7 @@ class ProductRepository
                 'products.old_price',
                 'products.price',
                 'products.priority',
+                'products.avg_rating',
                 "products.name_$language as name",
                 "products.name_slug"
             ]);
@@ -105,7 +124,12 @@ class ProductRepository
     public function getPromotionalProductByLanguage($language = Languages::DEFAULT_LANGUAGE)
     {
         $products =  Product::with([
-            'images'
+            'images',
+            'reviews' => function($query) {
+                $query->select([
+                    'product_id'
+                ]);
+            }
         ])
             ->join('promotions', 'promotions.product_id', '=', 'products.id')
             ->join('product_statuses', 'promotions.product_status_id', '=', 'product_statuses.id')
@@ -117,6 +141,7 @@ class ProductRepository
                 'products.old_price',
                 'products.price',
                 'products.priority',
+                'products.avg_rating',
                 "products.name_$language as name",
                 "products.name_slug"
             ]);
@@ -171,7 +196,12 @@ class ProductRepository
 //            ]);
 
         $query = Product::with([
-                'images'
+                'images',
+                'reviews' => function($query) {
+                    $query->select([
+                        'product_id'
+                    ]);
+                }
             ])
             ->join('product_category', function ($query) use ($currentCategory) {
 //            ->join(\DB::raw('product_category FORCE INDEX FOR JOIN (test)'), function ($query) use ($currentCategory) {
@@ -192,7 +222,8 @@ class ProductRepository
                 'products.id',
                 "name_$language as name",
                 'name_slug',
-                'price'
+                'price',
+                'avg_rating'
             ]);
     }
 
@@ -211,10 +242,14 @@ class ProductRepository
             'name_slug',
             'old_price',
             'price',
+            'avg_rating',
             "description_$language as description",
             'in_stock'
         ])->with([
             'images',
+//            'reviews' => function($query) {
+//                $query->where('is_moderated', '=', true);
+//            }
         ])
             ->whereNameSlug($slug)
             ->first();
@@ -263,7 +298,12 @@ class ProductRepository
         $idsImploded = implode(',',$productsIds);
 
         return Product::with([
-            'images'
+            'images',
+            'reviews' => function($query) {
+                $query->select([
+                    'product_id'
+                ]);
+            }
         ])
             ->whereIn('id', $productsIds)
             ->orderByRaw("field(id,{$idsImploded})", $productsIds)
@@ -274,6 +314,7 @@ class ProductRepository
                 'name_slug',
                 'old_price',
                 'price',
+                'avg_rating'
             ]);
     }
 
@@ -383,7 +424,12 @@ class ProductRepository
         $series = implode($this->likeSeparator, $words);
         
         $query = Product::with([
-            'images'
+            'images',
+            'reviews' => function($query) {
+                $query->select([
+                    'product_id'
+                ]);
+            }
         ])
             ->where(function ($query) use ($series, $seriesReverse) {
                 $query->where("name_uk", 'like', '%' . $series . '%');
@@ -405,6 +451,7 @@ class ProductRepository
             'name_slug',
             'old_price',
             'price',
+            'avg_rating'
         ]);
 
     }

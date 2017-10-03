@@ -248,44 +248,44 @@
     /*  STAR RATING
     /*===================================================================================*/
 
-    $(document).ready(function () {
-
-        if ($('.star').length > 0) {
-            $('.star').each(function(){
-                    var $star = $(this);
-
-                    if($star.hasClass('big')){
-                        $star.raty({
-                            starOff: '/img/star-big-off.png',
-                            starOn: '/img/star-big-on.png',
-                            space: false,
-                            score: function() {
-                                return $(this).attr('data-score');
-                            }
-                        });
-                    }else{
-                     $star.raty({
-                        starOff: '/img/star-off.png',
-                        starOn: '/img/star-on.png',
-                        space: false,
-                        score: function() {
-                            return $(this).attr('data-score');
-                        }
-                    });
-                }
-            });
-        }
-    });
+    // $(document).ready(function () {
+    //
+    //     if ($('.star').length > 0) {
+    //         $('.star').each(function(){
+    //                 var $star = $(this);
+    //
+    //                 if($star.hasClass('big')){
+    //                     $star.raty({
+    //                         starOff: '/img/star-big-off.png',
+    //                         starOn: '/img/star-big-on.png',
+    //                         space: false,
+    //                         score: function() {
+    //                             return $(this).attr('data-score');
+    //                         }
+    //                     });
+    //                 }else{
+    //                  $star.raty({
+    //                     starOff: '/img/star-off.png',
+    //                     starOn: '/img/star-on.png',
+    //                     space: false,
+    //                     score: function() {
+    //                         return $(this).attr('data-score');
+    //                     }
+    //                 });
+    //             }
+    //         });
+    //     }
+    // });
 
     /*===================================================================================*/
     /*  SHARE THIS BUTTONS
     /*===================================================================================*/
 
-    $(document).ready(function () {
-        if($('.social-row').length > 0){
-            stLight.options({publisher: "2512508a-5f0b-47c2-b42d-bde4413cb7d8", doNotHash: false, doNotCopy: false, hashAddressBar: false});
-        }
-    });
+    // $(document).ready(function () {
+    //     if($('.social-row').length > 0){
+    //         stLight.options({publisher: "2512508a-5f0b-47c2-b42d-bde4413cb7d8", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+    //     }
+    // });
 
     /*===================================================================================*/
     /*  CUSTOM CONTROLS

@@ -123,7 +123,7 @@ function WishList() {
         };
 
 
-        deleteFromWishList = function (wishListProductId, page) {
+        deleteFromWishList = function (wishListProductId, page, productId) {
             if (vars.wishList.isDataProcessing)
             {
                 return false;
@@ -148,7 +148,11 @@ function WishList() {
 
                     if (data.status == 'success')
                     {
-                        // location.reload();
+                        $('[data-add-to-wish-list="' + productId + '"]').text(ADD_TO_WISH)
+                            .attr('data-in-wish-list', 'false')
+                            .removeClass('btn-add-to-wish-list-active')
+                            .addClass('btn-add-to-wishlist');
+
                         $elems.wishList.wishListTotalCount.text(data.wishListTotalCount);
 
                         $elems.wishList.wishListMiniContainer.html(data.miniWishListView);
@@ -243,8 +247,8 @@ function WishList() {
         
         $body.on('click', elems.wishList.deleteFromWishList, function (e) {
             var wishListProductId = $(this).attr('data-delete-from-wish-list');
-
-            deleteFromWishList(wishListProductId, WISH_LIST_PAGE);
+            var productId = $(this).attr('data-delete-from-wish-list-product-id');
+            deleteFromWishList(wishListProductId, WISH_LIST_PAGE, productId);
         });
 
         $body.on('click', elems.wishList.wishListOpenBtn, function (e) {

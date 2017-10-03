@@ -7,16 +7,52 @@
                     <div class="image">
                         <a href="{{ url_product($novelty->name_slug, $model->language) }}">
                             <img alt="{{ $novelty->name }}" src="{{ $novelty->images[0]->small }}">
-                            {{--<img alt="{{ $novelty->name }}" src="/img/900.jpg">--}}
                         </a>
                     </div>
                     <div class="body">
 
                         <div class="title title-product-tabs">
-                            <a href="{{ url_product($novelty->name_slug, $model->language) }}">{{ $novelty->name }} </a>
+                            <a href="{{ url_product($novelty->name_slug, $model->language) }}">
+                                {{ $novelty->name }}
+                            </a>
                         </div>
-                        <div class="star-holder inline"><div class="star" data-score="4"></div></div>
-                        <div class="product-comments"><a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> <span>10</span> відгуків</a></div>
+
+                        <div class="star-holder inline">
+                            <div class="star" data-score="4">
+                                @for($i = 1; $i <= 5; $i++)
+                                    @if($novelty->avg_rating != null)
+                                        @if($i <= $novelty->avg_rating)
+                                            <img src="/img/star-on.png" alt="{{  $i }}">
+                                        @else
+                                            <img src="/img/star-off.png" alt="{{  $i }}">
+                                        @endif
+                                    @else
+                                        <img src="/img/star-on.png" alt="{{  $i }}">
+                                    @endif
+                                @endfor
+                            </div>
+                        </div>
+
+                        <div class="product-comments">
+                            @if($novelty->avg_rating != null)
+                                <a href="javascript:void(0);"
+                                   data-go-to-review-id="{{ $novelty->id }}"
+                                   data-go-to-review-slug="{{ $novelty->name_slug }}"
+                                   title="Відгуки">
+                                    <i class="fa fa-comment-o" aria-hidden="true"></i>
+                                    <span></span>
+                                    {{ $novelty->reviews->count() }}
+                                </a>
+                            @else
+                                <a href="javascript:void(0);" title="Відгуки"
+                                   data-set-review-slug="{{ $novelty->name_slug }}"
+                                   data-set-review-id="{{ $novelty->id }}">
+                                    <i class="fa fa-comment-o" aria-hidden="true"></i>
+                                    <span></span>
+                                    Залишити відгук
+                                </a>
+                            @endif
+                        </div>
 
                     </div>
                     <div class="prices">

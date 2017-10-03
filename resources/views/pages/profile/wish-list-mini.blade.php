@@ -25,6 +25,7 @@
                     </div>
                     <a class="close-btn"
                        data-delete-from-wish-list="{{ $wishListProduct->id }}"
+                       data-delete-from-wish-list-product-id="{{ $wishListProduct->product_id }}"
                        href="javascript:void(0);"></a>
                 </div>
             </li>

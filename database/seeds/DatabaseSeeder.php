@@ -45,5 +45,9 @@ class DatabaseSeeder extends Seeder
 //        $this->call(ProductsCategoryPathSeeder::class);
         
 //        $this->call(PromotionsTableSeeder::class);
+        
+//        $this->call(ReviewsTableSeeder::class);
+        
+//        $this->call(ProductRatingPatchSeeder::class);
     }
 }

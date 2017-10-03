@@ -46,6 +46,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Product whereInStock($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Product whereNumberOfViews($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Product wherePriority($value)
+ * @property float|null $avg_rating
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Product whereAvgRating($value)
  */
 class Product extends Model
 {
@@ -69,5 +71,10 @@ class Product extends Model
     public function properties()
     {
         return $this->belongsTo(Property::class, 'id', 'product_id');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'product_id', 'id');
     }
 }

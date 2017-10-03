@@ -21,7 +21,7 @@ class CreateReviewsTable extends Migration
             //foreign key references to id on products table
             $table->integer('product_id')->unsigned();
             //foreign key references to id on users table
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->nullable();
             
             
             //review text

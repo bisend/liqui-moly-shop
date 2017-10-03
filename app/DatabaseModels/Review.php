@@ -22,6 +22,14 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Review whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Review whereUserId($value)
  * @mixin \Eloquent
+ * @property string $username
+ * @property string $email
+ * @property bool $is_moderated
+ * @property float $rating
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Review whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Review whereIsModerated($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Review whereRating($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Review whereUsername($value)
  */
 class Review extends Model
 {

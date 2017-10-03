@@ -36,6 +36,7 @@
 <script defer src="/js/auth/restore-password.js"></script>
 <script defer src="/js/cart/cart.js"></script>
 <script defer src="/js/profile/wish-list.js"></script>
+<script defer src="/js/review/review.js"></script>
 
 
 <!--Page JS BEGIN-->

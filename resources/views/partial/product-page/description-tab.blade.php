@@ -1,4 +1,4 @@
-<div class="tab-pane active" id="description">
+<div class="tab-pane" id="description">
     <p>
         {{ $model->product->description }}
     </p>

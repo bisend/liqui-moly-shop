@@ -61,6 +61,8 @@ Route::get('/product/{slug}/{language?}', 'ProductController@index')
         'language' => '^(uk|ru)?$'
     ]);
 
+Route::post('/init-product-reviews', 'ProductController@initReviewsView');
+
 
 Route::group(['prefix' => 'errors'], function ()
 {
@@ -188,6 +190,7 @@ Route::group(['prefix' => 'profile'], function ()
     Route::post('/init-wish-list-view', 'Profile\WishlistController@initWishListView');
 });
 
+Route::post('/add-review', 'ReviewController@addReview');
 
 //Route::get('change-password', 'HomeController@showChangePasswordForm');
 //Route::post('change-password', 'HomeController@changePassword');

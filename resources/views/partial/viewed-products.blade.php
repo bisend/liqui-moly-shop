@@ -6,20 +6,23 @@
                 <div class="title-nav">
                     <h2 class="h1">Переглянуті товари</h2>
                     <div class="nav-holder">
-                        <a href="#prev" data-target="#owl-recently-viewed" class="slider-prev btn-prev fa fa-angle-left"></a>
-                        <a href="#next" data-target="#owl-recently-viewed" class="slider-next btn-next fa fa-angle-right"></a>
+                        <a href="#prev"
+                           data-target="#owl-recently-viewed" class="slider-prev btn-prev fa fa-angle-left"></a>
+                        <a href="#next"
+                           data-target="#owl-recently-viewed" class="slider-next btn-next fa fa-angle-right"></a>
                     </div>
                 </div><!-- /.title-nav -->
 
-                <div id="owl-recently-viewed" class="owl-carousel product-grid-holder owl-carousel-smoll-products-reviewd">
+                <div id="owl-recently-viewed"
+                     class="owl-carousel product-grid-holder owl-carousel-smoll-products-reviewd">
                     @foreach(($model->visitedProducts) as $visitedProduct)
                         <div class="no-margin carousel-item product-item-holder size-small hover">
                             <div class="product-item">
                                 {{--<div class="ribbon red"><span>sale</span></div>--}}
                                 <div class="image">
                                     <a href="{{ url_product($visitedProduct->name_slug, $model->language) }}">
-                                        <img alt="{{ $visitedProduct->name }}" src="{{ $visitedProduct->images[0]->small }}">
-{{--                                        <img alt="{{ $visitedProduct->name }}" src="/img/900.jpg">--}}
+                                        <img alt="{{ $visitedProduct->name }}"
+                                             src="{{ $visitedProduct->images[0]->small }}">
                                     </a>
                                 </div>
                                 <div class="body">
@@ -28,13 +31,43 @@
                                             {{ $visitedProduct->name }}
                                         </a>
                                     </div>
+
                                     <div class="star-holder inline">
-                                        <div class="star" data-score="4"></div>
+                                        <div class="star" data-score="4">
+                                            @for($i = 1; $i <= 5; $i++)
+                                                @if($visitedProduct->avg_rating != null)
+                                                    @if($i <= $visitedProduct->avg_rating)
+                                                        <img src="/img/star-on.png" alt="{{  $i }}">
+                                                    @else
+                                                        <img src="/img/star-off.png" alt="{{  $i }}">
+                                                    @endif
+                                                @else
+                                                    <img src="/img/star-on.png" alt="{{  $i }}">
+                                                @endif
+                                            @endfor
+                                        </div>
                                     </div>
-                                    <div class="product-comments product-comments-smoll"><a href="">
-                                            <i class="fa fa-comment-o" aria-hidden="true"></i>
-                                            <span>10</span> відгуків</a>
+                                    <div class="product-comments product-comments-smoll">
+                                        @if($visitedProduct->avg_rating != null)
+                                            <a href="javascript:void(0);"
+                                               data-go-to-review-id="{{ $visitedProduct->id }}"
+                                               data-go-to-review-slug="{{ $visitedProduct->name_slug }}"
+                                               title="Відгуки">
+                                                <i class="fa fa-comment-o" aria-hidden="true"></i>
+                                                <span></span>
+                                                {{ $visitedProduct->reviews->count() }}
+                                            </a>
+                                        @else
+                                            <a href="javascript:void(0);" title="Відгуки"
+                                               data-set-review-slug="{{ $visitedProduct->name_slug }}"
+                                               data-set-review-id="{{ $visitedProduct->id }}">
+                                                <i class="fa fa-comment-o" aria-hidden="true"></i>
+                                                <span></span>
+                                                Залишити відгук
+                                            </a>
+                                        @endif
                                     </div>
+
                                 </div>
                                 <div class="prices">
                                     <div class="price-current text-right">{{ $visitedProduct->price }} грн</div>

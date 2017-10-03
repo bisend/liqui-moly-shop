@@ -25,6 +25,8 @@
 
 
     <div id="single-product" data-single-poduct-id="{{ $model->product->id }}">
+        <input type="hidden" value="{{ $model->product->name_slug }}" data-product-slug>
+        <input type="hidden" value="{{ $model->product->id }}" data-product-id>
         <div class="container">
 
             <div class="no-margin col-xs-12 col-sm-6 col-md-5 gallery-holder">
@@ -107,7 +109,19 @@
                     </div>
 
                     <div class="star-holder inline">
-                        <div class="star" data-score="4"></div>
+                        <div class="star" data-score="4" style="cursor: pointer; width: 80px;">
+                            @for($i = 1; $i <= 5; $i++)
+                                @if($model->product->avg_rating != null)
+                                    @if($i <= $model->product->avg_rating)
+                                        <img src="/img/star-on.png" alt="{{  $i }}">
+                                    @else
+                                        <img src="/img/star-off.png" alt="{{  $i }}">
+                                    @endif
+                                @else
+                                    <img src="/img/star-on.png" alt="{{  $i }}">
+                                @endif
+                            @endfor
+                        </div>
                     </div>
 
                     <div class="prices">
@@ -171,26 +185,27 @@
 
                 <ul class="nav nav-tabs simple" >
                     <li class="active">
+                        <a href="#reviews" data-review-scroll-tab data-toggle="tab">Відгуки</a>
+                    </li>
+                    <li>
                         <a href="#description" data-toggle="tab">Опис</a>
                     </li>
-                    <li>
-                        <a href="#additional-info" data-toggle="tab">Характеристики</a>
-                    </li>
-                    <li>
-                        <a href="#reviews" data-toggle="tab">Відгуки</a>
-                    </li>
+                    {{--<li>--}}
+                    {{--<a href="#additional-info" data-toggle="tab">Характеристики</a>--}}
+                    {{--</li>--}}
                 </ul><!-- /.nav-tabs -->
 
                 <div class="tab-content">
+                    {{--REVIEWS TAB--}}
+                    @include('partial.product-page.reviews-tab')
 
                     {{--DESCRIPTION TAB--}}
                     @include('partial.product-page.description-tab')
 
                     {{--PROPERTIES TAB--}}
-                    @include('partial.product-page.properties-tab')
+                    {{--@include('partial.product-page.properties-tab')--}}
 
-                    {{--REVIEWS TAB--}}
-                    @include('partial.product-page.reviews-tab')
+
 
                 </div><!-- /.tab-content -->
 
@@ -204,3 +219,7 @@
     <!-- ========================================= RECENTLY VIEWED : END ========================================= -->
 
 @endsection
+
+@push('js')
+<script defer src="/js/product/product.js"></script>
+@endpush

@@ -86,6 +86,7 @@
                                                             <a title="Видалити цей товар"
                                                                class="remove_from_wishlist remove-item"
                                                                data-delete-from-wish-list="{{ $wishListProduct->id }}"
+                                                               data-delete-from-wish-list-product-id="{{ $wishListProduct->product_id }}"
                                                                href="javascript:void(0);">×</a>
                                                         </div>
 

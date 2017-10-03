@@ -15,9 +15,40 @@
                         <div class="title title-product-tabs" >
                             <a href="{{ url_product($topSale->name_slug, $model->language) }}">{{ $topSale->name }} </a>
                         </div>
-                        <div class="star-holder inline"><div class="star" data-score="4"></div></div>
+                        <div class="star-holder inline">
+                            <div class="star" data-score="4">
+                                @for($i = 1; $i <= 5; $i++)
+                                    @if($topSale->avg_rating != null)
+                                        @if($i <= $topSale->avg_rating)
+                                            <img src="/img/star-on.png" alt="{{  $i }}">
+                                        @else
+                                            <img src="/img/star-off.png" alt="{{  $i }}">
+                                        @endif
+                                    @else
+                                        <img src="/img/star-on.png" alt="{{  $i }}">
+                                    @endif
+                                @endfor
+                            </div>
+                        </div>
                         <div class="product-comments">
-                            <a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> <span></span> Залишити відгук</a>
+                            @if($topSale->avg_rating != null)
+                                <a href="javascript:void(0);"
+                                   data-go-to-review-id="{{ $topSale->id }}"
+                                   data-go-to-review-slug="{{ $topSale->name_slug }}"
+                                   title="Відгуки">
+                                    <i class="fa fa-comment-o" aria-hidden="true"></i>
+                                    <span></span>
+                                    {{ $topSale->reviews->count() }}
+                                </a>
+                            @else
+                                <a href="javascript:void(0);" title="Відгуки"
+                                   data-set-review-slug="{{ $topSale->name_slug }}"
+                                   data-set-review-id="{{ $topSale->id }}">
+                                    <i class="fa fa-comment-o" aria-hidden="true"></i>
+                                    <span></span>
+                                    Залишити відгук
+                                </a>
+                            @endif
                         </div>
 
                     </div>

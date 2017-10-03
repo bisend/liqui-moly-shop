@@ -1436,8 +1436,13 @@ header {
   display: inline; }
 
 .star-holder .star img{
-  margin-right: 2px;
+  margin-right: 0;
 }
+
+.product-item .body .star-holder .star img {
+    float: left;
+}
+
 
 .le-button-red {
   border-radius: 4px;
@@ -4200,7 +4205,7 @@ header .top-search-holder .search-area .search-button{
 } 
 
 .product-item .body .star-holder{
-  margin-top:10px;
+  margin-top: 14px;
 }
 
 .product-item .body .availability{
