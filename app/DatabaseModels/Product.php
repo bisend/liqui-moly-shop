@@ -48,6 +48,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Product wherePriority($value)
  * @property float|null $avg_rating
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Product whereAvgRating($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\DatabaseModels\Review[] $reviews
  */
 class Product extends Model
 {

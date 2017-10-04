@@ -32,6 +32,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\User whereConfirmationToken($value)
  * @property string|null $new_email
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\User whereNewEmail($value)
+ * @property-read \App\DatabaseModels\Profile $profile
  */
 class User extends Authenticatable
 {
@@ -57,4 +58,9 @@ class User extends Authenticatable
         'password', 
         'remember_token',
     ];
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class, 'user_id', 'id');
+    }
 }

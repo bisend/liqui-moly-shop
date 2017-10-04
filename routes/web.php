@@ -194,8 +194,6 @@ Route::post('/add-review', 'ReviewController@addReview');
 
 Route::post('/order-call', 'CallController@orderCall');
 
-//Route::get('change-password', 'HomeController@showChangePasswordForm');
-//Route::post('change-password', 'HomeController@changePassword');
-
+Route::post('/buy-one-click', 'BuyOneClickController@saveFastOrder');
 
 //Auth::routes();

@@ -550,4 +550,30 @@ class ProductRepository
         $model->product->increment('number_of_views');
     }
 
+    /**
+     * get single product by id and lang
+     * @param $productId
+     * @param string $language
+     * @return mixed
+     */
+    public function getProductByIdAndLanguage($productId, $language = Languages::DEFAULT_LANGUAGE)
+    {
+        return Product::select([
+            'id',
+            'category_id',
+            "name_$language as name",
+            'name_slug',
+            'old_price',
+            'price',
+            'avg_rating',
+            "description_$language as description",
+            'in_stock'
+        ])->with([
+            'images',
+
+        ])
+            ->whereId($productId)
+            ->first();
+    }
+
 }

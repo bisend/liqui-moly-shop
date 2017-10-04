@@ -4,7 +4,7 @@
 Вітаємо Вас, {{ $username }}.
 
 @component('mail::table')
-| Фото | Ім'я | Ціна | К-сть | Сума |
+| Фото | Назва | Ціна | К-сть | Сума |
 | :-------------: |:-------------------------------------------|:--------:|:----------:|:-----------:|
 @foreach($model->orderProducts as $orderProduct)
 | <a href="{{ url_product($orderProduct->name_slug, $model->language) }}"><img height="65px" src="{{ url('/') }}/{{ $orderProduct->images[0]->small }}" alt=""></a> | <a href="{{ url_product($orderProduct->name_slug, $model->language) }}">{{ $orderProduct->name }}</a> | {{ $orderProduct->price }} грн | {{ $orderProduct->productCount }} | {{ set_format_price($orderProduct->price, $orderProduct->productCount) }} грн |

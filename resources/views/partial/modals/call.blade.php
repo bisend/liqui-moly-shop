@@ -34,7 +34,7 @@
                     <div class="form-group">
 
                         <div class="col-sm-12">
-                            <input type="email"
+                            <input type="text"
                                    class="form-control"
                                    data-call-phone-number
                                    placeholder="Ваш номер телефону">
