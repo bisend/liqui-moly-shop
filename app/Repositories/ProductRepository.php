@@ -30,6 +30,7 @@ class ProductRepository
         return Product::with([
             'images',
             'reviews' => function($query) {
+                $query->whereIsModerated(true);
                 $query->select([
                     'product_id'
                 ]);
@@ -62,6 +63,7 @@ class ProductRepository
         return Product::with([
             'images',
             'reviews' => function($query) {
+                $query->whereIsModerated(true);
                 $query->select([
                     'product_id'
                 ]);
@@ -94,6 +96,7 @@ class ProductRepository
         return Product::with([
             'images',
             'reviews' => function($query) {
+                $query->whereIsModerated(true);
                 $query->select([
                     'product_id'
                 ]);
@@ -126,6 +129,7 @@ class ProductRepository
         $products =  Product::with([
             'images',
             'reviews' => function($query) {
+                $query->whereIsModerated(true);
                 $query->select([
                     'product_id'
                 ]);
@@ -198,6 +202,7 @@ class ProductRepository
         $query = Product::with([
                 'images',
                 'reviews' => function($query) {
+                    $query->whereIsModerated(true);
                     $query->select([
                         'product_id'
                     ]);
@@ -300,6 +305,7 @@ class ProductRepository
         return Product::with([
             'images',
             'reviews' => function($query) {
+                $query->whereIsModerated(true);
                 $query->select([
                     'product_id'
                 ]);
@@ -426,6 +432,7 @@ class ProductRepository
         $query = Product::with([
             'images',
             'reviews' => function($query) {
+                $query->whereIsModerated(true);
                 $query->select([
                     'product_id'
                 ]);

@@ -34,12 +34,11 @@
 
                         <div class="col-sm-12">
                             <input type="text"
+                                   placeholder="Ім'я"
                                    name="name"
                                    data-register-name
                                    class="form-control"
-                                   id="inputLogin3"
-                                   placeholder="Ім'я"
-                            >
+                                   id="inputLogin3">
                         </div>
                     </div>
 
@@ -51,8 +50,7 @@
                                    data-register-email
                                    class="form-control"
                                    id="inputEmail3"
-                                   placeholder="Електронна адреса"
-                                   >
+                                   placeholder="Електронна адреса">
                         </div>
                     </div>
 
@@ -64,8 +62,7 @@
                                    data-register-password
                                    class="form-control"
                                    id="inputPassword3"
-                                   placeholder="Пароль"
-                                   >
+                                   placeholder="Пароль">
                         </div>
                     </div>
                     <div class="form-group">
@@ -76,8 +73,7 @@
                                    data-register-password-confirmation
                                    class="form-control"
                                    id="inputPassword3"
-                                   placeholder="Підтвердіть пароль"
-                                   >
+                                   placeholder="Підтвердіть пароль">
                         </div>
                     </div>
 
