@@ -1,0 +1,57 @@
+/*-- HEADER --*/
+
+@media (max-width: 1200px){
+
+    header .logo-holder{
+        width: 34%!important;
+        float: left;
+    }
+
+    header .top-search-holder{
+        width: 33%;
+        float: left;
+        margin: 0;
+    }
+
+    header .top-search-holder .contact-row .phone{
+        display: none;
+    }
+
+    header .top-search-holder .search-field {
+        width: 80% !important;
+    }
+
+    header .top-cart-row{
+        position: absolute;
+        right: -85px;
+        padding: 0;
+        top: 117px;
+    }
+
+    .wish-block .wish-block-img .count{
+        top: -1px;
+        right: 10px;
+    }
+
+    header .top-cart-row .top-cart-holder .basket-item-count .count{
+        top: -1px;
+        right: 6px;
+    }
+
+    .wish-block .wish-block-img img {
+        width: 37px;
+        margin: 0 20px 0 10px;
+    }
+
+    .basket-item-count img{
+        width: 40px;
+    }
+
+    #top-megamenu-nav .navbar-nav > li > a{
+        font-size: 14px;
+        padding: 15px 14px;
+    }
+    
+}
+
+/*-- HEADER END --*/

@@ -3,6 +3,7 @@
 
 <!-- Customizable CSS -->
 <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/responsive.css">
 <link rel="stylesheet" href="/css/colors/blue.css">
 <link rel="stylesheet" href="/css/owl.carousel.css">
 <link rel="stylesheet" href="/css/owl.transitions.css">
