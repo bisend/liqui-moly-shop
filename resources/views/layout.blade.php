@@ -12,6 +12,7 @@
     <!--Head CSS and JS END-->
 </head>
 <body>
+<div class="nav-bg"></div>
     {{--Modals BEGIN--}}
     @include('partial.modals.big-cart')
     @include('partial.modals.login')

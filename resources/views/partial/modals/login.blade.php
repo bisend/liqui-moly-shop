@@ -1,5 +1,5 @@
 <!-- Modal LOGIN BEGIN-->
-<div class="modal fade" id="ModalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLOGIN">
+<div class="modal fade modal-log-mob" id="ModalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLOGIN">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">

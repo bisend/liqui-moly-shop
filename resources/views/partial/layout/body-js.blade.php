@@ -39,6 +39,8 @@
 <script defer src="/js/review/review.js"></script>
 <script defer src="/js/call/order-call.js"></script>
 
+<script defer src="/js/responsive.js"></script>
+
 
 <!--Page JS BEGIN-->
 @stack('js')
