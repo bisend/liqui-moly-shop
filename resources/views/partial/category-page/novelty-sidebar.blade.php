@@ -1,4 +1,4 @@
-<div class="widget">
+<div class="widget top-new-widget">
     <h1 class="border">Новинки</h1>
     <ul class="product-list">
 

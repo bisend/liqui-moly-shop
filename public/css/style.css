@@ -689,7 +689,7 @@ header {
   header .logo-holder .logo {
     margin: 17px 0; }
   header .top-search-holder {
-    margin: 0 0 0 -20px; }
+    margin: 0 0 0 -12px; }
     header .top-search-holder .contact-row {
       font-size: 13px;
       line-height: 20px; }
@@ -733,7 +733,7 @@ header {
           vertical-align: sub;
           color: #fff; }
   header .top-cart-row {
-    padding: 35px 0 0 21px; }
+    padding: 35px 0 0 41px; }
     header .top-cart-row .wishlist-compare-holder {
       line-height: 24px;
       margin: 0 18px 0 0;
@@ -814,7 +814,7 @@ header {
           color: #3D3D3D;
           display: block; }
         header .top-cart-row .top-cart-holder .dropdown-toggle .total-price {
-          font-size: 18px;
+          font-size: 16px;
           font-weight: bold; }
         header .top-cart-row .top-cart-holder .dropdown-toggle:after {
           display: none; }
@@ -2103,10 +2103,10 @@ header {
     text-align: center; }
   .product-grid-holder .product-item-holder .body {
     margin: 0 34px;
-    min-height: 87px;
+    min-height: 138px;
     border-bottom: 1px solid #ececec; }
   .product-grid-holder .product-item-holder.size-big .body {
-    min-height: 133px; }
+    min-height: 195px; }
     .product-grid-holder .product-item-holder.size-big .body .title {
       min-height: 93px;
     line-height: 31px;
@@ -2116,7 +2116,7 @@ header {
           font-size: 25px;
         }
       .product-grid-holder .product-item-holder.size-big .body .product-comments{
-        margin: 16px 0;
+        margin: 12px 0;
       }
       .product-grid-holder .product-item-holder.size-big .body .product-comments a:hover{
         text-decoration: underline;
@@ -4171,12 +4171,9 @@ header .top-search-holder .search-area .search-button{
     border-radius: 0 5px 5px 0;
 }
 
-header .top-search-holder{
-  margin: 0 39px 0 -46px;
-}
-
+header .top-cart-row .top-cart-holder .dropdown-toggle .total-price
 header .top-cart-row{
-  padding: 35px 0 0 0;
+  padding: 35px 0 0 48px;
 }
 
 header .top-search-holder .search-area .search-button{

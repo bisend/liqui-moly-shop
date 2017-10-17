@@ -1,4 +1,4 @@
-<div class="widget">
+<div class="widget top-sales-widget">
     <h1 class="border">Топ продаж</h1>
     <ul class="product-list">
 
