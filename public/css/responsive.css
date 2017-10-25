@@ -851,6 +851,10 @@
         width: 100%!important;
     }
 
+    #single-product .body-holder .body {
+        padding-left: 0!important;
+    }
+
 }
 
 @media (max-width: 630px){
@@ -952,6 +956,29 @@
     }
 
 }
+
+@media (max-width: 421px){
+    #buy-one-click .modal-header h4 {
+        font-size: 12px;
+    }
+
+    #buy-one-click .arrow-down-modal {
+        top: 59px;
+    }
+
+    #buy-one-click .modal-content .modal-body h2{
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 354px){
+    .total-price-single-prod {
+        display: block;
+        margin-left: 0px;
+    }
+}
+
+
 
 
 
