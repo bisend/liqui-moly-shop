@@ -1,6 +1,3 @@
-{{--{{ dd($model->categoryProducts[0]->products[0]->images[0]->small) }}--}}
-{{--{{ dd($model) }}--}}
-{{--{{ $model->categoryProducts[0]->prods[0]->name_uk }}--}}
 @extends('layout')
 
 @section('content')

@@ -38,10 +38,6 @@
                                 <div class="product-item">
 
                                     <div class="image">
-                                        {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/a5e5942s-960.jpg" />--}}
-                                        {{--<img alt="" src="/img/blank.gif" data-echo="{{ $searchProduct->products[0]->images[0]->small }}" />--}}
-                                        {{--                                        <img alt="" src="/img/blank.gif" data-echo="{{ $searchProduct->images[0]->small }}" />--}}
-                                        {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />--}}
                                         <a href="{{ url_product($searchProduct->name_slug, $model->language) }}">
                                             <img src="{{ $searchProduct->images[0]->small }}" alt="{{ $searchProduct->name }}">
                                         </a>
@@ -72,18 +68,18 @@
                                                 <a href="javascript:void(0);"
                                                    data-go-to-review-id="{{ $searchProduct->id }}"
                                                    data-go-to-review-slug="{{ $searchProduct->name_slug }}"
-                                                   title="Відгуки">
+                                                   title="{{ trans('layout.title_reviews') }}">
                                                     <i class="fa fa-comment-o" aria-hidden="true"></i>
                                                     <span></span>
                                                     {{ $searchProduct->reviews->count() }}
                                                 </a>
                                             @else
-                                                <a href="javascript:void(0);" title="Відгуки"
+                                                <a href="javascript:void(0);" title="{{ trans('layout.title_reviews') }}"
                                                    data-set-review-slug="{{ $searchProduct->name_slug }}"
                                                    data-set-review-id="{{ $searchProduct->id }}">
                                                     <i class="fa fa-comment-o" aria-hidden="true"></i>
                                                     <span></span>
-                                                    Залишити відгук
+                                                    {{ trans('layout.leave_review') }}
                                                 </a>
                                             @endif
                                         </div>
@@ -98,13 +94,13 @@
                                             <a href="javascript:void(0);"
                                                data-in-cart="false"
                                                data-add-to-cart="{{ $searchProduct->id }}"
-                                               class="le-button">В кошик</a>
+                                               class="le-button">{{ trans('layout.add_to_cart') }}</a>
                                         </div>
                                         <div class="wish-compare">
                                             <a class="btn-add-to-wishlist"
                                                data-in-wish-list="false"
                                                data-add-to-wish-list="{{ $searchProduct->id }}"
-                                               href="javascript:void(0);">У список бажань</a>
+                                               href="javascript:void(0);">{{ trans('layout.add_to_wish_list') }}</a>
                                             <!--  <a class="btn-add-to-compare" href="#">Порівняти</a> -->
                                         </div>
                                     </div>

@@ -96,6 +96,8 @@ class SearchController extends LayoutController
      */
     public function indexAsync($series = null, $language = Languages::DEFAULT_LANGUAGE)
     {
+        Languages::localizeApp($language);
+
         $model = new SearchAsyncViewModel($series, $language);
         
         $this->searchService->fillAsync($model);

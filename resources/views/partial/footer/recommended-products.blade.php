@@ -1,5 +1,5 @@
 <div class="widget">
-    <h2>Рекомендовані товари</h2>
+    <h2>{{ trans('footer.recommended_products') }}</h2>
     <div class="body">
         <ul>
             @if($model->recommendedProducts)

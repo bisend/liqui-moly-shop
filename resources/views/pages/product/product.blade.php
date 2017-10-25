@@ -100,12 +100,12 @@
 
                     <div class="availability">
                         <label></label><span class="available">
-                            {{ $model->product->in_stock == 0 ? 'Під замовлення' : 'В наявності' }}
+                            {{ $model->product->in_stock == 0 ? trans('product.in_stock_false') : trans('product.in_stock_true') }}
                         </span>
                     </div>
 
                     <div class="article-product">
-                        Артикул : <span>QWEF1235</span>
+                        Артикул : <span>{{ $model->product->vendor_code }}</span>
                     </div>
 
                     <div class="star-holder inline">
@@ -126,7 +126,7 @@
 
                     <div class="prices">
                         <div class="price-current">
-                            Ціна : <span data-single-product-price="{{ $model->product->id }}">
+                            {{ trans('product.price') }} : <span data-single-product-price="{{ $model->product->id }}">
                                 {{ $model->product->price }}</span> грн
                         </div>
                     </div>
@@ -150,7 +150,8 @@
                         </div>
 
                         <div class="total-price-single-prod">
-                            Сума : <span data-product-sum="{{ $model->product->id }}">{{ set_format_price($model->product->price,
+                            {{ trans('product.sum') }} : <span data-product-sum="{{ $model->product->id }}">
+                                {{ set_format_price($model->product->price,
                             isset($model->product->productCount) ? $model->product->productCount : 1) }}</span> грн
                         </div>
 
@@ -158,17 +159,24 @@
                            href="javascript:void(0);"
                            data-in-cart="false"
                            data-add-to-cart="{{ $model->product->id }}"
-                           class="le-button huge">В кошик</a>
+                           class="le-button huge">
+                            {{ trans('layout.add_to_cart') }}
+                        </a>
 
                         <a id="addto-cart"
                            data-toggle="modal"
                            data-target="#buy-one-click"
-                           class="le-button-red huge">Купити в 1 клік</a>
+                           class="le-button-red huge">
+                            {{ trans('product.buy_one_click') }}
+                        </a>
+
                         <div class="buttons-holder">
                             <a class="btn-add-to-wishlist"
                                data-in-wish-list="false"
                                data-add-to-wish-list="{{ $model->product->id }}"
-                               href="javascript:void(0);">В обране</a>
+                               href="javascript:void(0);">
+                                {{ trans('layout.add_to_wish_list') }}
+                            </a>
                             <!-- <a class="btn-add-to-compare" href="#">Додати до порівняння</a> -->
                         </div>
                     </div><!-- /.qnt-holder -->
@@ -185,10 +193,10 @@
 
                 <ul class="nav nav-tabs simple" >
                     <li class="active">
-                        <a href="#reviews" data-review-scroll-tab data-toggle="tab">Відгуки</a>
+                        <a href="#reviews" data-review-scroll-tab data-toggle="tab">{{ trans('product.reviews') }}</a>
                     </li>
                     <li>
-                        <a href="#description" data-toggle="tab">Опис</a>
+                        <a href="#description" data-toggle="tab">{{ trans('product.description') }}</a>
                     </li>
                     {{--<li>--}}
                     {{--<a href="#additional-info" data-toggle="tab">Характеристики</a>--}}

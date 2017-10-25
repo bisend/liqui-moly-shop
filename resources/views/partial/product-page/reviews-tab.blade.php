@@ -57,7 +57,7 @@
     <div class="add-review row">
         <div class="col-sm-8 col-xs-12">
             <div class="new-review-form">
-                <h2 data-review-scroll>Залишити відгук</h2>
+                <h2 data-review-scroll>{{ trans('layout.leave_review') }}</h2>
                 <form id="contact-form"
                       class="contact-form"
                       data-add-review-form
@@ -65,20 +65,20 @@
                     <div class="row field-row">
                         <div class="col-xs-12 col-sm-6">
                             <input class="form-control"
-                                   placeholder="Ім'я"
+                                   placeholder="{{ trans('product.name') }}"
                                    data-add-review-name
                                    value="{{ auth()->check() ? auth()->user()->name : '' }}">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <input class="form-control"
-                                   placeholder="Електронна адреса"
+                                   placeholder="{{ trans('product.email') }}"
                                    data-add-review-email
                                    value="{{ auth()->check() ? auth()->user()->email : '' }}">
                         </div>
                     </div><!-- /.field-row -->
 
                     <div class="field-row star-row">
-                        <span>Оцінка: </span>
+                        <span>{{ trans('product.mark') }}: </span>
                         <div class="star-holder inline">
                             <div class="star" data-score="0" data-add-review-rating="0">
                                 {{--@for($i = 1; $i <= 5; $i++)--}}
@@ -91,7 +91,7 @@
                     </div><!-- /.field-row -->
 
                     <div class="field-row">
-                        <textarea placeholder="Ваш відгук"
+                        <textarea placeholder="{{ trans('product.your_review') }}"
                                   rows="8"
                                   data-add-review-text
                                   class="form-control le-input-textarea"></textarea>
@@ -101,7 +101,7 @@
                         <button type="submit"
                                 data-add-review-submit
                                 class="le-button huge">
-                            Залишити відгук
+                            {{ trans('layout.leave_review') }}
                         </button>
                     </div><!-- /.buttons-holder -->
                 </form><!-- /.contact-form -->

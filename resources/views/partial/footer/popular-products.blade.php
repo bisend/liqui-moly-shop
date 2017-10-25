@@ -1,5 +1,5 @@
 <div class="widget">
-    <h2>Популярні товари</h2>
+    <h2>{{ trans('footer.popular_products') }}</h2>
     <div class="body">
         <ul>
             @foreach($model->popularProducts as $popularProduct)

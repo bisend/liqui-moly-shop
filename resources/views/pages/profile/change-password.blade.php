@@ -10,15 +10,15 @@
                         <li class="breadcrumb-nav-holder">
                             <ul>
                                 <li class="dropdown breadcrumb-item">
-                                    <a href="{{ url_home($model->language) }}">Головна</a>
+                                    <a href="{{ url_home($model->language) }}">{{ trans('layout.breadcrumb_home') }}</a>
                                 </li><!-- /.breadcrumb-item -->
 
                                 <li class="breadcrumb-item">
-                                    <a>Особистий кабінет</a>
+                                    <a>{{ trans('layout.breadcrumb_profile') }}</a>
                                 </li><!-- /.breadcrumb-item -->
 
                                 <li class="breadcrumb-item current">
-                                    <a>Зміна пароля</a>
+                                    <a>{{ trans('layout.change_password') }}</a>
                                 </li><!-- /.breadcrumb-item -->
                             </ul>
                         </li><!-- /.breadcrumb-nav-holder -->
@@ -39,23 +39,23 @@
                     <ul class="nav nav-pills nav-stacked">
                         <li role="presentation">
                             <a href="{{ url_personal_info($model->language) }}">
-                                Особисті дані
+                                {{ trans('layout.personal_info') }}
                             </a>
                         </li>
                         <li role="presentation" class="active">
                             <a>
-                                Зміна пароля
+                                {{ trans('layout.change_password') }}
                             </a>
                         </li>
                         <li role="presentation">
-                            <a href="{{ url_my_orders($model->language) }}">Мої замовлення</a>
+                            <a href="{{ url_my_orders($model->language) }}">{{ trans('layout.my_orders') }}</a>
                         </li>
                         <li role="presentation">
-                            <a href="{{ url_wish_list($model->language) }}">Список бажань</a>
+                            <a href="{{ url_wish_list($model->language) }}">{{ trans('layout.wish_list') }}</a>
                         </li>
                         <li role="presentation">
                             <a href="javascript:void(0);" data-action-logout>
-                                Вихід
+                                {{ trans('layout.exit') }}
                             </a>
                         </li>
 
@@ -65,7 +65,7 @@
                 <div class="col-md-9">
                     <div class="login-box">
                         <div class="login-box-title">
-                            Зміна пароля
+                            {{ trans('layout.change_password') }}
                         </div>
                         <form class="form-horizontal" role="form">
                             <div class="form-group">
@@ -75,7 +75,7 @@
                                            class="form-control"
                                            id="inputEmail3"
                                            data-change-password-old
-                                           placeholder="Старий пароль">
+                                           placeholder="{{ trans('change-password.old_password') }}">
                                 </div>
 
 
@@ -85,7 +85,7 @@
                                            class="form-control"
                                            id="inputEmail3"
                                            data-change-password-new
-                                           placeholder="Новий пароль">
+                                           placeholder="{{ trans('change-password.new_password') }}">
                                 </div>
 
 
@@ -95,7 +95,7 @@
                                            class="form-control"
                                            id="inputPassword3"
                                            data-change-password-repeat
-                                           placeholder="Повторіть новий пароль">
+                                           placeholder="{{ trans('change-password.repeat_new_password') }}">
                                 </div>
 
 
@@ -103,7 +103,9 @@
                                 <div class="col-sm-12">
                                     <button type="submit"
                                             data-change-password-submit
-                                            class="le-button">Зберегти</button>
+                                            class="le-button">
+                                        {{ trans('change-password.save') }}
+                                    </button>
                                 </div>
                             </div>
                         </form>

@@ -8,7 +8,9 @@
     <ul>
         {{--HOME LINK--}}
         <li class="breadcrumb-item">
-            <a href="{{ url_home($model->language) }}">Головна</a>
+            <a href="{{ url_home($model->language) }}">
+                {{ trans('layout.breadcrumb_home') }}
+            </a>
         </li>
 
         {{--1 LVL CATEGORY--}}

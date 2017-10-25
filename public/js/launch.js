@@ -25,7 +25,8 @@ var IncorrectFieldClass = 'incorrect-field',
     ADD_TO_WISH = (LANGUAGE == DEFAULT_LANGUAGE) ? 'В обране' : 'В избранное',
     REVIEW_ADDED = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Дякуємо! Модератор перегляне Ваш відгук, після чого він з`явиться на сайті.' : 'Спасибо! Модератор пересмотрит Ваш отзыв, после чего он появится на сайте.',
     CALL_ORDERED = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Дякуємо! Скоро з Вами зв`яжеться наш менеджер.' : 'Спасибо! Скоро с Вами свяжется наш менеджер.',
-    BUY_ONE_CLICK_CREATED = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Дякуємо! Скоро з Вами зв`яжеться наш менеджер.' : 'Спасибо! Скоро с Вами свяжется наш менеджер.';
+    BUY_ONE_CLICK_CREATED = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Дякуємо! Скоро з Вами зв`яжеться наш менеджер.' : 'Спасибо! Скоро с Вами свяжется наш менеджер.',
+    PLEASE_RATE_PRODUCT = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Оцініть товар' : 'Оцените товар' ;
 
 $.ajaxSetup({
     headers: {

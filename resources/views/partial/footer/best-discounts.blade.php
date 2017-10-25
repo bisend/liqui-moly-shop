@@ -1,5 +1,5 @@
 <div class="widget">
-    <h2>Найкращі ціни</h2>
+    <h2>{{ trans('footer.best_prices') }}</h2>
     <div class="body">
         <ul>
             @if($model->bestDiscountsProducts)

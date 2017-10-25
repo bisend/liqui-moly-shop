@@ -10,15 +10,15 @@
                         <li class="breadcrumb-nav-holder">
                             <ul>
                                 <li class="dropdown breadcrumb-item">
-                                    <a href="{{ url_home($model->language) }}">Головна</a>
+                                    <a href="{{ url_home($model->language) }}">{{ trans('layout.breadcrumb_home') }}</a>
                                 </li><!-- /.breadcrumb-item -->
 
                                 <li class="breadcrumb-item">
-                                    <a>Особистий кабінет</a>
+                                    <a>{{ trans('layout.breadcrumb_profile') }}</a>
                                 </li><!-- /.breadcrumb-item -->
 
                                 <li class="breadcrumb-item current">
-                                    <a>Мої замовлення</a>
+                                    <a>{{ trans('layout.my_orders') }}</a>
                                 </li><!-- /.breadcrumb-item -->
                             </ul>
                         </li><!-- /.breadcrumb-nav-holder -->
@@ -39,27 +39,27 @@
                     <ul class="nav nav-pills nav-stacked">
                         <li role="presentation">
                             <a href="{{ url_personal_info($model->language) }}">
-                                Особисті дані
+                                {{ trans('layout.personal_info') }}
                             </a>
                         </li>
                         <li role="presentation">
                             <a href="{{ url_change_password($model->language) }}">
-                                Зміна пароля
+                                {{ trans('layout.change_password') }}
                             </a>
                         </li>
                         <li role="presentation"  class="active">
                             <a>
-                                Мої замовлення
+                                {{ trans('layout.my_orders') }}
                             </a>
                         </li>
                         <li role="presentation">
                             <a href="{{ url_wish_list($model->language) }}">
-                                Список бажань
+                                {{ trans('layout.wish_list') }}
                             </a>
                         </li>
                         <li role="presentation">
                             <a href="javascript:void(0);" data-action-logout>
-                                Вихід
+                                {{ trans('layout.exit') }}
                             </a>
                         </li>
 
@@ -69,7 +69,7 @@
                 <div class="col-md-9">
                     <div class="login-box">
                         <div class="login-box-title">
-                            Мої замовлення
+                            {{ trans('layout.my_orders') }}
                         </div>
 
                         <div class="main-content wishlist-section" id="main-content">
@@ -87,11 +87,11 @@
                                                     </div>
 
                                                     <div class="col-xs-12 col-sm-3 no-margin">
-                                                        К-сть товарів
+                                                        {{ trans('my-orders.count') }}
                                                     </div>
 
                                                     <div class="col-xs-12 col-sm-3 no-margin">
-                                                        Сума
+                                                        {{ trans('my-orders.sum') }}
                                                     </div>
                                                 </div><!-- /.cart-item -->
 
@@ -101,7 +101,9 @@
 
                                                         <div class="col-xs-12 col-sm-3 no-margin">
                                                             <a data-toggle="modal"
-                                                               data-target="#order-detail-{{ $order->order_number }}">№ {{ $order->order_number }}</a>
+                                                               data-target="#order-detail-{{ $order->order_number }}">
+                                                                № {{ $order->order_number }}
+                                                            </a>
                                                         </div>
 
                                                         <div class="col-xs-12 col-sm-3 no-margin">
@@ -120,7 +122,7 @@
                                                                     <a class="le-button"
                                                                        data-toggle="modal"
                                                                        data-target="#order-detail-{{ $order->order_number }}">
-                                                                        Переглянути
+                                                                        {{ trans('my-orders.watch') }}
                                                                     </a>
                                                                 </div>
                                                             </div>
@@ -140,7 +142,7 @@
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
                                                                     <h4 class="modal-title">
-                                                                        Деталі замовлення №{{ $order->order_number }}
+                                                                        {{ trans('my-orders.details') }} №{{ $order->order_number }}
                                                                     </h4>
 
                                                                 </div>
@@ -211,12 +213,12 @@
                                                                                     <ul>
                                                                                         @foreach($model->deliveries as $delivery)
                                                                                             @if($delivery->id == $order->delivery_id)
-                                                                                                <li>Спосіб доставки : {{ $delivery->name }}</li>
+                                                                                                <li>{{ trans('my-orders.delivery') }} : {{ $delivery->name }}</li>
                                                                                             @endif
                                                                                         @endforeach
                                                                                         @foreach($model->payments as $payment)
                                                                                             @if($payment->id == $order->payment_id)
-                                                                                                <li>Спосіб оплати : {{ $payment->name }}</li>
+                                                                                                <li>{{ trans('my-orders.payment') }} : {{ $payment->name }}</li>
                                                                                             @endif
                                                                                         @endforeach
                                                                                         {{--<li>Статус : <span>Оплачено</span></li>--}}
@@ -225,7 +227,7 @@
                                                                             </div>
                                                                             <div class="col-md-12">
                                                                                 <div class="checkout-total-price">
-                                                                                    Сума замовлення : <span>{{ $order->total_order_amount }}</span> грн
+                                                                                    {{ trans('my-orders.order_sum') }} : <span>{{ $order->total_order_amount }}</span> грн
                                                                                 </div>
                                                                             </div>
                                                                         </div>

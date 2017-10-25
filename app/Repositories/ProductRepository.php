@@ -246,6 +246,7 @@ class ProductRepository
             "name_$language as name",
             'name_slug',
             'old_price',
+            'vendor_code',
             'price',
             'avg_rating',
             "description_$language as description",

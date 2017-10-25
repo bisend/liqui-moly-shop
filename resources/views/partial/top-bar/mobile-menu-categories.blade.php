@@ -1,6 +1,6 @@
 <div id="mySidenav" class="sidenav">
     <div class="nav-header">
-        <p>Категорії</p>
+        <p>{{ trans('header.categories') }}</p>
         <div class="closebtn" data-menu-close-link>
             <i class="fa fa-times" aria-hidden="true"></i>
         </div>
@@ -61,16 +61,24 @@
             @endforeach
 
             <li>
-                <a href="">Доставка і оплата</a>
+                <a href="{{ url_delivery_payments($model->language) }}">
+                    {{ trans('header.delivery_payments') }}
+                </a>
             </li>
             <li>
-                <a href="">Гарантії</a>
+                <a href="{{ url_guarantees($model->language) }}">
+                    {{ trans('header.guarantees') }}
+                </a>
             </li>
             <li>
-                <a href="">Про нас</a>
+                <a href="{{ url_about($model->language) }}">
+                    {{ trans('header.about') }}
+                </a>
             </li>
             <li>
-                <a href="">Контакти</a>
+                <a href="{{ url_contact($model->language) }}">
+                    {{ trans('header.contact') }}
+                </a>
             </li>
         </ul>
     </div>

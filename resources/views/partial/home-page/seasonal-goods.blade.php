@@ -1,6 +1,6 @@
 <div class="container">
     @if($model->seasonalGoods)
-        <h1 class="section-title">Сезонні товари</h1>
+        <h2 class="section-title">{{ trans('layout.seasonal_products') }}</h2>
 
         <div class="product-grid-holder medium">
             <div class="col-xs-12 col-md-7 no-margin">
@@ -46,18 +46,19 @@
                                                     <a href="javascript:void(0);"
                                                        data-go-to-review-id="{{ $seasonalGood->id }}"
                                                        data-go-to-review-slug="{{ $seasonalGood->name_slug }}"
-                                                       title="Відгуки">
+                                                       title="{{ trans('layout.title_reviews') }}">
                                                         <i class="fa fa-comment-o" aria-hidden="true"></i>
                                                         <span></span>
                                                         {{ $seasonalGood->reviews->count() }}
                                                     </a>
                                                 @else
-                                                    <a href="javascript:void(0);" title="Відгуки"
+                                                    <a href="javascript:void(0);"
+                                                       title="{{ trans('layout.title_reviews') }}"
                                                        data-set-review-slug="{{ $seasonalGood->name_slug }}"
                                                        data-set-review-id="{{ $seasonalGood->id }}">
                                                         <i class="fa fa-comment-o" aria-hidden="true"></i>
                                                         <span></span>
-                                                        Залишити відгук
+                                                        {{ trans('layout.leave_review') }}
                                                     </a>
                                                 @endif
                                             </div>
@@ -72,13 +73,13 @@
                                                 <a href="javascript:void(0);"
                                                    data-in-cart="false"
                                                    data-add-to-cart="{{ $seasonalGood->id }}"
-                                                   class="le-button">В кошик</a>
+                                                   class="le-button">{{ trans('layout.add_to_cart') }}</a>
                                             </div>
                                             <div class="wish-compare">
                                                 <a class="btn-add-to-wishlist"
                                                    data-in-wish-list="false"
                                                    data-add-to-wish-list="{{ $seasonalGood->id }}"
-                                                   href="javascript:void(0);">В обране</a>
+                                                   href="javascript:void(0);">{{ trans('layout.add_to_wish_list') }}</a>
                                                 <!--  <a class="btn-add-to-compare" href="#">Порівняти</a> -->
                                             </div>
                                         </div>
@@ -132,18 +133,18 @@
                                                     <a href="javascript:void(0);"
                                                        data-go-to-review-id="{{ $seasonalGood->id }}"
                                                        data-go-to-review-slug="{{ $seasonalGood->name_slug }}"
-                                                       title="Відгуки">
+                                                       title="{{ trans('layout.title_reviews') }}">
                                                         <i class="fa fa-comment-o" aria-hidden="true"></i>
                                                         <span></span>
                                                         {{ $seasonalGood->reviews->count() }}
                                                     </a>
                                                 @else
-                                                    <a href="javascript:void(0);" title="Відгуки"
+                                                    <a href="javascript:void(0);" title="{{ trans('layout.title_reviews') }}"
                                                        data-set-review-slug="{{ $seasonalGood->name_slug }}"
                                                        data-set-review-id="{{ $seasonalGood->id }}">
                                                         <i class="fa fa-comment-o" aria-hidden="true"></i>
                                                         <span></span>
-                                                        Залишити відгук
+                                                        {{ trans('layout.leave_review') }}
                                                     </a>
                                                 @endif
                                             </div>
@@ -156,13 +157,13 @@
                                                 <a href="javascript:void(0);"
                                                    data-in-cart="false"
                                                    data-add-to-cart="{{ $seasonalGood->id }}"
-                                                   class="le-button">В кошик</a>
+                                                   class="le-button">{{ trans('layout.add_to_cart') }}</a>
                                             </div>
                                             <div class="wish-compare">
                                                 <a class="btn-add-to-wishlist"
                                                    data-in-wish-list="false"
                                                    data-add-to-wish-list="{{ $seasonalGood->id }}"
-                                                   href="javascript:void(0);">В обране</a>
+                                                   href="javascript:void(0);">{{ trans('layout.add_to_wish_list') }}</a>
                                                 <!--  <a class="btn-add-to-compare" href="#">Порівняти</a> -->
                                             </div>
                                         </div>
@@ -273,18 +274,18 @@
                                 <a href="javascript:void(0);"
                                    data-go-to-review-id="{{ $model->promotionalProduct->id }}"
                                    data-go-to-review-slug="{{ $model->promotionalProduct->name_slug }}"
-                                   title="Відгуки">
+                                   title="{{ trans('layout.title_reviews') }}">
                                     <i class="fa fa-comment-o" aria-hidden="true"></i>
                                     <span></span>
                                     {{ $model->promotionalProduct->reviews->count() }}
                                 </a>
                             @else
-                                <a href="javascript:void(0);" title="Відгуки"
+                                <a href="javascript:void(0);" title="{{ trans('layout.title_reviews') }}"
                                    data-set-review-slug="{{ $model->promotionalProduct->name_slug }}"
                                    data-set-review-id="{{ $model->promotionalProduct->id }}">
                                     <i class="fa fa-comment-o" aria-hidden="true"></i>
                                     <span></span>
-                                    Залишити відгук
+                                    {{ trans('layout.leave_review') }}
                                 </a>
                             @endif
                         </div>
@@ -295,7 +296,7 @@
                         <a href="javascript:void(0);"
                            data-in-cart="false"
                            data-add-to-cart="{{ $model->promotionalProduct->id }}"
-                           class="le-button big inline">В кошик</a>
+                           class="le-button big inline">{{ trans('layout.add_to_cart') }}</a>
                     </div>
                 </div><!-- /.product-item-holder -->
             </div><!-- /.col -->

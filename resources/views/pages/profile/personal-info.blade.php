@@ -10,15 +10,15 @@
                         <li class="breadcrumb-nav-holder">
                             <ul>
                                 <li class="dropdown breadcrumb-item">
-                                    <a href="{{ url_home($model->language) }}">Головна</a>
+                                    <a href="{{ url_home($model->language) }}">{{ trans('layout.breadcrumb_home') }}</a>
                                 </li><!-- /.breadcrumb-item -->
 
                                 <li class="breadcrumb-item">
-                                    <a>Особистий кабінет</a>
+                                    <a>{{ trans('layout.breadcrumb_profile') }}</a>
                                 </li><!-- /.breadcrumb-item -->
 
                                 <li class="breadcrumb-item current">
-                                    <a>Особисті дані</a>
+                                    <a>{{ trans('layout.personal_info') }}</a>
                                 </li><!-- /.breadcrumb-item -->
                             </ul>
                         </li><!-- /.breadcrumb-nav-holder -->
@@ -39,27 +39,27 @@
                     <ul class="nav nav-pills nav-stacked">
                         <li role="presentation" class="active">
                             <a>
-                                Особисті дані
+                                {{ trans('layout.personal_info') }}
                             </a>
                         </li>
                         <li role="presentation">
                             <a href="{{ url_change_password($model->language) }}">
-                                Зміна пароля
+                                {{ trans('layout.change_password') }}
                             </a>
                         </li>
                         <li role="presentation">
                             <a href="{{ url_my_orders($model->language) }}">
-                                Мої замовлення
+                                {{ trans('layout.my_orders') }}
                             </a>
                         </li>
                         <li role="presentation">
                             <a href="{{ url_wish_list($model->language) }}">
-                                Список бажань
+                                {{ trans('layout.wish_list') }}
                             </a>
                         </li>
                         <li role="presentation">
                             <a href="javascript:void(0);" data-action-logout>
-                                Вихід
+                                {{ trans('layout.exit') }}
                             </a>
                         </li>
 
@@ -69,7 +69,7 @@
                 <div class="col-md-9">
                     <div class="login-box">
                         <div class="login-box-title">
-                            Особисті дані
+                            {{ trans('layout.personal_info') }}
                         </div>
 
                         <form class="form-horizontal" role="form">
@@ -81,7 +81,7 @@
                                            id="inputEmail3"
                                            data-personal-info-name
                                            value="{{ $user->name }}"
-                                           placeholder="Ім'я">
+                                           placeholder="{{ trans('personal-info.name') }}">
                                 </div>
 
 
@@ -92,7 +92,7 @@
                                            id="inputEmail3"
                                            data-personal-info-email
                                            value="{{ $user->email }}"
-                                           placeholder="Електронна адреса">
+                                           placeholder="{{ trans('personal-info.email') }}">
                                 </div>
 
 
@@ -103,7 +103,7 @@
                                            id="inputPassword3"
                                            data-personal-info-phone-number
                                            value="{{ ($model->profile != null && $model->profile->phone_number != null) ? $model->profile->phone_number : '' }}"
-                                           placeholder="Номер телефону">
+                                           placeholder="{{ trans('personal-info.phone') }}">
                                 </div>
 
 
@@ -111,7 +111,7 @@
 
                                 <div class="col-sm-12">
                                     <div class="login-box-title">
-                                        Оплата та доставка
+                                        {{ trans('layout.delivery_payment') }}
                                     </div>
                                 </div>
 
@@ -186,14 +186,14 @@
                                            id="inputEmail3"
                                            data-personal-info-address
                                            value="{{ ($model->profile != null && $model->profile->address_delivery != null) ? $model->profile->address_delivery : '' }}"
-                                           placeholder="Адреса доставки">
+                                           placeholder="{{ trans('personal-info.address') }}">
                                 </div>
 
                                 <div class="col-sm-12">
                                     <button type="submit"
                                             data-personal-info-submit
                                             class="le-button">
-                                        Зберегти
+                                        {{ trans('personal-info.save') }}
                                     </button>
                                 </div>
                             </div>

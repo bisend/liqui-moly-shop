@@ -4,7 +4,7 @@
             <div class="carousel-holder hover">
 
                 <div class="title-nav">
-                    <h2 class="h1">Переглянуті товари</h2>
+                    <h2 class="h1">{{ trans('layout.viewed_products') }}</h2>
                     <div class="nav-holder">
                         <a href="#prev"
                            data-target="#owl-recently-viewed" class="slider-prev btn-prev fa fa-angle-left"></a>
@@ -52,18 +52,19 @@
                                             <a href="javascript:void(0);"
                                                data-go-to-review-id="{{ $visitedProduct->id }}"
                                                data-go-to-review-slug="{{ $visitedProduct->name_slug }}"
-                                               title="Відгуки">
+                                               title="{{ trans('layout.title_reviews') }}">
                                                 <i class="fa fa-comment-o" aria-hidden="true"></i>
                                                 <span></span>
                                                 {{ $visitedProduct->reviews->count() }}
                                             </a>
                                         @else
-                                            <a href="javascript:void(0);" title="Відгуки"
+                                            <a href="javascript:void(0);"
+                                               title="{{ trans('layout.title_reviews') }}"
                                                data-set-review-slug="{{ $visitedProduct->name_slug }}"
                                                data-set-review-id="{{ $visitedProduct->id }}">
                                                 <i class="fa fa-comment-o" aria-hidden="true"></i>
                                                 <span></span>
-                                                Залишити відгук
+                                                {{ trans('layout.leave_review') }}
                                             </a>
                                         @endif
                                     </div>
@@ -77,13 +78,13 @@
                                         <a href="javascript:void(0);"
                                            data-in-cart="false"
                                            data-add-to-cart="{{ $visitedProduct->id }}"
-                                           class="le-button">В кошик</a>
+                                           class="le-button">{{ trans('layout.add_to_cart') }}</a>
                                     </div>
                                     <div class="wish-compare">
                                         <a class="btn-add-to-wishlist"
                                            data-in-wish-list="false"
                                            data-add-to-wish-list="{{ $visitedProduct->id }}"
-                                           href="javascript:void(0);">В обране</a>
+                                           href="javascript:void(0);">{{ trans('layout.add_to_wish_list') }}</a>
                                         <!--  <a class="btn-add-to-compare" href="#">Порівняти</a> -->
                                     </div>
                                 </div>

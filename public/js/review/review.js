@@ -144,7 +144,7 @@ function Review() {
             {
                 if ($elems.review.rating.find('p').length == 0)
                 {
-                    $elems.review.rating.append("<p class='inline' style='color: red; margin: 0 0 0 15px;'>Оцініть товар</p>");
+                    $elems.review.rating.append("<p class='inline' style='color: red; margin: 0 0 0 15px;'>" + PLEASE_RATE_PRODUCT + "</p>");
                 }
                 isValid = false;
             }

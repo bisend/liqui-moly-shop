@@ -6,6 +6,6 @@
 </li>
 <li>
     <a href="javascript:void(0);" data-action-logout>
-        Вихід
+        {{ trans('header.logout') }}
     </a>
 </li>

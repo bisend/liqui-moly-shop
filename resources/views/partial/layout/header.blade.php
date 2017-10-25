@@ -33,9 +33,9 @@
                 <a href="{{ url_home($model->language) }}">
                     <img src="/img/logo.png">
                     <ul>
-                        <li>МОТОРНІ ОЛИВИ</li>
-                        <li>ПРИСАДКИ</li>
-                        <li>АВТОКОСМЕТИКА</li>
+                        <li>{{ trans('header.logo_name_1') }}</li>
+                        <li>{{ trans('header.logo_name_2') }}</li>
+                        <li>{{ trans('header.logo_name_3') }}</li>
                     </ul>
                 </a>
             </div><!-- /.logo -->
@@ -53,7 +53,10 @@
                 <div class="order-a-calll inline">
 
                     <a data-toggle="modal" data-target="#ModalCall">
-                        <i class="fa fa-volume-control-phone" aria-hidden="true"></i>Замовити дзвінок</span>
+                        <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                        <span>
+                            {{ trans('header.order_call') }}
+                        </span>
                     </a>
 
                 </div>
@@ -66,10 +69,15 @@
                   accept-charset="UTF-8"
                   data-desktop-search-form>
 
-                <input type="text" class="search-field" placeholder="Пошук..." data-desktop-search-input data-desktop-series-param="_SERIES_">
+                <input type="text" class="search-field"
+                       placeholder="{{ trans('header.search_placeholder') }}"
+                       data-desktop-search-input
+                       data-desktop-series-param="_SERIES_">
                 {{--<a class="search-form-btn" href="">Пошук</a>--}}
                 <button class="search-form-btn" type="submit" data-desktop-search-submit>
-                    <span data-desktop-search-text>Пошук</span>
+                    <span data-desktop-search-text>
+                        {{ trans('header.search_btn') }}
+                    </span>
                     <div class="sk-fading-circle" data-desktop-search-loader>
                         <div class="sk-circle1 sk-circle"></div>
                         <div class="sk-circle2 sk-circle"></div>
@@ -105,7 +113,8 @@
                            data-open-wish-list-mini
                            href="javascript:void(0);">
                             <div class="wish-block-img">
-                                <span class="count" data-wish-list-mini-total-count>0</span>
+                                <span class="count"
+                                      data-wish-list-mini-total-count>0</span>
                                 <img src="/img/heart2.png">
                             </div>
                         </a>
@@ -129,7 +138,9 @@
                             </div>
 
                             <div class="total-price-basket">
-                                <span class="lbl">Ваш кошик:</span>
+                                <span class="lbl">
+                                    {{ trans('header.your_cart') }}:
+                                </span>
                                 <span class="total-price">
                                     <span class="value" data-cart-total-sum>0.00</span><span class="sign"> грн</span>
                                 </span>

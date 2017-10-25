@@ -6,7 +6,11 @@
     <div class="container">
         <div class="col-xs-12 col-sm-6 no-margin left-side">
             <div class="mobile_nav">
-                <a class="open-nav" href="javascript:void(0);" data-menu-open-link><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <a class="open-nav"
+                   href="javascript:void(0);"
+                   data-menu-open-link>
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </a>
             </div>
             <a class="phone-coll-mobile">
                 <i class="fa fa-volume-control-phone" aria-hidden="true"></i></span>
@@ -14,22 +18,22 @@
             <ul class="top-header-about-info">
                 <li>
                     <a href="{{ url_delivery_payments($model->language) }}">
-                        Доставка та оплата
+                        {{ trans('header.delivery_payments') }}
                     </a>
                 </li>
                 <li>
                     <a href="{{ url_guarantees($model->language) }}">
-                        Гарантії
+                        {{ trans('header.guarantees') }}
                     </a>
                 </li>
                 <li>
                     <a href="{{ url_about($model->language) }}">
-                        Про нас
+                        {{ trans('header.about') }}
                     </a>
                 </li>
                 <li>
                     <a href="{{ url_contact($model->language) }}">
-                        Контакти
+                        {{ trans('header.contact') }}
                     </a>
                 </li>
 

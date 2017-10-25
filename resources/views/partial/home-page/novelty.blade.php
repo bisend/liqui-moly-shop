@@ -38,18 +38,19 @@
                                 <a href="javascript:void(0);"
                                    data-go-to-review-id="{{ $novelty->id }}"
                                    data-go-to-review-slug="{{ $novelty->name_slug }}"
-                                   title="Відгуки">
+                                   title="{{ trans('layout.title_reviews') }}">
                                     <i class="fa fa-comment-o" aria-hidden="true"></i>
                                     <span></span>
                                     {{ $novelty->reviews->count() }}
                                 </a>
                             @else
-                                <a href="javascript:void(0);" title="Відгуки"
+                                <a href="javascript:void(0);"
+                                   title="{{ trans('layout.title_reviews') }}"
                                    data-set-review-slug="{{ $novelty->name_slug }}"
                                    data-set-review-id="{{ $novelty->id }}">
                                     <i class="fa fa-comment-o" aria-hidden="true"></i>
                                     <span></span>
-                                    Залишити відгук
+                                    {{ trans('layout.leave_review') }}
                                 </a>
                             @endif
                         </div>
@@ -65,13 +66,13 @@
                             <a href="javascript:void(0);"
                                data-in-cart="false"
                                data-add-to-cart="{{ $novelty->id }}"
-                               class="le-button">В кошик</a>
+                               class="le-button">{{ trans('layout.add_to_cart') }}</a>
                         </div>
                         <div class="wish-compare">
                             <a class="btn-add-to-wishlist"
                                data-in-wish-list="false"
                                data-add-to-wish-list="{{ $novelty->id }}"
-                               href="javascript:void(0);">В обране</a>
+                               href="javascript:void(0);">{{ trans('layout.add_to_wish_list') }}</a>
                             <!--  <a class="btn-add-to-compare" href="#">Порівняти</a> -->
                         </div>
                     </div>
@@ -79,109 +80,4 @@
             </div>
         @endforeach
     @endif
-
-
-
-
-
-
-
-
-
-    {{--<div class="col-sm-6 col-md-3  no-margin product-item-holder hover">--}}
-        {{--<div class="product-item">--}}
-            {{--<div class="ribbon blue"><span>Новинка</span></div>--}}
-            {{--<div class="image">--}}
-                {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />--}}
-            {{--</div>--}}
-            {{--<div class="body">--}}
-
-                {{--<div class="title title-product-tabs">--}}
-                    {{--<a href="single-product.html">Полусинтетическое моторное масло -  л.</a>--}}
-                {{--</div>--}}
-                {{--<div class="star-holder inline"><div class="star" data-score="4"></div></div>--}}
-                {{--<div class="product-comments"><a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> <span></span> Залишити відгук</a></div>--}}
-
-            {{--</div>--}}
-            {{--<div class="prices">--}}
-                {{--<div class="price-current">1399.00 грн</div>--}}
-
-            {{--</div>--}}
-
-            {{--<div class="hover-area">--}}
-                {{--<div class="add-cart-button">--}}
-                    {{--<a href="single-product.html" class="le-button">В кошик</a>--}}
-                {{--</div>--}}
-                {{--<div class="wish-compare">--}}
-                    {{--<a class="btn-add-to-wishlist" href="#">В обране</a>--}}
-                    {{--<!--  <a class="btn-add-to-compare" href="#">Порівняти</a> -->--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-
-    {{--<div class="col-sm-6 col-md-3  no-margin product-item-holder hover">--}}
-        {{--<div class="product-item">--}}
-            {{--<div class="ribbon blue"><span>Новинка</span></div>--}}
-            {{--<div class="image">--}}
-                {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />--}}
-            {{--</div>--}}
-            {{--<div class="body">--}}
-
-                {{--<div class="title title-product-tabs">--}}
-                    {{--<a href="single-product.html">Противоизносная присадка для</a>--}}
-                {{--</div>--}}
-                {{--<div class="star-holder inline"><div class="star" data-score="4"></div></div>--}}
-                {{--<div class="product-comments"><a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> <span>10</span> відгуків</a></div>--}}
-
-            {{--</div>--}}
-            {{--<div class="prices">--}}
-                {{--<div class="price-current">1399.00 грн</div>--}}
-
-            {{--</div>--}}
-
-            {{--<div class="hover-area">--}}
-                {{--<div class="add-cart-button">--}}
-                    {{--<a href="single-product.html" class="le-button">В кошик</a>--}}
-                {{--</div>--}}
-                {{--<div class="wish-compare">--}}
-                    {{--<a class="btn-add-to-wishlist" href="#">В обране</a>--}}
-                    {{--<!--  <a class="btn-add-to-compare" href="#">Порівняти</a> -->--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-
-    {{--<div class="col-sm-6 col-md-3  no-margin product-item-holder hover">--}}
-        {{--<div class="product-item">--}}
-            {{--<div class="ribbon blue"><span>Новинка</span></div>--}}
-            {{--<div class="image">--}}
-                {{--<img alt="" src="/img/blank.gif" data-echo="/img/products/liqui_moly_diesel_.jpg" />--}}
-            {{--</div>--}}
-            {{--<div class="body">--}}
-
-                {{--<div class="title title-product-tabs">--}}
-                    {{--<a href="single-product.html">Противоизносная присадка для двигателя0,5 л.</a>--}}
-                {{--</div>--}}
-                {{--<div class="star-holder inline"><div class="star" data-score="4"></div></div>--}}
-                {{--<div class="product-comments"><a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> <span>10</span> відгуків</a></div>--}}
-
-            {{--</div>--}}
-            {{--<div class="prices">--}}
-                {{--<div class="price-current">1399.00 грн</div>--}}
-
-            {{--</div>--}}
-
-            {{--<div class="hover-area">--}}
-                {{--<div class="add-cart-button">--}}
-                    {{--<a href="single-product.html" class="le-button">В кошик</a>--}}
-                {{--</div>--}}
-                {{--<div class="wish-compare">--}}
-                    {{--<a class="btn-add-to-wishlist" href="#">В обране</a>--}}
-                    {{--<!--  <a class="btn-add-to-compare" href="#">Порівняти</a> -->--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-
 </div>

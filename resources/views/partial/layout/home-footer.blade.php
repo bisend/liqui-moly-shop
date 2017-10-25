@@ -35,28 +35,31 @@
                             <img src="/img/logo.png">
 
                             <ul>
-                                <li>МОТОРНІ ОЛИВИ</li>
-                                <li>ПРИСАДКИ</li>
-                                <li>АВТОКОСМЕТИКА</li>
+                                <li>{{ trans('footer.logo_name_1') }}</li>
+                                <li>{{ trans('footer.logo_name_2') }}</li>
+                                <li>{{ trans('footer.logo_name_3') }}</li>
                             </ul>
                         </a>
                     </div><!-- /.logo -->
 
-                    <p class="regular-bold">Liqui Moly - німецька компанія, виробник автомобільних масел, смазочних матеріалів та присадок.</p>
+                    <p class="regular-bold">
+                        {{ trans('footer.company_description') }}
+                    </p>
 
                     <ul class="footer-contacts-adress">
                         <li><i class="fa fa-phone"></i> (+800) 123 456 7890</li>
                         <li><i class="fa fa-envelope"></i> info@<span class="le-color">liquimoly.com</span></li>
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i>
-                            Рівне, вулиця Відінська, 9А, 33000
+                        <li>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            {{ trans('footer.address') }}
                         </li>
                     </ul>
 
-                    <p class="grafworkTitle">Графік роботи :</p>
+                    <p class="grafworkTitle">{{ trans('footer.work_schedule') }} :</p>
                     <ul class="grafWork">
-                        <li>Пн-Пт: 9:00 - 18:00</li>
-                        <li>Субота: вихідний</li>
-                        <li>Неділя: вихідний</li>
+                        <li>{{ trans('footer.work1') }}</li>
+                        <li>{{ trans('footer.work2') }}</li>
+                        <li>{{ trans('footer.work3') }}</li>
 
                     </ul>
 
@@ -76,14 +79,14 @@
         <div class="container">
             <div class="col-xs-12 col-sm-6 no-margin">
                 <div class="copyright">
-                    LIQUI MOLY - Всі права захищені
+                    {{ trans('footer.rights_reserved') }}
                     &copy;
-                    2017
+                    {{ date("Y") }}
                 </div><!-- /.copyright -->
             </div>
             <div class="col-xs-12 col-sm-6 no-margin">
                 <div class="payment-methods ">
-                    Розробка та супровід :
+                    {{ trans('footer.development') }} :
                     <a href="http://goldfish-web.com" target="_blank">Web-Studio Gold Fish</a>
                 </div><!-- /.payment-methods -->
             </div>
