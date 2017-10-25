@@ -8,11 +8,18 @@
 
 namespace App\Repositories;
 
-
 use App\DatabaseModels\WishList;
 
+/**
+ * Class WishListRepository
+ * @package App\Repositories
+ */
 class WishListRepository
 {
+    /**
+     * create WL
+     * @param $userId
+     */
     public function createWishList($userId)
     {
         $wishList = new WishList();
@@ -21,7 +28,12 @@ class WishListRepository
         
         $wishList->save();
     }
-    
+
+    /**
+     * get WL
+     * @param $userId
+     * @return mixed
+     */
     public function getWishList($userId)
     {
         return WishList::whereUserId($userId)->first();

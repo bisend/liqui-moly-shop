@@ -194,6 +194,7 @@ class ProfileService extends LayoutService
     }
 
     /**
+     * change password method
      * @param $user
      * @param $newPassword
      */
@@ -201,37 +202,69 @@ class ProfileService extends LayoutService
     {
         $this->userRepository->changePassword($user, $newPassword);
     }
-    
+
+    /**
+     * fill orders count
+     * @param $model
+     * @param $user
+     */
     public function fillCountOrders($model, $user)
     {
         $model->countOrders = $this->orderRepository->getCountOrders($user->id);
     }
-    
+
+    /**
+     * fill user orders
+     * @param $model
+     * @param $user
+     */
     public function fillOrders($model, $user)
     {
         $model->orders = $this->orderRepository->getOrdersByUserId($user->id, $model);
     }
-    
+
+    /**
+     * fill wish list
+     * @param $model
+     * @param $user
+     */
     public function fillWishList($model, $user)
     {
         $model->wishList = $this->wishListRepository->getWishList($user->id);
     }
-    
+
+    /**
+     * fill count of wish list products
+     * @param $model
+     */
     public function fillCountWishListProducts($model)
     {
         $model->countWishListProducts = $this->wishListProductRepository->getCountWishListProducts($model->wishList->id);
     }
-    
+
+    /**
+     * fill wish list products
+     * @param $model
+     */
     public function fillWishListProducts($model)
     {
         $model->wishListProducts = $this->wishListProductRepository->getWishListProducts($model, $model->wishList->id);
     }
 
+    /**
+     * delete product from wishlist
+     * @param $wishListProductId
+     */
     public function deleteFromWishList($wishListProductId)
     {
         $this->wishListProductRepository->deleteWishListProduct($wishListProductId);
     }
-    
+
+    /**
+     * add product to wish list
+     * @param $wishListId
+     * @param $productId
+     */
     public function addWishListProduct($wishListId, $productId)
     {
         $this->wishListProductRepository->addWishListProduct($wishListId, $productId);

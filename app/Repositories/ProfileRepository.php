@@ -15,6 +15,14 @@ use App\DatabaseModels\Profile;
  */
 class ProfileRepository
 {
+    /**
+     * save personal info to db
+     * @param $profile
+     * @param $deliveryId
+     * @param $paymentId
+     * @param $phoneNumber
+     * @param $address
+     */
     public function savePersonalInfo($profile, $deliveryId, $paymentId, $phoneNumber, $address)
     {
         $profile->delivery_id = $deliveryId;
@@ -27,12 +35,21 @@ class ProfileRepository
         
         $profile->save();
     }
-    
+
+    /**
+     * get profile for user
+     * @param $userId
+     * @return mixed
+     */
     public function getProfile($userId)
     {
         return Profile::whereUserId($userId)->first();
     }
-    
+
+    /**
+     * create profile for user
+     * @param $userId
+     */
     public function createProfile($userId)
     {
         $profile = new Profile();

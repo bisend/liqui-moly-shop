@@ -311,3 +311,51 @@ if (!function_exists('set_format_price')) {
         return sprintf('%0.2f', round($price, 2, PHP_ROUND_HALF_UP) * $product_count);
     }
 }
+
+// ---------------------------------------------------------------------------------------------------------------------
+/*
+ * url_delivery_payments page
+ */
+if (!function_exists('url_delivery_payments')) {
+
+    function url_delivery_payments($language = Languages::DEFAULT_LANGUAGE)
+    {
+        return UrlBuilder::delivery_payments($language);
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+/*
+ * url_guarantees page
+ */
+if (!function_exists('url_guarantees')) {
+
+    function url_guarantees($language = Languages::DEFAULT_LANGUAGE)
+    {
+        return UrlBuilder::guarantees($language);
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+/*
+ * url_about page
+ */
+if (!function_exists('url_about')) {
+
+    function url_about($language = Languages::DEFAULT_LANGUAGE)
+    {
+        return UrlBuilder::about($language);
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+/*
+ * url_contact page
+ */
+if (!function_exists('url_contact')) {
+
+    function url_contact($language = Languages::DEFAULT_LANGUAGE)
+    {
+        return UrlBuilder::contact($language);
+    }
+}

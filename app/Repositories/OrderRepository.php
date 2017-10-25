@@ -37,11 +37,22 @@ class OrderRepository
         return $order;
     }
 
+    /**
+     * get count of orders for user
+     * @param $userId
+     * @return int
+     */
     public function getCountOrders($userId)
     {
         return Order::whereUserId($userId)->count();
     }
 
+    /**
+     * get orders for user
+     * @param $userId
+     * @param $model
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function getOrdersByUserId($userId, $model)
     {
         return Order::with([

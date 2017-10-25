@@ -13,6 +13,9 @@ use DB;
  */
 class RestorePasswordController extends LayoutController
 {
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function restore()
     {
         $language = request('language');

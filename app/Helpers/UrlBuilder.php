@@ -37,11 +37,11 @@ class UrlBuilder
     const PRODUCT_PAGE = 'product';
 
     /**
-     * Contacts page
+     * Contact page
      *
      * @var string
      */
-    const CONTACTS_PAGE = 'contacts';
+    const CONTACT_PAGE = 'contact';
 
     /**
      * About page
@@ -178,16 +178,22 @@ class UrlBuilder
     const COMPARE_PAGE = 'compare';
 
     /*
-     * Payment Delivery page
+     * Delivery-Payment page
      * @var string
      */
-    const PAYMENT_DELIVERY_PAGE = 'payment-delivery';
+    const DELIVERY_PAYMENT_PAGE = 'delivery-payments';
 
     /*
     * Order page
     * @var string
     */
     const ORDER = 'order';
+
+    /**
+     * Guarantees page
+     * @var string
+     */
+    const GUARANTEES_PAGE = 'guarantees';
 
 
 
@@ -637,6 +643,78 @@ class UrlBuilder
             url(self::URL_ROOT),
             self::ERROR_PAGE,
             $code
+        ]);
+
+        return self::localize($url, $language);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    /**
+     * Build delivery-payments url
+     *
+     * @param string $language
+     *
+     * @return null|string
+     */
+    public static function delivery_payments($language = Languages::DEFAULT_LANGUAGE)
+    {
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::DELIVERY_PAYMENT_PAGE
+        ]);
+
+        return self::localize($url, $language);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    /**
+     * Build guarantees page url
+     *
+     * @param string $language
+     *
+     * @return null|string
+     */
+    public static function guarantees($language = Languages::DEFAULT_LANGUAGE)
+    {
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::GUARANTEES_PAGE
+        ]);
+
+        return self::localize($url, $language);
+    }
+    
+    // -----------------------------------------------------------------------------------------------------------------
+    /**
+     * Build about page url
+     *
+     * @param string $language
+     *
+     * @return null|string
+     */
+    public static function about($language = Languages::DEFAULT_LANGUAGE)
+    {
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::ABOUT_PAGE
+        ]);
+
+        return self::localize($url, $language);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    /**
+     * Build contact page url
+     *
+     * @param string $language
+     *
+     * @return null|string
+     */
+    public static function contact($language = Languages::DEFAULT_LANGUAGE)
+    {
+        $url = self::concatParts([
+            url(self::URL_ROOT),
+            self::CONTACT_PAGE
         ]);
 
         return self::localize($url, $language);

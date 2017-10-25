@@ -14,7 +14,10 @@ use Validator;
  */
 class LoginController extends LayoutController
 {
-
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -56,6 +59,9 @@ class LoginController extends LayoutController
         ]);
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function logout()
     {
         auth()->logout();

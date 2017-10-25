@@ -8,7 +8,6 @@
 
 namespace App\Services;
 
-
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 
@@ -18,6 +17,11 @@ use App\Repositories\ProductRepository;
  */
 class SearchService extends LayoutService
 {
+    /**
+     * SearchService constructor.
+     * @param CategoryRepository $categoryRepository
+     * @param ProductRepository $productRepository
+     */
     public function __construct(CategoryRepository $categoryRepository, ProductRepository $productRepository)
     {
         parent::__construct($categoryRepository, $productRepository);

@@ -10,14 +10,33 @@ use App\Repositories\WishListRepository;
 use App\Services\ProfileService;
 use App\ViewModels\Profile\WishlistViewModel;
 
+/**
+ * Class WishlistController
+ * @package App\Http\Controllers\Profile
+ */
 class WishlistController extends LayoutController
 {
+    /**
+     * @var ProfileService
+     */
     protected $profileService;
 
+    /**
+     * @var WishListRepository
+     */
     protected $wishListRepository;
-    
+
+    /**
+     * @var WishListProductRepository
+     */
     protected $wishListProductRepository;
-    
+
+    /**
+     * WishlistController constructor.
+     * @param ProfileService $profileService
+     * @param WishListRepository $wishListRepository
+     * @param WishListProductRepository $wishListProductRepository
+     */
     public function __construct(ProfileService $profileService,
                                 WishListRepository $wishListRepository,
                                 WishListProductRepository $wishListProductRepository)
@@ -28,7 +47,12 @@ class WishlistController extends LayoutController
         
         $this->wishListProductRepository = $wishListProductRepository;
     }
-    
+
+    /**
+     * @param $page
+     * @param string $language
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function index($page, $language = Languages::DEFAULT_LANGUAGE)
     {
         if (!auth()->check())
@@ -62,7 +86,10 @@ class WishlistController extends LayoutController
 
         return view('pages.profile.wish-list', compact('model'));
     }
-    
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function deleteFromWishList()
     {
         $wishListProductId = request('wishListProductId');
@@ -120,8 +147,6 @@ class WishlistController extends LayoutController
         $miniWishListView = view('pages.profile.wish-list-mini', compact('wishListProducts', 'language'))->render();
         
         $bigWishListView = view('pages.profile.wish-list-big', compact('model', 'language'))->render();
-
-        \Debugbar::info($page);
         
         return response()->json([
             'status' => 'success',
@@ -132,6 +157,9 @@ class WishlistController extends LayoutController
         ]);
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function addWishListProduct()
     {
         $language = request('language');
@@ -168,6 +196,9 @@ class WishlistController extends LayoutController
         ]);
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function initWishList()
     {
         $language = request('language');
@@ -205,6 +236,9 @@ class WishlistController extends LayoutController
         ]);
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function initWishListView()
     {
         $page = request('page');

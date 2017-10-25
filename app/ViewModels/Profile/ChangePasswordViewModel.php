@@ -3,10 +3,17 @@
 namespace App\ViewModels\Profile;
 
 use App\ViewModels\LayoutViewModel;
-use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class ChangePasswordViewModel
+ * @package App\ViewModels\Profile
+ */
 class ChangePasswordViewModel extends LayoutViewModel
 {
+    /**
+     * ChangePasswordViewModel constructor.
+     * @param null $language
+     */
     public function __construct($language)
     {
         parent::__construct('change-password', $language);

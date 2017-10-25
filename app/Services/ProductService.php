@@ -8,7 +8,6 @@
 
 namespace App\Services;
 
-
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 use Session;
@@ -88,6 +87,10 @@ class ProductService extends LayoutService
         $model->properties = $this->productRepository->getProductProperties($model->product->id, $model->language);
     }
 
+    /**
+     * increase product number of views
+     * @param $model
+     */
     public function incrementProductNumberOfViews($model)
     {
         $this->productRepository->incrementProductNumberOfViews($model);

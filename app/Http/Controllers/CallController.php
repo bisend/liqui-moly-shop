@@ -4,8 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Mail\OrderCall;
 
+/**
+ * Class CallController
+ * @package App\Http\Controllers
+ */
 class CallController extends LayoutController
 {
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function orderCall()
     {
         $name = request('name');

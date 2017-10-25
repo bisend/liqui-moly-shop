@@ -146,7 +146,4 @@ class HomeService extends LayoutService
         $model->promotionalProduct = $this->productRepository->getPromotionalProductByLanguage($model->language);
     }
     
-    
-    
-    /////
 }

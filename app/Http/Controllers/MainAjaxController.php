@@ -7,12 +7,25 @@ use Illuminate\Http\Request;
 use Response;
 use Session;
 
+/**
+ * Class MainAjaxController
+ * @package App\Http\Controllers
+ */
 class MainAjaxController extends LayoutController
 {
+    /**
+     * @var bool
+     */
     public $isOrderCreated = false;
 
+    /**
+     * @var bool
+     */
     public $isUserAuth = false;
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index()
     {
         if (Session::has('isOrderCreated'))

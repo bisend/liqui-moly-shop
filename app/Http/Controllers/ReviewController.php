@@ -4,15 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Services\ReviewService;
 
+/**
+ * Class ReviewController
+ * @package App\Http\Controllers
+ */
 class ReviewController extends LayoutController
 {
+    /**
+     * @var ReviewService
+     */
     protected $reviewService;
 
+    /**
+     * ReviewController constructor.
+     * @param ReviewService $reviewService
+     */
     public function __construct(ReviewService $reviewService)
     {
         $this->reviewService = $reviewService;
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function addReview()
     {
         $productId = request('productId');

@@ -128,7 +128,7 @@ function SearchDesktop() {
                     }
                     timer = setTimeout(function () {
                         searchAsync();
-                    }, 400);
+                    }, 100);
                 }
             }
             else

@@ -7,12 +7,27 @@ use App\Services\CategoryService;
 use App\Services\HistoryService;
 use App\ViewModels\CategoryViewModel;
 
+/**
+ * Class CategoryController
+ * @package App\Http\Controllers
+ */
 class CategoryController extends LayoutController
 {
+    /**
+     * @var CategoryService
+     */
     protected $categoryService;
 
+    /**
+     * @var HistoryService
+     */
     protected $historyService;
-    
+
+    /**
+     * CategoryController constructor.
+     * @param CategoryService $categoryService
+     * @param HistoryService $historyService
+     */
     public function __construct(CategoryService $categoryService, HistoryService $historyService)
     {
         $this->categoryService = $categoryService;

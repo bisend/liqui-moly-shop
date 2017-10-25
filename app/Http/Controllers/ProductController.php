@@ -16,14 +16,33 @@ use Illuminate\Http\Request;
  */
 class ProductController extends LayoutController
 {
+    /**
+     * @var ProductService
+     */
     public $productService;
 
+    /**
+     * @var HistoryService
+     */
     public $historyService;
 
+    /**
+     * @var ReviewService
+     */
     public $reviewService;
 
+    /**
+     * @var ReviewRepository
+     */
     public $reviewRepository;
 
+    /**
+     * ProductController constructor.
+     * @param ProductService $productService
+     * @param HistoryService $historyService
+     * @param ReviewService $reviewService
+     * @param ReviewRepository $reviewRepository
+     */
     public function __construct(ProductService $productService, 
                                 HistoryService $historyService,
                                 ReviewService $reviewService,
@@ -35,6 +54,11 @@ class ProductController extends LayoutController
         $this->reviewRepository = $reviewRepository;
     }
 
+    /**
+     * @param null $slug
+     * @param string $language
+     * @return mixed
+     */
     public function index($slug = null, $language = Languages::DEFAULT_LANGUAGE)
     {
         $model = new ProductViewModel($slug, 1, $language);
@@ -54,6 +78,9 @@ class ProductController extends LayoutController
         return view('pages.product.product', compact('model'));
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function initReviewsView()
     {
         $productId = request('productId');

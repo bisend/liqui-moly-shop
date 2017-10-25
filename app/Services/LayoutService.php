@@ -6,6 +6,10 @@ use App\Helpers\Languages;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 
+/**
+ * Class LayoutService
+ * @package App\Services
+ */
 class LayoutService
 {
     /**

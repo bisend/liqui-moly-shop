@@ -6,12 +6,27 @@ use App\Mail\BuyOneClick;
 use App\Repositories\FastOrderRepository;
 use App\Repositories\ProductRepository;
 
+/**
+ * Class BuyOneClickController
+ * @package App\Http\Controllers
+ */
 class BuyOneClickController extends LayoutController
 {
+    /**
+     * @var FastOrderRepository
+     */
     protected $fastOrderRepository;
 
+    /**
+     * @var ProductRepository
+     */
     protected $productRepository;
 
+    /**
+     * BuyOneClickController constructor.
+     * @param FastOrderRepository $fastOrderRepository
+     * @param ProductRepository $productRepository
+     */
     public function __construct(FastOrderRepository $fastOrderRepository, ProductRepository $productRepository)
     {
         $this->fastOrderRepository = $fastOrderRepository;
@@ -19,6 +34,9 @@ class BuyOneClickController extends LayoutController
         $this->productRepository = $productRepository;
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function saveFastOrder()
     {
         $userId = null;

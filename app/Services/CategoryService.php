@@ -12,7 +12,6 @@ namespace App\Services;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 
-
 /**
  * Class CategoryService
  * @package App\Services

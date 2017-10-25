@@ -23,7 +23,10 @@ class PersonalInfoController extends LayoutController
      */
     protected $profileService;
 
-
+    /**
+     * PersonalInfoController constructor.
+     * @param ProfileService $profileService
+     */
     public function __construct(ProfileService $profileService)
     {
         $this->profileService = $profileService;

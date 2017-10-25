@@ -16,10 +16,21 @@ use App\Repositories\WishListRepository;
  */
 class ConfirmationEmailController extends LayoutController
 {
+    /**
+     * @var ProfileRepository
+     */
     public $profileRepository;
 
+    /**
+     * @var WishListRepository
+     */
     public $wishListRepository;
 
+    /**
+     * ConfirmationEmailController constructor.
+     * @param ProfileRepository $profileRepository
+     * @param WishListRepository $wishListRepository
+     */
     public function __construct(ProfileRepository $profileRepository, WishListRepository $wishListRepository)
     {
         $this->profileRepository = $profileRepository;

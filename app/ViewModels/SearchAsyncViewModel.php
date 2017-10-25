@@ -16,12 +16,24 @@ use App\Helpers\Languages;
  */
 class SearchAsyncViewModel
 {
+    /**
+     * @var
+     */
     public $searchProducts;
-    
+
+    /**
+     * @var
+     */
     public $countSearchProducts;
-    
+
+    /**
+     * @var string
+     */
     public $language;
-    
+
+    /**
+     * @var null
+     */
     public $series;
 
     /**
