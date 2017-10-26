@@ -6,7 +6,7 @@
                         class="close"
                         data-dismiss="modal"
                         aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLOGIN">КОШИК</h4>
+                <h4 class="modal-title" id="myModalLOGIN">{{ trans('cart.cart') }}</h4>
 
             </div>
             <div class="modal-body">
@@ -74,7 +74,7 @@
                 <div class="row modalCart-row">
                     <div class="col-md-12 no-margin">
                         <div class="cart-total-price">
-                            Загальна сума : <span data-cart-total-sum>
+                            {{ trans('cart.total_sum') }} : <span data-cart-total-sum>
                                 {{ set_format_price($model->totalProductsAmount) }} </span> грн
                         </div>
                     </div>
@@ -82,9 +82,9 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="le-button-active" data-dismiss="modal">Продовжити покупки</button>
+                <button type="button" class="le-button-active" data-dismiss="modal">{{ trans('cart.continue_shopping') }}</button>
 
-                <a href="{{ url_order($model->language) }}" class="le-button">Оформити замовлення</a>
+                <a href="{{ url_order($model->language) }}" class="le-button">{{ trans('cart.to_order') }}</a>
             </div>
         </div>
     </div>

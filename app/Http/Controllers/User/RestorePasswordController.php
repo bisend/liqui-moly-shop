@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\DatabaseModels\User;
+use App\Helpers\Languages;
 use App\Http\Controllers\LayoutController;
 use App\Mail\RestorePassword;
 use DB;
@@ -19,6 +20,8 @@ class RestorePasswordController extends LayoutController
     public function restore()
     {
         $language = request('language');
+
+        Languages::localizeApp($language);
 
         $user = User::whereEmail(request('email'))->first();
         

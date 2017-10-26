@@ -1,17 +1,17 @@
 @component('mail::message')
-# Швидке замовлення № {{ $fastOrder->number }}
+# {{ trans('email.fast_order') }} № {{ $fastOrder->number }}
 
-Нове швидке замовлення від {{ $fastOrder->name }}.
+{{ trans('email.new_fast_order_from') }} {{ $fastOrder->name }}.
 
 @component('mail::table')
-| Фото | Назва | Ціна |
+| Фото | {{ trans('email.product_name') }} | {{ trans('email.price') }} |
 | :-------------: |:-------------------------------------------|:--------:|:----------:|:-----------:|
 | <a href="{{ url_product($product->name_slug, $language) }}"><img height="65px" src="{{ url('/') }}/{{ $product->images[0]->small }}" alt=""></a> | <a href="{{ url_product($product->name_slug, $language) }}">{{ $product->name }}</a> | {{ $fastOrder->price }} грн |
 @endcomponent
 
 <table>
     <tr>
-        <td>Замовник:</td>
+        <td>{{ trans('email.customer') }}:</td>
         <td>{{ $fastOrder->name }}</td>
     </tr>
     <tr>
@@ -21,5 +21,5 @@
 </table>
 
 <br>
-Інтернет-магазин {{ config('app.name') }}
+{{ trans('email.shop') }} {{ config('app.name') }}
 @endcomponent

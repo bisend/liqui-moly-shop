@@ -72,7 +72,7 @@ function RestorePassword() {
             $.ajax({
                 type: 'post',
                 url: '/restore-password',
-                data: $elems.restore.form.serialize() + '&language' + LANGUAGE,
+                data: $elems.restore.form.serialize() + '&language=' + LANGUAGE,
                 success: function (data) {
                     if (data.status == 'success')
                     {

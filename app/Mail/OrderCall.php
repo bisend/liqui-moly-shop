@@ -25,6 +25,8 @@ class OrderCall extends Mailable
      */
     public function __construct($userName, $phoneNumber, $language = Languages::DEFAULT_LANGUAGE)
     {
+        Languages::localizeApp($language);
+        
         $this->userName = $userName;
 
         $this->phoneNumber = $phoneNumber;
@@ -39,6 +41,6 @@ class OrderCall extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.order-call');
+        return $this->subject(trans('email.call_order'))->markdown('emails.order-call');
     }
 }

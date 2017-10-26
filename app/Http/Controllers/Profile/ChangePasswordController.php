@@ -33,6 +33,8 @@ class ChangePasswordController extends LayoutController
      */
     public function index($language = Languages::DEFAULT_LANGUAGE)
     {
+        Languages::localizeApp($language);
+        
         if (!auth()->check())
         {
             return redirect(url_home($language));
@@ -41,6 +43,8 @@ class ChangePasswordController extends LayoutController
         $model = new ChangePasswordViewModel($language);
 
         $this->profileService->fill($model);
+
+        $model->title = trans('meta.change_password_page_title');
 
         return view('pages.profile.change-password', compact('model'));
     }

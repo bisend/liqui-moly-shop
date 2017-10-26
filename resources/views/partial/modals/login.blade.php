@@ -12,7 +12,7 @@
 
                 <div class="row">
                     <div class="col-md-6 no-margin-right">
-                        <a class="modal-header-btn-active btn-login">Вхід</a>
+                        <a class="modal-header-btn-active btn-login">{{ trans('layout.login') }}</a>
                     </div>
 
                     <div class="col-md-6 no-margin-left">
@@ -20,7 +20,7 @@
                            data-target="#ModalRegistr"
                            data-dismiss="modal"
                            aria-label="Close"
-                           class="le-button modal-header-btn btn-registr">Реєстрація</a>
+                           class="le-button modal-header-btn btn-registr">{{ trans('layout.registration') }}</a>
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@
                                    class="form-control"
                                    id="inputEmail3"
                                    data-login-email
-                                   placeholder="Електронна адреса">
+                                   placeholder="{{ trans('layout.email') }}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -53,7 +53,7 @@
                                    class="form-control"
                                    id="inputPassword3"
                                    data-login-password
-                                   placeholder="Пароль">
+                                   placeholder="{{ trans('layout.password') }}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -62,7 +62,7 @@
                                 <label>
                                     <input name="remember"
                                            data-login-remember
-                                           type="checkbox"> Запам'ятати мене
+                                           type="checkbox"> {{ trans('layout.remember_me') }}
                                 </label>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                         <div class="col-sm-12">
                             <button type="submit"
                                     data-login-submit
-                                    class="le-button">Увійти</button>
+                                    class="le-button">{{ trans('layout.log_in') }}</button>
                         </div>
                     </div>
                 </form>
@@ -80,12 +80,12 @@
                    data-target="#ModalReturnLogin"
                    data-dismiss="modal"
                    aria-label="Close"
-                   class="restore-password">Відновити пароль</a>
+                   class="restore-password">{{ trans('layout.restore_password') }}</a>
 
-                <p>Ви ще не зареєстровані?  <a data-toggle="modal"
+                <p>{{ trans('layout.not_registered') }}  <a data-toggle="modal"
                                                data-target="#ModalRegistr"
                                                data-dismiss="modal"
-                                               aria-label="Close">Реєстрація</a></p>
+                                               aria-label="Close">{{ trans('layout.registration') }}</a></p>
 
             </div>
         </div>

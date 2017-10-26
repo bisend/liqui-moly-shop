@@ -11,7 +11,7 @@
                         aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="myModalLOGIN">ШВИДКЕ ЗАМОВЛЕННЯ ТОВАРУ</h4>
+                <h4 class="modal-title" id="myModalLOGIN">{{ trans('layout.fast_order') }}</h4>
                 <div class="arrow-down-modal">
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                 </div>
@@ -31,7 +31,7 @@
                                    class="form-control"
                                    data-buy-one-click-name
                                    value="{{ $isUserAuth ? auth()->user()->name : '' }}"
-                                   placeholder="Ім'я">
+                                   placeholder="{{ trans('layout.name') }}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -41,7 +41,7 @@
                                    class="form-control"
                                    data-buy-one-click-phone-number
                                    value="{{ $isUserAuth ? auth()->user()->profile->phone_number : '' }}"
-                                   placeholder="Ваш номер телефону">
+                                   placeholder="{{ trans('layout.phone_number') }}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -49,7 +49,7 @@
                             <button type="submit"
                                     data-buy-one-click-submit
                                     class="le-button">
-                                Замовити
+                                {{ trans('layout.to_order') }}
                             </button>
                         </div>
                     </div>

@@ -12,12 +12,12 @@
                             <ul>
                                 {{--HOME LINK--}}
                                 <li class="breadcrumb-item">
-                                    <a href="{{ url_home($model->language) }}">Головна</a>
+                                    <a href="{{ url_home($model->language) }}">{{ trans('layout.breadcrumb_home') }}</a>
                                 </li>
 
                                 {{--CURRENT CATEGORY--}}
                                 <li class="dropdown breadcrumb-item current">
-                                    <a>Сторінка не знайдена</a>
+                                    <a>{{ trans('layout.page_not_found') }}</a>
                                 </li><!-- /.breadcrumb-item -->
                             </ul>
                         </li><!-- /.breadcrumb-nav-holder -->

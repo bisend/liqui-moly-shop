@@ -38,6 +38,8 @@ class PersonalInfoController extends LayoutController
      */
     public function index($language = Languages::DEFAULT_LANGUAGE)
     {
+        Languages::localizeApp($language);
+
         if (!auth()->check())
         {
             return redirect(url_home($language));
@@ -55,6 +57,8 @@ class PersonalInfoController extends LayoutController
 
         $this->profileService->fillPayments($model);
 
+        $model->title = trans('meta.personal_info_page_title');
+
         return view('pages.profile.personal-info', compact('model'));
     }
 
@@ -70,6 +74,8 @@ class PersonalInfoController extends LayoutController
         $data = request()->all();
 
         $language = $data['language'];
+
+        Languages::localizeApp($language);
 
         $this->profileService->saveProfilePersonalInfo(
             $profile,
@@ -130,6 +136,8 @@ class PersonalInfoController extends LayoutController
      */
     public function confirmNewEmail($confirmationToken = null, $language = Languages::DEFAULT_LANGUAGE)
     {
+        Languages::localizeApp($language);
+
         $user = User::whereConfirmationToken($confirmationToken)->first();
 
         if (!$user)

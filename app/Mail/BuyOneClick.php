@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Helpers\Languages;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -24,6 +25,8 @@ class BuyOneClick extends Mailable
      */
     public function __construct($product, $fastOrder, $language)
     {
+        Languages::localizeApp($language);
+
         $this->product = $product;
         
         $this->fastOrder = $fastOrder;
@@ -38,6 +41,6 @@ class BuyOneClick extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.buy-one-click');
+        return $this->subject(trans('email.new_fast_order'))->markdown('emails.buy-one-click');
     }
 }

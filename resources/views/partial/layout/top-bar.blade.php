@@ -21,11 +21,11 @@
                         {{ trans('header.delivery_payments') }}
                     </a>
                 </li>
-                <li>
-                    <a href="{{ url_guarantees($model->language) }}">
-                        {{ trans('header.guarantees') }}
-                    </a>
-                </li>
+                {{--<li>--}}
+                    {{--<a href="{{ url_guarantees($model->language) }}">--}}
+                        {{--{{ trans('header.guarantees') }}--}}
+                    {{--</a>--}}
+                {{--</li>--}}
                 <li>
                     <a href="{{ url_about($model->language) }}">
                         {{ trans('header.about') }}

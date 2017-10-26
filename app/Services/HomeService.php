@@ -81,6 +81,8 @@ class HomeService extends LayoutService
         $this->fillSeasonalGoods($model);
         
         $this->fillPromotionalProduct($model);
+
+        $this->fillMeta($model);
     }
 
     /**
@@ -144,6 +146,15 @@ class HomeService extends LayoutService
     private function fillPromotionalProduct($model)
     {
         $model->promotionalProduct = $this->productRepository->getPromotionalProductByLanguage($model->language);
+    }
+
+    /**
+     * fill meta tags
+     * @param $model
+     */
+    private function fillMeta($model)
+    {
+        $model->title = trans('meta.home_page_title');
     }
     
 }

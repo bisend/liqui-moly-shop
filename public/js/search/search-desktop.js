@@ -62,14 +62,14 @@ function SearchDesktop() {
         searchSubmit = function () {
             searchUrl = '/search/';
             searchUrl += buildSearchUrl(searchSeries);
-            searchUrl = buildUrlWithLang(searchUrl);
-            window.location.replace(searchUrl);
+            searchUrl = buildUrlWithLang(searchUrl + '/');
+            window.location.href = searchUrl;
         };
 
         searchAsync = function () {
             searchUrlAsync = '/search/async/';
             searchUrlAsync += buildSearchUrl(searchSeries);
-            searchUrlAsync = buildUrlWithLang(searchUrlAsync);
+            searchUrlAsync = buildUrlWithLang(searchUrlAsync + '/');
 
             if (!isSearchInProcess)
             {
@@ -128,7 +128,7 @@ function SearchDesktop() {
                     }
                     timer = setTimeout(function () {
                         searchAsync();
-                    }, 100);
+                    }, 300);
                 }
             }
             else

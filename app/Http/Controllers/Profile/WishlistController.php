@@ -72,6 +72,8 @@ class WishlistController extends LayoutController
             $language = 'ru';
         }
 
+        Languages::localizeApp($language);
+
         $user = auth()->user();
 
         $model = new WishlistViewModel($page, $language);
@@ -84,6 +86,8 @@ class WishlistController extends LayoutController
 
         $this->profileService->fillWishListProducts($model);
 
+        $model->title = trans('meta.wish_list_page_title');
+
         return view('pages.profile.wish-list', compact('model'));
     }
 
@@ -95,6 +99,8 @@ class WishlistController extends LayoutController
         $wishListProductId = request('wishListProductId');
 
         $language = request('language');
+
+        Languages::localizeApp($language);
 
         $page = request('page');
 
@@ -164,6 +170,8 @@ class WishlistController extends LayoutController
     {
         $language = request('language');
 
+        Languages::localizeApp($language);
+
         if (auth()->check())
         {
             $user = auth()->user();
@@ -202,6 +210,8 @@ class WishlistController extends LayoutController
     public function initWishList()
     {
         $language = request('language');
+
+        Languages::localizeApp($language);
 
         $wishListIds = null;
 
@@ -244,6 +254,8 @@ class WishlistController extends LayoutController
         $page = request('page');
 
         $language = request('language');
+
+        Languages::localizeApp($language);
 
         $user = auth()->user();
 

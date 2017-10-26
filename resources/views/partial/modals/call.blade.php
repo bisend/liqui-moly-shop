@@ -10,14 +10,14 @@
                         aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="myModalLOGIN">ЗВОРОТНІЙ ДЗВІНОК</h4>
+                <h4 class="modal-title" id="myModalLOGIN">{{ trans('to-order-call.callback') }}</h4>
                 <div class="arrow-down-modal">
                     <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
                 </div>
             </div>
             <div class="modal-body">
 
-                <p>Вкажіть Ваш номер телефону і ми Вам зателефонуємо!</p>
+                <p>{{ trans('to-order-call.text') }}</p>
 
                 <form class="form-horizontal" role="form">
 
@@ -27,7 +27,7 @@
                             <input type="text"
                                    class="form-control"
                                    data-call-name
-                                   placeholder="Ім'я">
+                                   placeholder="{{ trans('to-order-call.name') }}">
                         </div>
                     </div>
 
@@ -37,7 +37,7 @@
                             <input type="text"
                                    class="form-control"
                                    data-call-phone-number
-                                   placeholder="Ваш номер телефону">
+                                   placeholder="{{ trans('to-order-call.phone_number') }}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -45,7 +45,7 @@
                             <button type="submit"
                                     data-call-submit
                                     class="le-button">
-                                Замовити дзвінок
+                                {{ trans('to-order-call.to_order_call') }}
                             </button>
                         </div>
                     </div>

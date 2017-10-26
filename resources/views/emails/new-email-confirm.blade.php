@@ -1,14 +1,14 @@
 @component('mail::message')
-# Підтвердження нового e-mail
+# {{ trans('email.new_email_confirm') }}
 
-Вітаємо Вас, {{ $user->name }}.
+{{ trans('email.welcome') }}, {{ $user->name }}.
 
-Для підтвердження нового e-mail натисніть кнопку або перейдіть за посиланням.
+{{ trans('email.for_confirm_new') }}
 @component('mail::button', ['url' => $confirmationUrl])
-Підтвердити новий e-mail
+{{ trans('email.confirm_email') }}
 @endcomponent
 <a href="{{ $confirmationUrl }}">{{ $confirmationUrl }}</a>
 
-Дякуємо,<br>
-Інтернет-магазин {{ config('app.name') }}
+{{ trans('email.thanks') }},<br>
+{{ trans('email.shop') }} {{ config('app.name') }}
 @endcomponent

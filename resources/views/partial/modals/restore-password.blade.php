@@ -8,7 +8,7 @@
                         class="close"
                         data-dismiss="modal"
                         aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLOGIN">ВІДНОВЛЕННЯ ПАРОЛЮ</h4>
+                <h4 class="modal-title" id="myModalLOGIN">{{ trans('layout.restoring_password') }}</h4>
 
                 <div class="arrow-down-modal">
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -17,8 +17,7 @@
             </div>
             <div class="modal-body">
 
-                <p>Вкажіть електронну адресу Вашого облікового запису.
-                    Ми надішлемо Вам інструкцію для відновлення паролю</p>
+                <p>{{ trans('layout.restoring_text') }}</p>
 
                 {{--FORM--}}
                 <form class="form-horizontal"
@@ -36,14 +35,14 @@
                                    name="email"
                                    class="form-control"
                                    id="inputEmail3"
-                                   placeholder="Електронна адреса">
+                                   placeholder="{{ trans('layout.email') }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
                             <button type="submit"
                                     data-restore-password-submit
-                                    class="le-button">Відновити пароль</button>
+                                    class="le-button">{{ trans('layout.restore_password') }}</button>
                         </div>
                     </div>
                 </form>

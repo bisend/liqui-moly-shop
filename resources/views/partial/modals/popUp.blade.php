@@ -6,7 +6,7 @@
     <div class="pop-up-message-content">
         <div class="pop-up-message-header">
             <span class="close" data-popup-close>&times;</span>
-            <h2 class="pop-up-message-title">Повідомлення</h2>
+            <h2 class="pop-up-message-title">{{ trans('layout.message') }}</h2>
         </div>
         <div class="pop-up-message-body">
             <div class="pop-up-message-text-box">

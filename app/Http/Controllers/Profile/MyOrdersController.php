@@ -53,6 +53,8 @@ class MyOrdersController extends LayoutController
             $language = 'ru';
         }
 
+        Languages::localizeApp($language);
+
         $user = auth()->user();
 
         $model = new MyOrdersViewModel($page, $language);
@@ -66,6 +68,8 @@ class MyOrdersController extends LayoutController
         $this->profileService->fillPayments($model);
 
         $this->profileService->fillDeliveries($model);
+
+        $model->title = trans('meta.my_orders_page_title');
 
         return view('pages.profile.my-orders', compact('model'));
     }

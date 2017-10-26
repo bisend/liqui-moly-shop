@@ -26,10 +26,10 @@
             <div class="section-title-checkout">
                 <div class="row">
                     <div class="col-md-6">
-                        <h2>Оформлення замовлення</h2>
+                        <h1>{{ trans('layout.breadcrumb_order') }}</h1>
                     </div>
                     <div class="col-md-6">
-                        <a class="le-button" data-toggle="modal" data-target="#ModalCart">Редагувати замовлення</a>
+                        <a class="le-button" data-toggle="modal" data-target="#ModalCart">{{ trans('order.edit_order') }}</a>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 <div class="col-md-7">
                     <div class="login-box login-box-form">
                         <div class="login-box-title">
-                            Особисті дані
+                            {{ trans('layout.personal_info') }}
                         </div>
                         <div class="row">
 
@@ -50,7 +50,7 @@
                                            class="form-control"
                                            id="inputEmail3"
                                            value="{{ $user ? $user->name : '' }}"
-                                           placeholder="Ім'я">
+                                           placeholder="{{ trans('order.name') }}">
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="email"
@@ -59,7 +59,7 @@
                                            class="form-control"
                                            id="inputEmail3"
                                            value="{{ $user ? $user->email : '' }}"
-                                           placeholder="Електронна адреса">
+                                           placeholder="{{ trans('order.email') }}">
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="text"
@@ -68,12 +68,12 @@
                                            class="form-control"
                                            id="inputPassword3"
                                            value="{{ $model->profile ? $model->profile->phone_number : '' }}"
-                                           placeholder="Номер телефону">
+                                           placeholder="{{ trans('order.phone_number') }}">
                                 </div>
 
                                 <div class="col-sm-12">
                                     <div class="login-box-title">
-                                        Оплата та доставка
+                                        {{ trans('layout.delivery_payment') }}
                                     </div>
                                 </div>
 
@@ -158,7 +158,7 @@
                                                class="form-control"
                                                id="inputEmail3"
                                                value="{{ $model->profile ? $model->profile->address_delivery : '' }}"
-                                               placeholder="Введіть номер відділення або адресу ">
+                                               placeholder="{{ trans('order.address') }}">
                                     </div>
                                 </div>
 
@@ -172,7 +172,7 @@
                                     <button type="submit"
                                             data-order-submit
                                             class="le-button">
-                                        Замовити
+                                        {{ trans('order.save') }}
                                     </button>
                                 </div>
 
@@ -184,7 +184,7 @@
                 <div class="col-md-5">
                     <div class="login-box">
                         <div class="login-box-title">
-                            Ваше замовлення
+                            {{ trans('order.your_order') }}
                         </div>
 
                         <div class="main-content wishlist-section" id="main-content">
@@ -249,7 +249,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="checkout-total-price">
-                                    Сума замовлення : <span data-cart-total-sum>
+                                    {{ trans('order.order_sum') }} : <span data-cart-total-sum>
                                         {{ set_format_price($model->totalOrderAmount) }}
                                     </span> <span>грн</span>
                                 </div>

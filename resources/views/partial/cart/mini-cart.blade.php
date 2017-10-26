@@ -32,21 +32,21 @@
         <div class="basket-item">
             <div class="row dropdown-total-count">
                 <div class="col-md-6 no-margin-left">
-                    Кількісь: <span data-cart-total-count>0</span>
+                    {{ trans('cart.count') }}: <span data-cart-total-count>0</span>
                 </div>
 
                 <div class="col-md-6 no-margin-right dropdown-total-price">
-                    Сума: <span data-cart-total-sum>0.00</span> грн
+                    {{ trans('cart.sum') }}: <span data-cart-total-sum>0.00</span> грн
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-6 no-margin-left">
                     <a href="javascript:void(0);"
                        data-open-big-cart
-                       class="le-button inverse">Відкрити кошик</a>
+                       class="le-button inverse">{{ trans('cart.open_cart') }}</a>
                 </div>
                 <div class="col-xs-12 col-sm-6 no-margin-right">
-                    <a href="{{ url_order($model->language) }}" class="le-button">Оформити</a>
+                    <a href="{{ url_order($model->language) }}" class="le-button">{{ trans('cart.to_order_short') }}</a>
                 </div>
             </div>
         </div>

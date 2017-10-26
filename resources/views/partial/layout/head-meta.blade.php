@@ -11,5 +11,5 @@
 {{-- Meta --}}
 
 {{--Title--}}
-<title>LIQUI MOLY</title>
+<title>{{ $model->title }}</title>
 {{--Title--}}

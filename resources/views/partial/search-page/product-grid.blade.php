@@ -1,6 +1,6 @@
 <section id="gaming">
     <div class="grid-list-products">
-        <h1 class="section-title">Результати пошуку "{{ $model->seriesTitle }}" {{ $model->countSearchProducts }}</h1>
+        <h1 class="section-title">{{ trans('layout.search_result') }} "{{ $model->seriesTitle }}" {{ $model->countSearchProducts }}</h1>
 
         <div class="control-bar">
 

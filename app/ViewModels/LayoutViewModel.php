@@ -34,6 +34,11 @@ abstract class LayoutViewModel extends ViewModel
      * @var
      */
     public $popularProducts;
+
+    /**
+     * @var
+     */
+    public $title;
     
     /**
      * LayoutViewModel constructor.

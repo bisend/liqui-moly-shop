@@ -109,6 +109,8 @@ class OrderService extends LayoutService
         $this->fillDeliveries($model);
         
         $this->fillPayments($model);
+
+        $this->fillMeta($model);
     }
 
     /**
@@ -230,7 +232,15 @@ class OrderService extends LayoutService
     {
         $model->profile = $this->profileRepository->getProfile($userId);
     }
-    
+
+    /**
+     * fill meta tags
+     * @param $model
+     */
+    private function fillMeta($model)
+    {
+        $model->title = trans('meta.order_page_title');
+    }
     
     
     

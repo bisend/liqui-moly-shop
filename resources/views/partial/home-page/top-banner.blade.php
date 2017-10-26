@@ -3,7 +3,7 @@
     <a href="{{ $topBanner->url }}">
         <div class="background-color-opscity"></div>
         <div class="banner-text theblue">
-            <h1>{{ $topBanner->big_text }}</h1>
+            <h2>{{ $topBanner->big_text }}</h2>
             <span class="tagline">{{ $topBanner->medium_text }}</span>
         </div>
         <img class="banner-image" alt="" src="{{ $topBanner->image->original }}">

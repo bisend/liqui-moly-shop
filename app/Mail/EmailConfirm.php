@@ -26,8 +26,12 @@ class EmailConfirm extends Mailable
      */
     public function __construct(User $user, $confirmationUrl = null, $language = Languages::DEFAULT_LANGUAGE)
     {
+        Languages::localizeApp($language);
+        
         $this->user = $user;
+        
         $this->language = $language;
+        
         $this->confirmationUrl = $confirmationUrl;
     }
 
@@ -38,6 +42,6 @@ class EmailConfirm extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.email-confirm');
+        return $this->subject(trans('email.email_confirm'))->markdown('emails.email-confirm');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Languages;
 use App\Mail\OrderCall;
 
 /**
@@ -20,6 +21,8 @@ class CallController extends LayoutController
         $phoneNumber = request('phoneNumber');
         
         $language = request('language');
+
+        Languages::localizeApp($language);
 
         try
         {

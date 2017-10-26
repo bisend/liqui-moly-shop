@@ -34,6 +34,8 @@ class CartController extends LayoutController
      */
     public function index($language = Languages::DEFAULT_LANGUAGE)
     {
+        Languages::localizeApp($language);
+
         $model = new CartViewModel($language);
 
         $this->cartService->fill($model);
@@ -59,6 +61,8 @@ class CartController extends LayoutController
         $productId = request('productId');
 
         $language = request('language');
+
+        Languages::localizeApp($language);
 
         $productCount = request('productCount');
         
@@ -90,6 +94,8 @@ class CartController extends LayoutController
 
         $language = request('language');
 
+        Languages::localizeApp($language);
+
         $model = new CartViewModel($language);
 
         $this->cartService->deleteFromCart($productId);
@@ -117,6 +123,8 @@ class CartController extends LayoutController
         $productId = request('productId');
 
         $language = request('language');
+
+        Languages::localizeApp($language);
 
         $productCount = request('productCount');
         

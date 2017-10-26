@@ -25,6 +25,8 @@ class RestorePassword extends Mailable
      */
     public function __construct($user = null, $password = null, $language = Languages::DEFAULT_LANGUAGE)
     {
+        Languages::localizeApp($language);
+        
         $this->user = $user;
         
         $this->password = $password;
@@ -39,6 +41,6 @@ class RestorePassword extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.restore-password');
+        return $this->subject(trans('email.restore_password'))->markdown('emails.restore-password');
     }
 }

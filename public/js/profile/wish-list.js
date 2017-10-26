@@ -236,7 +236,7 @@ function WishList() {
                     $(this).attr('data-in-wish-list', 'true');
                 }
                 else {
-                    location.href = buildUrlWithLang('/profile/wish-list');
+                    window.location.href = buildUrlWithLang('/profile/wish-list/');
                 }
             }
             else

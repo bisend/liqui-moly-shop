@@ -6,8 +6,8 @@ var IS_USER_AUTH = false,
     CART_W_S;
 
 var IncorrectFieldClass = 'incorrect-field',
-    RequiredFieldText = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Обов`язкове поле.' : 'Обязательное поле.',
-    IncorrectFieldText = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Невірно введені дані.' : 'Неправильные данные.',
+    RequiredFieldText = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Обов`язкове поле' : 'Обязательное поле',
+    IncorrectFieldText = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Невірно введені дані' : 'Неправильные данные',
     ServerError = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Сталася помилка, спробуйте ще.' : 'Произошла ошибка, попробуйте еще.',
     EmailNotValid = (LANGUAGE == DEFAULT_LANGUAGE) ? 'Користувач з таким e-mail вже існує.' : 'Пользователь c таким e-mail уже существует.',
     EmailConfirmNotValid = (LANGUAGE == DEFAULT_LANGUAGE) ? 'E-mail не підтверджено.' : 'E-mail не подтвержден.',
@@ -104,7 +104,7 @@ $(window).load(function () {
 //REDIRECT TO '/' IF EMPTY CART
 function redirectEmptyCart() {
     if (document.URL.indexOf('order') !== -1) {
-        window.location.href = buildUrlWithLang('http://liqui-moly.app');
+        window.location.href = buildUrlWithLang('/');
     }
 }
 
@@ -130,7 +130,7 @@ function buildUrlWithLang(url)
     }
     else
     {
-        return url += '/' + LANGUAGE;
+        return url += LANGUAGE;
     }
 }
 

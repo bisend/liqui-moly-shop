@@ -52,6 +52,8 @@ class CategoryService extends LayoutService
         $this->fillCategoryTopSalesProducts($model);
         
         $this->fillCategoryNoveltyProducts($model);
+
+        $this->fillMeta($model);
     }
 
     /**
@@ -107,5 +109,14 @@ class CategoryService extends LayoutService
     private function fillCategoryNoveltyProducts($model)
     {
         $model->categoryNoveltyProducts = $this->productRepository->getNoveltyProductsByLanguage($model->language);
+    }
+
+    /**
+     * fill meta tags
+     * @param $model
+     */
+    private function fillMeta($model)
+    {
+        $model->title = $model->currentCategory->name . " | " . trans('meta.buy') . " " . $model->currentCategory->name . " " . trans('meta.best_prices');
     }
 }

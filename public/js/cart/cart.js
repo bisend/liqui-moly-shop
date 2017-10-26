@@ -65,7 +65,7 @@ function Cart() {
             CART_W_S = new WaitSync(function () {
                 $.ajax({
                     type: 'get',
-                    url: buildUrlWithLang('/cart/init-cart'),
+                    url: buildUrlWithLang('/cart/init-cart/'),
                     // cache: false,
                     success: function (data) {
                         ctx.cartFunctions.renderBigCart(data.bigCartView);

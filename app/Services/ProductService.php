@@ -47,6 +47,8 @@ class ProductService extends LayoutService
         $this->fillCurrentCategory($model);
         
         $this->fillProductProperties($model);
+
+        $this->fillMeta($model);
     }
 
     /**
@@ -94,5 +96,14 @@ class ProductService extends LayoutService
     public function incrementProductNumberOfViews($model)
     {
         $this->productRepository->incrementProductNumberOfViews($model);
+    }
+
+    /**
+     * fill meta tags
+     * @param $model
+     */
+    private function fillMeta($model)
+    {
+        $model->title = $model->product->name . " | " . trans('meta.buy') . " " . $model->product->name . " " . trans('meta.best_prices');
     }
 }

@@ -1,5 +1,5 @@
 {{--{{ dd($model) }}--}}
-{{--{{ \Debugbar::info($model) }}--}}
+{{ \Debugbar::info($model) }}
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 <head>

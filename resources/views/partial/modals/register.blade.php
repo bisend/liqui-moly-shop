@@ -11,11 +11,19 @@
 
                 <div class="row">
                     <div class="col-md-6 no-margin-right">
-                        <a data-toggle="modal" data-target="#ModalLogin"  data-dismiss="modal" aria-label="Close" class="le-button modal-header-btn btn-login">Вхід</a>
+                        <a data-toggle="modal"
+                           data-target="#ModalLogin"
+                           data-dismiss="modal"
+                           aria-label="Close"
+                           class="le-button modal-header-btn btn-login">
+                            {{ trans('layout.login') }}
+                        </a>
                     </div>
 
                     <div class="col-md-6 no-margin-left">
-                        <a class="modal-header-btn-active btn-registr">Реєстрація</a>
+                        <a class="modal-header-btn-active btn-registr">
+                            {{ trans('layout.registration') }}
+                        </a>
                     </div>
                 </div>
                 <div class="arrow-down-modal">
@@ -34,7 +42,7 @@
 
                         <div class="col-sm-12">
                             <input type="text"
-                                   placeholder="Ім'я"
+                                   placeholder="{{ trans('layout.name') }}"
                                    name="name"
                                    data-register-name
                                    class="form-control"
@@ -50,7 +58,7 @@
                                    data-register-email
                                    class="form-control"
                                    id="inputEmail3"
-                                   placeholder="Електронна адреса">
+                                   placeholder="{{ trans('layout.email') }}">
                         </div>
                     </div>
 
@@ -62,7 +70,7 @@
                                    data-register-password
                                    class="form-control"
                                    id="inputPassword3"
-                                   placeholder="Пароль">
+                                   placeholder="{{ trans('layout.password') }}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -73,7 +81,7 @@
                                    data-register-password-confirmation
                                    class="form-control"
                                    id="inputPassword3"
-                                   placeholder="Підтвердіть пароль">
+                                   placeholder="{{ trans('layout.repeat_password') }}">
                         </div>
                     </div>
 
@@ -81,13 +89,21 @@
                         <div class="col-sm-12">
                             <button type="submit"
                                     data-register-submit
-                                    class="le-button">ЗАРЕЄСТРУВАТИСЯ</button>
+                                    class="le-button">{{ trans('layout.to_register') }}</button>
                         </div>
                     </div>
                 </form>
                 {{--FORM--}}
 
-                <p>Вже зареєстровані? <a href="" data-toggle="modal" data-target="#ModalLogin"  data-dismiss="modal" aria-label="Close">Увійдіть</a></p>
+                <p>{{ trans('layout.already_registered') }}
+                    <a href=""
+                       data-toggle="modal"
+                       data-target="#ModalLogin"
+                       data-dismiss="modal"
+                       aria-label="Close">
+                        {{ trans('layout.sign_in') }}
+                    </a>
+                </p>
 
             </div>
         </div>

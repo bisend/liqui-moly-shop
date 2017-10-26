@@ -1,11 +1,11 @@
 @component('mail::message')
-# Замовлення дзвінка
+# {{ trans('email.call_order') }}
 
-Нове замовлення дзвінка від користувача: "{{ $userName }}".
+{{ trans('email.new_order_call') }}: "{{ $userName }}".
 
-Номер телефону:
+Телефон:
 
 # {{ $phoneNumber }}
 
-Інтернет-магазин {{ config('app.name') }}
+{{ trans('email.shop') }} {{ config('app.name') }}
 @endcomponent

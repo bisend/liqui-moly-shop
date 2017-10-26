@@ -1,5 +1,5 @@
 <div class="widget">
-    <h1 class="border">Новинки</h1>
+    <h2 class="border">Новинки</h2>
     <ul class="product-list">
 
         @foreach($model->searchNoveltyProducts as $searchNoveltyProduct)

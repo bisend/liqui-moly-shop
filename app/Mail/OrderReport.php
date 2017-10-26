@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Helpers\Languages;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -22,6 +23,8 @@ class OrderReport extends Mailable
      */
     public function __construct($model, $username)
     {
+        Languages::localizeApp($model->language);
+        
         $this->username = $username;
         
         $this->model = $model;
@@ -34,6 +37,6 @@ class OrderReport extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.order-report');
+        return $this->subject(trans('email.your_order'))->markdown('emails.order-report');
     }
 }

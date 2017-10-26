@@ -33,9 +33,17 @@
                 <a href="{{ url_home($model->language) }}">
                     <img src="/img/logo.png">
                     <ul>
-                        <li>{{ trans('header.logo_name_1') }}</li>
-                        <li>{{ trans('header.logo_name_2') }}</li>
-                        <li>{{ trans('header.logo_name_3') }}</li>
+                        @if($model->view == 'home')
+                            <h1>
+                                <span>{{ trans('header.logo_name_1') }}</span>
+                                <span>{{ trans('header.logo_name_2') }}</span>
+                                <span>{{ trans('header.logo_name_3') }}</span>
+                            </h1>
+                        @else
+                            <li>{{ trans('header.logo_name_1') }}</li>
+                            <li>{{ trans('header.logo_name_2') }}</li>
+                            <li>{{ trans('header.logo_name_3') }}</li>
+                        @endif
                     </ul>
                 </a>
             </div><!-- /.logo -->

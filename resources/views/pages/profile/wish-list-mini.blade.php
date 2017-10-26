@@ -19,7 +19,7 @@
                                 </a>
                             </div>
                             <div class="price">
-                                {{ $wishListProduct->product->price }}
+                                {{ $wishListProduct->product->price }} грн
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 no-margin basket-btn">
                     <a href="{{ url_wish_list($language) }}"
-                       class="le-button">Переглянути</a>
+                       class="le-button">{{ trans('wish-list.to_see') }}</a>
                 </div>
             </div>
         </div>

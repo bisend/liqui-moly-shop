@@ -41,6 +41,8 @@ class SearchService extends LayoutService
         $this->fillSearchTopSalesProducts($model);
         
         $this->fillSearchNoveltyProducts($model);
+
+        $this->fillMeta($model);
     }
 
     /**
@@ -90,5 +92,14 @@ class SearchService extends LayoutService
     private function fillSearchNoveltyProducts($model)
     {
         $model->searchNoveltyProducts = $this->productRepository->getNoveltyProductsByLanguage($model->language);
+    }
+
+    /**
+     * fill meta tags
+     * @param $model
+     */
+    private function fillMeta($model)
+    {
+        $model->title = trans('meta.search_page_title') . " \"" . $model->seriesTitle . "\" | " . trans('meta.home_page_title');
     }
 }

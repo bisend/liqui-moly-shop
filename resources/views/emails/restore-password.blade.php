@@ -1,14 +1,14 @@
 @component('mail::message')
-# Відновлення паролю
+# {{ trans('email.restore_password') }}
 
-Вітаємо Вас, {{ $user->name }}.
+{{ trans('email.welcome') }}, {{ $user->name }}.
 
-Ваш новий пароль для входу:
+{{ trans('email.your_new_password') }}:
 
 # {{ $password }}
 
-Пароль можна змінити в особистому кабінеті.
+{{ trans('email.can_change_password') }}
 
-Дякуємо,<br>
-Інтернет-магазин {{ config('app.name') }}
+{{ trans('email.thanks') }},<br>
+{{ trans('email.shop') }} {{ config('app.name') }}
 @endcomponent
