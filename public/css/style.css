@@ -5923,3 +5923,8 @@ div.dropdown-menu ul.dropdown-menu-list{
 .h1-logo-header span{
   letter-spacing: 0.2px;
 }
+
+.banner-text.theblue h2{
+  font-size: 25px;
+  color: #fff;
+}
