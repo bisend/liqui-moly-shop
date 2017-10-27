@@ -148,10 +148,20 @@ function WishList() {
 
                     if (data.status == 'success')
                     {
-                        $('[data-add-to-wish-list="' + productId + '"]').text(ADD_TO_WISH)
-                            .attr('data-in-wish-list', 'false')
-                            .removeClass('btn-add-to-wish-list-active')
-                            .addClass('btn-add-to-wishlist');
+                        if ($('#add-to-wish').length > 0)
+                        {
+                            $('[data-add-to-wish-list="' + productId + '"]').text(ADD_TO_WISH_PRODUCT)
+                                .attr('data-in-wish-list', 'false')
+                                .removeClass('btn-add-to-wish-list-active')
+                                .addClass('btn-add-to-wishlist');
+                        }
+                        else
+                        {
+                            $('[data-add-to-wish-list="' + productId + '"]').text(ADD_TO_WISH)
+                                .attr('data-in-wish-list', 'false')
+                                .removeClass('btn-add-to-wish-list-active')
+                                .addClass('btn-add-to-wishlist');
+                        }
 
                         $elems.wishList.wishListTotalCount.text(data.wishListTotalCount);
 

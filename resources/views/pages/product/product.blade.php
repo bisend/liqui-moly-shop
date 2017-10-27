@@ -171,11 +171,11 @@
                         </a>
 
                         <div class="buttons-holder">
-                            <a class="btn-add-to-wishlist"
+                            <a id="add-to-wish" class="btn-add-to-wishlist"
                                data-in-wish-list="false"
                                data-add-to-wish-list="{{ $model->product->id }}"
                                href="javascript:void(0);">
-                                {{ trans('layout.add_to_wish_list') }}
+                                {{ trans('product.add_to_wish_list') }}
                             </a>
                             <!-- <a class="btn-add-to-compare" href="#">Додати до порівняння</a> -->
                         </div>
