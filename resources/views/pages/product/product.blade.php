@@ -160,7 +160,7 @@
                            data-in-cart="false"
                            data-add-to-cart="{{ $model->product->id }}"
                            class="le-button huge">
-                            {{ trans('layout.add_to_cart') }}
+                            {{ trans('product.add_to_cart') }}
                         </a>
 
                         <a id="addto-cart"

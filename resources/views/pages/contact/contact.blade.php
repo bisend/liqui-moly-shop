@@ -9,12 +9,12 @@
                         <h1 class="bordered">{{ trans('contact.contact') }}</h1>
 
                             <ul class="footer-contacts-adress contact-page-inform">
-                                <li><i class="fa fa-phone"></i> (+800) 123 456 7890</li>
-                                <li><i class="fa fa-envelope"></i> info@<span class="le-color">liquimoly.com</span></li>
                                 <li>
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     {{ trans('contact.address') }}
                                 </li>
+                                <li><i class="fa fa-phone"></i> (+800) 123 456 7890</li>
+                                <li><i class="fa fa-envelope"></i> info@<span class="le-color">liquimoly.com</span></li>
                             </ul>
 
                         <h2 class="bordered">{{ trans('contact.letter') }}</h2>
