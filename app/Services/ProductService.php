@@ -58,7 +58,12 @@ class ProductService extends LayoutService
     private function fillProduct($model)
     {
         $model->product = $this->productRepository->getProductBySlugAndLanguage($model->productSlug, $model->language);
-        
+
+        if (!$model->product)
+        {
+            abort(404);
+        }
+
         if (Session::has('cart.' . $model->product->id))
         {
             $item = Session::get('cart.' . $model->product->id);

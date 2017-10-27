@@ -34,9 +34,9 @@
                 <div class="col-md-8 center-block">
                     <div class="info-404 text-center">
                         <h2 class="primary-color inner-bottom-xs">404</h2>
-                        <p class="lead">Сторінка не знайдена</p>
+                        <p class="lead">{{ trans('layout.page_not_found') }}</p>
                         <div class="text-center">
-                            <a href="#" class="btn-lg huge"><i class="fa fa-home"></i>На головну</a>
+                            <a href="{{ url_home($model->language) }}" class="btn-lg huge"><i class="fa fa-home"></i>{{ trans('layout.go_home') }}</a>
                         </div>
                     </div>
                 </div>
