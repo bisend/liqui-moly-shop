@@ -39,7 +39,7 @@
                             @php($counter = 1)
                             @foreach($model->product->images as $image)
                                 <div class="single-product-gallery-item" id="slide{{ $counter }}">
-                                    <a data-rel="prettyphoto" href="{{ $image->medium }}">
+                                    <a rel="prettyPhoto" href="{{ $image->medium }}">
                                         <img class="img-responsive" alt="{{ $model->product->name }}"
                                              src="{{ $image->medium }}">
                                              {{--src="/img/900.jpg">--}}
@@ -49,7 +49,7 @@
                             @endforeach
                         @else
                             <div class="single-product-gallery-item" id="slide1">
-                                <a data-rel="prettyphoto" href="{{ $model->product->images[0]->medium }}">
+                                <a rel="prettyPhoto" href="{{ $model->product->images[0]->medium }}">
                                     <img class="img-responsive" alt="{{ $model->product->name }}"
                                          src="{{ $model->product->images[0]->medium }}">
                                          {{--src="/img/900.jpg">--}}

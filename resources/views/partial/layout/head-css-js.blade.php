@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/css/owl.carousel.css">
 <link rel="stylesheet" href="/css/owl.transitions.css">
 <link rel="stylesheet" href="/css/animate.min.css">
+<link rel="stylesheet" href="/css/prettyPhoto.css">
 
 <!-- Fonts -->
 <!-- 	<link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'> -->

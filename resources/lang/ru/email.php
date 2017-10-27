@@ -9,6 +9,7 @@ return [
     'your_order' => 'Ваш заказ',
     'new_order' => 'Новый заказ',
     'restore_password' => 'Восстановление пароля',
+    'new_message' => 'Новое сообщение',
 
     'rights' => 'Все права защищены',
     'fast_order' => 'Быстрый заказ',
@@ -37,5 +38,8 @@ return [
     'new_order_from' => 'Новый заказ от',
 
     'your_new_password' => 'Ваш новый пароль для входа',
-    'can_change_password' => 'Пароль можна изменить в личном кабинете.'
+    'can_change_password' => 'Пароль можна изменить в личном кабинете.',
+
+    'from' => 'от',
+    'message' => 'Сообщение',
 ];

@@ -158,6 +158,23 @@ function BuyOneClick()
 
 new BuyOneClick();
 
+$(document).ready(function () {
+    $("a[rel^='prettyPhoto']").prettyPhoto({
+        theme: 'facebook',
+        slideshow: false,
+        autoplay_slideshow: false,
+        social_tools: false,
+        deeplinking: false,
+        ajaxcallback: function () {
+            $('body').addClass('modal-open').css('padding-right', '17px');
+        },
+        callback: function () {
+            $('body').removeClass('modal-open').css('padding-right', 0);
+        }
+    });
+    // $('a[rel="productpretty"]').prettyPhoto();
+});
+
 $(window).load(function () {
     if (localStorage.getItem('goToReviews'))
     {

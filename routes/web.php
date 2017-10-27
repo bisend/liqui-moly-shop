@@ -366,7 +366,10 @@ Route::get('/contact/{language?}', 'ContactController@index')
         'language' => '^(uk|ru)?$'
     ]);
 
-
+/**
+ * Contact send email handler
+ */
+Route::post('/contact', 'ContactController@sendContactEmail');
 
 
 

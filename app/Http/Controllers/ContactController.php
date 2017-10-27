@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Languages;
+use App\Mail\ContactEmail;
 use App\Services\ContactService;
 use App\ViewModels\ContactViewModel;
 
@@ -37,5 +38,33 @@ class ContactController extends LayoutController
         $this->contactService->fill($model);
 
         return view('pages.contact.contact', compact('model'));
+    }
+
+    /**
+     * send email to manager (contact)
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function sendContactEmail()
+    {
+        $email = request('email');
+        $name = request('name');
+        $message = request('message');
+        $language = request('language');
+        
+        Languages::localizeApp($language);
+
+        try {
+            \Mail::to(config('mail.from.address'))->send(new ContactEmail($email, $name, $message, $language));
+        }
+        catch (\Exception $e)
+        {
+            return response()->json([
+                'status' => 'error'
+            ]);
+        }
+
+        return response()->json([
+            'status' => 'success'
+        ]);
     }
 }
