@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-6 contact-page-contact-info">
                     <section class="section leave-a-message">
-                        <h2 class="bordered">Контакти</h2>
+                        <h1 class="bordered">Контакти</h1>
 
                             <ul class="footer-contacts-adress contact-page-inform">
                                 <li><i class="fa fa-phone"></i> (+800) 123 456 7890</li>

@@ -5928,3 +5928,116 @@ div.dropdown-menu ul.dropdown-menu-list{
   font-size: 25px;
   color: #fff;
 }
+
+.delivery_payments{
+  padding: 20px 0 60px 0;
+}
+
+.delivery_payments .bordered{
+  border-bottom: 1px solid #ececec;
+  margin-top: 30px;
+  font-size: 28px;
+  line-height: 52px;
+  font-weight: 500 !important;
+  color: #3D3D3D;
+  letter-spacing: -1px;
+}
+
+.delivery_payments .payments_item{
+  background-color: #F9F9F9;
+  border: 1px solid #ececec;
+  padding: 20px;
+  min-height: 212px;
+  margin-top: 20px;
+}
+
+.delivery_payments .payments_item span{
+  font-size: 15px;
+  color: #5D5D5D;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.delivery_payments .payments_item p{
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.delivery_item{
+  text-align: center;
+  min-height: 300px;
+  background-color: #F9F9F9;
+  border: 1px solid #ececec;
+  line-height: 300px;
+  margin-top: 20px;
+}
+
+.delivery_item a img{
+  width: 200px;
+}
+
+.delivery_item .novaposhta-img{
+  width: 140px;
+}
+
+.about_section{
+  padding: 40px 0;
+}
+
+.about_section .bordered{
+  border-bottom: 1px solid #ececec;
+  margin-top: 10px;
+  font-size: 28px;
+  line-height: 52px;
+  font-weight: 500 !important;
+  color: #3D3D3D;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+
+.about_section p{
+  font-size: 15px;
+  color: #5D5D5D;
+}
+
+.about_section .about_item{
+  background-color: #F9F9F9;
+  border: 1px solid #ececec;
+  padding: 10px 20px 20px 20px;
+}
+
+.about_section .about_item .service-icon{
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 55px;
+  float: left;
+}
+
+.about_section .about-item-info{
+  margin-top: 30px;
+}
+
+.about_section .about_item .service-icon i{
+font-size: 22px;
+}
+
+.about_section .about_item span{
+  float: left;
+  font-size: 25px;
+  line-height: 52px;
+  font-weight: 500 !important;
+  color: #3D3D3D;
+  margin-left: 15px;
+}
+
+.about_section .about-item-info .about_item{
+  min-height: 167px;
+  padding: 20px;
+}
+
+.about_section .about-item-info .about_item p{
+  display: block;
+  margin-top: 60px;
+}
+

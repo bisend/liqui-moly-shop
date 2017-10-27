@@ -642,9 +642,30 @@
     .category-list-view .product-grid-holder .product-item-holder .prices{
         float: right;
     }
+
+    .delivery_payments .payments_item{
+        min-height: 255px;
+    }
+
+    .about_section .about-item-info .about_item{
+        min-height: 200px;
+    }
+    .about_section .about_item span{
+        font-size: 21px;
+    }
+    .about_section .about-item-info .about_item p{
+        margin-top: 55px;
+    }
 }
 
 @media (max-width: 991px){
+    .about_section .about-item-info .about_item{
+        min-height: 20px;
+        margin-bottom: 12px;
+    }
+    .delivery_payments .payments_item{
+        min-height: 50px;
+    }
     .contact-page-contact-info{
         width: 94%;
         margin: auto;
