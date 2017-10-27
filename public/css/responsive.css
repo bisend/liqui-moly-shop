@@ -645,6 +645,15 @@
 }
 
 @media (max-width: 991px){
+    .contact-page-contact-info{
+        width: 94%;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    .contact-page-map{
+        width: 94%;
+        margin: auto;
+    }
     #footer .widget{
         text-align: center;
     }

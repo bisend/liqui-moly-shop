@@ -34,9 +34,9 @@
                     <img src="/img/logo.png">
                     <ul>
                         @if($model->view == 'home')
-                            <h1>
-                                <span>{{ trans('header.logo_name_1') }}</span>
-                                <span>{{ trans('header.logo_name_2') }}</span>
+                            <h1 class="h1-logo-header">
+                                <span>{{ trans('header.logo_name_1') }}</span> </br>
+                                <span>{{ trans('header.logo_name_2') }}</span></br>
                                 <span>{{ trans('header.logo_name_3') }}</span>
                             </h1>
                         @else

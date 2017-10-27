@@ -31,11 +31,11 @@
 
         <div class="basket-item">
             <div class="row dropdown-total-count">
-                <div class="col-md-6 no-margin-left">
+                <div class="col-md-5 no-margin-left">
                     {{ trans('cart.count') }}: <span data-cart-total-count>0</span>
                 </div>
 
-                <div class="col-md-6 no-margin-right dropdown-total-price">
+                <div class="col-md-7 no-margin dropdown-total-price">
                     {{ trans('cart.sum') }}: <span data-cart-total-sum>0.00</span> грн
                 </div>
             </div>

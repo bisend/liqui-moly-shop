@@ -4156,6 +4156,7 @@ select.top-drop-menu {
  .logo ul li{
   font-size: 17px;
   font-weight: 900;
+   margin-bottom: 3px;
 }
 
 header .top-search-holder .search-area .search-field{
@@ -5844,3 +5845,81 @@ div.dropdown-menu ul.dropdown-menu-list{
   float: right;
 }
 /*---  12.09  -----*/
+
+.error-page {
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+}
+
+.info-404 h2 {
+  font-size: 200px;
+  font-weight: 700 !important;
+  line-height: 100px;
+}
+
+#contact-us .bordered{
+  color: #434343;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: normal !important;
+  padding-bottom: 14px;
+  margin-bottom: 12px;
+}
+
+.contact-page{
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+.contact-page-contact-info{
+  background-color: #F9F9F9;
+  width: 49%;
+  margin-right: 1%;
+  padding: 20px 25px 20px 25px;
+  border: 1px solid #ececec;
+}
+
+.contact-page-contact-info .section{
+  margin: 0;
+}
+
+.contact-page-map{
+  background-color: #F9F9F9;
+  width: 49%;
+  margin-left: 1%;
+  border: 1px solid #ececec;
+}
+
+.contact-page-map{
+  padding: 20px 25px 15px 25px;
+}
+
+.contact-form-page{
+  margin-top: 20px;
+}
+
+.contact-form-page .form-control{
+  margin-bottom: 12px;
+}
+
+.contact-form-page textarea{
+  width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+  margin-bottom: 19px!important;
+}
+
+.contact-page-inform{
+  margin-bottom: 25px;
+}
+
+.h1-logo-header{
+  font-size: 17px;
+  font-weight: 900!important;
+  line-height: 26px;
+}
+
+.h1-logo-header span{
+  letter-spacing: 0.2px;
+}

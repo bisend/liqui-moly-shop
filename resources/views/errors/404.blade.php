@@ -28,11 +28,19 @@
         </div><!-- /#top-mega-nav -->
         <!-- ========================================= BREADCRUMB : END ========================================= -->
     </div>
+    <main id="faq" class="inner error-page">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h1 class="text-center" style="font-size: 192px; height: 192px">404</h1>
+                <div class="col-md-8 center-block">
+                    <div class="info-404 text-center">
+                        <h2 class="primary-color inner-bottom-xs">404</h2>
+                        <p class="lead">Сторінка не знайдена</p>
+                        <div class="text-center">
+                            <a href="#" class="btn-lg huge"><i class="fa fa-home"></i>На головну</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </main>
 @endsection
