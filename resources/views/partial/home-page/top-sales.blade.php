@@ -6,7 +6,7 @@
                     <div class="ribbon green"><span>Топ продаж</span></div>
                     <div class="image">
                         <a href="{{ url_product($topSale->name_slug, $model->language) }}">
-                            <img alt="" src="{{ $topSale->images[0]->small }}">
+                            <img alt="{{ $topSale->name }}" src="{{ $topSale->images[0]->medium }}">
                             {{--<img alt="" src="/img/900.jpg">--}}
                         </a>
                     </div>

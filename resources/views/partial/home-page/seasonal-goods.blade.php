@@ -16,14 +16,15 @@
                                         {{--<div class="ribbon green"><span>Сезонні товари</span></div>--}}
                                         <div class="image">
                                             <a href="{{ url_product($seasonalGood->name_slug, $model->language) }}">
-                                                <img alt="" src="{{ $seasonalGood->images[0]->small }}">
-                                                {{--<img alt="" src="/img/900.jpg">--}}
+                                                <img alt="{{ $seasonalGood->name }}" src="{{ $seasonalGood->images[0]->medium }}">
                                             </a>
                                         </div>
                                         <div class="body">
                                             <div class="label-discount clear"></div>
                                             <div class="title title-BestSellers">
-                                                <a href="{{ url_product($seasonalGood->name_slug, $model->language) }}">{{ $seasonalGood->name }}</a>
+                                                <a href="{{ url_product($seasonalGood->name_slug, $model->language) }}">
+                                                    {{ $seasonalGood->name }}
+                                                </a>
                                             </div>
 
                                             <div class="star-holder inline">
@@ -104,14 +105,16 @@
                                         {{--<div class="ribbon green"><span>Сезонні товари</span></div>--}}
                                         <div class="image">
                                             <a href="{{ url_product($seasonalGood->name_slug, $model->language) }}">
-                                                <img alt="{{ $seasonalGood->name }}" src="{{ $seasonalGood->images[0]->small }}">
-                                                {{--<img alt="{{ $seasonalGood->name }}" src="/img/900.jpg">--}}
+                                                <img alt="{{ $seasonalGood->name }}"
+                                                     src="{{ $seasonalGood->images[0]->medium }}">
                                             </a>
                                         </div>
                                         <div class="body">
                                             <div class="label-discount clear"></div>
                                             <div class="title title-BestSellers">
-                                                <a href="{{ url_product($seasonalGood->name_slug, $model->language) }}">{{ $seasonalGood->name }}</a>
+                                                <a href="{{ url_product($seasonalGood->name_slug, $model->language) }}">
+                                                    {{ $seasonalGood->name }}
+                                                </a>
                                             </div>
                                             <div class="star-holder inline">
                                                 <div class="star" data-score="4">
@@ -191,7 +194,8 @@
                                 <div class="single-product-gallery-item" id="slide{{ $href_slide }}">
                                     <a data-rel="prettyphoto"
                                        href="{{ url_product($model->promotionalProduct->name_slug, $model->language) }}">
-                                        <img alt="{{ $model->promotionalProduct->name }}" src="{{ $image->medium }}">
+                                        <img alt="{{ $model->promotionalProduct->name }}"
+                                             src="{{ $image->big }}">
 {{--                                        <img alt="{{ $model->promotionalProduct->name }}" src="/img/900.jpg">--}}
                                     </a>
                                 </div><!-- /.single-product-gallery-item -->
@@ -201,9 +205,10 @@
 
                         @else
                             <div class="single-product-gallery-item" id="slide1">
-                                <a data-rel="prettyphoto" href="{{ url_product($model->promotionalProduct->name_slug, $model->language) }}">
+                                <a data-rel="prettyphoto"
+                                   href="{{ url_product($model->promotionalProduct->name_slug, $model->language) }}">
                                     <img alt="{{ $model->promotionalProduct->name }}"
-                                         src="{{ $model->promotionalProduct->images[0]->medium }}">
+                                         src="{{ $model->promotionalProduct->images[0]->big }}">
 {{--                                    <img alt="{{ $model->promotionalProduct->name }}" src="/img/900.jpg">--}}
                                 </a>
                             </div><!-- /.single-product-gallery-item -->
@@ -226,9 +231,8 @@
                                            data-slide="{{ $data_slide }}"
                                            href="#slide{{ $href_slide }}">
 
-                                            <img alt=""
+                                            <img alt="{{ $model->promotionalProduct->name }}"
                                                  src="{{ $image->small }}">
-                                                 {{--src="/img/900.jpg">--}}
                                         </a>
                                     </li>
                                     @php($data_slide++)
@@ -240,8 +244,8 @@
                                        data-target="#best-seller-single-product-slider"
                                        data-slide="0"
                                        href="#slide1">
-                                        <img alt="" src="{{ $model->promotionalProduct->images[0]->small }}">
-                                        {{--<img alt="" src="/img/900.jpg">--}}
+                                        <img alt="{{ $model->promotionalProduct->name }}"
+                                             src="{{ $model->promotionalProduct->images[0]->small }}">
                                     </a>
                                 </li>
                             @endif

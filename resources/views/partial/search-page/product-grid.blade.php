@@ -39,14 +39,16 @@
 
                                     <div class="image">
                                         <a href="{{ url_product($searchProduct->name_slug, $model->language) }}">
-                                            <img src="{{ $searchProduct->images[0]->small }}" alt="{{ $searchProduct->name }}">
+                                            <img src="{{ $searchProduct->images[0]->medium }}"
+                                                 alt="{{ $searchProduct->name }}">
                                         </a>
                                     </div>
                                     <div class="body">
 
                                         <div class="title">
-                                            {{--<a href="single-product.html">{{ $searchProduct->products[0]->name }}</a>--}}
-                                            <a href="{{ url_product($searchProduct->name_slug, $model->language) }}">{{ $searchProduct->name }}</a>
+                                            <a href="{{ url_product($searchProduct->name_slug, $model->language) }}">
+                                                {{ $searchProduct->name }}
+                                            </a>
                                         </div>
                                         <div class="star-holder inline">
                                             <div class="star" data-score="4">

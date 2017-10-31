@@ -22,7 +22,7 @@
                                 <div class="image">
                                     <a href="{{ url_product($visitedProduct->name_slug, $model->language) }}">
                                         <img alt="{{ $visitedProduct->name }}"
-                                             src="{{ $visitedProduct->images[0]->small }}">
+                                             src="{{ $visitedProduct->images[0]->medium }}">
                                     </a>
                                 </div>
                                 <div class="body">

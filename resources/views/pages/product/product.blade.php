@@ -34,24 +34,23 @@
 
                     <div id="owl-single-product" class="owl-carousel">
 
-                        {{--MEDIUM IMAGES--}}
+                        {{--BIG IMAGES--}}
                         @if($model->product->images->count() > 1)
                             @php($counter = 1)
                             @foreach($model->product->images as $image)
                                 <div class="single-product-gallery-item" id="slide{{ $counter }}">
-                                    <a rel="prettyPhoto" href="{{ $image->medium }}">
+                                    <a rel="prettyPhoto" href="{{ $image->original }}">
                                         <img class="img-responsive" alt="{{ $model->product->name }}"
-                                             src="{{ $image->medium }}">
-                                             {{--src="/img/900.jpg">--}}
+                                             src="{{ $image->big }}">
                                     </a>
                                 </div><!-- /.single-product-gallery-item -->
                             @php($counter++)
                             @endforeach
                         @else
                             <div class="single-product-gallery-item" id="slide1">
-                                <a rel="prettyPhoto" href="{{ $model->product->images[0]->medium }}">
+                                <a rel="prettyPhoto" href="{{ $model->product->images[0]->original }}">
                                     <img class="img-responsive" alt="{{ $model->product->name }}"
-                                         src="{{ $model->product->images[0]->medium }}">
+                                         src="{{ $model->product->images[0]->big }}">
                                          {{--src="/img/900.jpg">--}}
                                 </a>
                             </div><!-- /.single-product-gallery-item -->
@@ -70,7 +69,7 @@
                                        data-target="#owl-single-product"
                                        data-slide="{{ $counterSlide }}"
                                        href="#slide{{ $counter }}">
-                                        <img width="67" alt="{{ $model->product->name }}" src="{{ $image->small }}">
+                                        <img alt="{{ $model->product->name }}" src="{{ $image->medium }}">
                                         {{--<img width="67" alt="{{ $model->product->name }}" src="/img/900.jpg">--}}
                                     </a>
                                 @php($counter++)

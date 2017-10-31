@@ -39,7 +39,8 @@
 
                                     <div class="image">
                                         <a href="{{ url_product($categoryProduct->name_slug, $model->language) }}">
-                                            <img src="{{ $categoryProduct->images[0]->small }}" alt="{{ $categoryProduct->name }}">
+                                            <img src="{{ $categoryProduct->images[0]->medium }}"
+                                                 alt="{{ $categoryProduct->name }}">
                                             {{--<img src="/img/900.jpg" alt="{{ $categoryProduct->name }}">--}}
                                         </a>
                                     </div>

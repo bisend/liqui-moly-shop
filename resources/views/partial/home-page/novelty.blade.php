@@ -6,7 +6,7 @@
                     <div class="ribbon blue"><span>Новинки</span></div>
                     <div class="image">
                         <a href="{{ url_product($novelty->name_slug, $model->language) }}">
-                            <img alt="{{ $novelty->name }}" src="{{ $novelty->images[0]->small }}">
+                            <img alt="{{ $novelty->name }}" src="{{ $novelty->images[0]->medium }}">
                         </a>
                     </div>
                     <div class="body">
