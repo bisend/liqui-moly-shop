@@ -6,6 +6,6 @@
             <h2>{{ $topBanner->big_text }}</h2>
             <span class="tagline">{{ $topBanner->medium_text }}</span>
         </div>
-        <img class="banner-image" alt="" src="{{ $topBanner->image->original }}">
+        <img class="banner-image" alt="" src="{{ $topBanner->image->top_banner }}">
     </a>
 </div>

@@ -5,7 +5,7 @@
         <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm owl-carousel-big-banner">
 
             @foreach($model->mainSlider as $slide)
-                <div class="item" style="background-image: url({{ $slide->images->original }});">
+                <div class="item" style="background-image: url({{ $slide->images->main_slider }});">
                     <div class="background-color-opscity"></div>
                     <div class="container-fluid">
                         <div class="caption vertical-center text-left">
