@@ -7,8 +7,8 @@
                         <div class="col-xs-4 col-sm-4 no-margin text-center">
                             <div class="thumb">
                                 <a href="{{ url_product($cartProduct->name_slug, $model->language) }}">
-                                    <img alt="{{ $cartProduct->name }}" src="{{ $cartProduct->images[0]->small }}">
-{{--                                    <img alt="{{ $cartProduct->name }}" src="/img/900.jpg">--}}
+                                    <img alt="{{ $cartProduct->name }}"
+                                         src="{{ $cartProduct->images[0]->small }}">
                                 </a>
                             </div>
                         </div>
@@ -17,7 +17,16 @@
                                     {{ $cartProduct->name }}
                                 </a>
                             </div>
-                            <div class="price">{{ $cartProduct->price }} грн</div>
+                            <div class="price">
+                                {{ $cartProduct->price }} x
+                                <span data-mini-cart-product-count="{{ $cartProduct->id }}">
+                                    {{ $cartProduct->productCount }}
+                                </span>
+                                =
+                                <span data-product-sum="{{ $cartProduct->id }}">
+                                    {{ set_format_price($cartProduct->price, $cartProduct->productCount) }}
+                                </span> грн
+                            </div>
                         </div>
                     </div>
                     <a class="close-btn"

@@ -387,6 +387,8 @@ function Cart() {
 
             $('[data-order-product-count="' + productId + '"]').text(productCount);
 
+            $('[ data-mini-cart-product-count="' + productId + '"]').text(productCount);
+
             if ($('[data-cart-product-id="' + productId +'"]').length > 0)
             {
                 if (!IS_DATA_PROCESSING && currentCount > 1){
@@ -416,6 +418,8 @@ function Cart() {
             $productCountElem.val(productCount);
 
             $('[data-order-product-count="' + productId + '"]').text(productCount);
+
+            $('[ data-mini-cart-product-count="' + productId + '"]').text(productCount);
 
             if ($('[data-cart-product-id="' + productId +'"]').length > 0)
             {
