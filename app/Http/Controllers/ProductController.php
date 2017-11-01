@@ -9,6 +9,7 @@ use App\Services\ProductService;
 use App\Services\ReviewService;
 use App\ViewModels\ProductViewModel;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * Class ProductController
@@ -83,6 +84,11 @@ class ProductController extends LayoutController
      */
     public function initReviewsView()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         $productId = request('productId');
 
         $mPage = request('page');

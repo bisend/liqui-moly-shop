@@ -12,6 +12,7 @@ use App\ViewModels\OrderViewModel;
 use DB;
 use Illuminate\Http\Request;
 use Session;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * Class OrderController
@@ -79,6 +80,11 @@ class OrderController extends LayoutController
      */
     public function createOrder()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+
         $data = request()->all();
 
         $model = new OrderViewModel(request('language'));

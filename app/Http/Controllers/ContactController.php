@@ -6,6 +6,7 @@ use App\Helpers\Languages;
 use App\Mail\ContactEmail;
 use App\Services\ContactService;
 use App\ViewModels\ContactViewModel;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * Class ContactController
@@ -46,6 +47,11 @@ class ContactController extends LayoutController
      */
     public function sendContactEmail()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         $email = request('email');
         $name = request('name');
         $message = request('message');

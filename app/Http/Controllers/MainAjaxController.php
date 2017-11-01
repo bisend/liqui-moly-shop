@@ -6,6 +6,7 @@ use App\Helpers\Languages;
 use Illuminate\Http\Request;
 use Response;
 use Session;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * Class MainAjaxController
@@ -28,6 +29,11 @@ class MainAjaxController extends LayoutController
      */
     public function index()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+
         if (Session::has('isOrderCreated'))
         {
             $this->isOrderCreated = Session::get('isOrderCreated');

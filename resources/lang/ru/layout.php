@@ -47,6 +47,10 @@ return [
     'search_result' => 'Результаты поиска',
 
     'page_not_found' => 'Страница не найдена',
+    'bad_request' => 'Неверный запрос',
+    'unauthorized' => 'Не авторизований',
+    'forbidden' => 'Запрещено',
+    'server_error' => 'Внутренняя ошибка сервера',
 
     'go_home' => 'На главную',
 ];

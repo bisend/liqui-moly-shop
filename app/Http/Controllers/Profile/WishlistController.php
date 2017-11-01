@@ -9,6 +9,7 @@ use App\Repositories\WishListProductRepository;
 use App\Repositories\WishListRepository;
 use App\Services\ProfileService;
 use App\ViewModels\Profile\WishlistViewModel;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * Class WishlistController
@@ -96,6 +97,11 @@ class WishlistController extends LayoutController
      */
     public function deleteFromWishList()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         $wishListProductId = request('wishListProductId');
 
         $language = request('language');
@@ -168,6 +174,11 @@ class WishlistController extends LayoutController
      */
     public function addWishListProduct()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         $language = request('language');
 
         Languages::localizeApp($language);
@@ -209,6 +220,11 @@ class WishlistController extends LayoutController
      */
     public function initWishList()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         $language = request('language');
 
         Languages::localizeApp($language);
@@ -251,6 +267,11 @@ class WishlistController extends LayoutController
      */
     public function initWishListView()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         $page = request('page');
 
         $language = request('language');

@@ -95,7 +95,7 @@ Route::group(['prefix' => 'errors'], function ()
      */
     Route::get('/{error}/{language?}', 'ErrorController@index')
         ->where([
-            'error' => '^(404|403|400)$',
+            'error' => '^(400|401|403|404|500)$',
             'language' => '^(uk|ru)?$'
         ]);
 });

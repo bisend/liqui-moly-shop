@@ -6,6 +6,7 @@ use App\Helpers\Languages;
 use App\Http\Controllers\LayoutController;
 use App\Services\ProfileService;
 use App\ViewModels\Profile\ChangePasswordViewModel;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * Class ChangePasswordController
@@ -54,6 +55,11 @@ class ChangePasswordController extends LayoutController
      */
     public function changePassword()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         $user = auth()->user();
 
         $data = request()->all();

@@ -7,6 +7,7 @@ use App\Helpers\Languages;
 use App\Http\Controllers\LayoutController;
 use App\Mail\RestorePassword;
 use DB;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * Class RestorePasswordController
@@ -19,6 +20,11 @@ class RestorePasswordController extends LayoutController
      */
     public function restore()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         $language = request('language');
 
         Languages::localizeApp($language);

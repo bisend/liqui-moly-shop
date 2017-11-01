@@ -7,6 +7,7 @@ use App\Http\Controllers\LayoutController;
 use App\Mail\EmailConfirm;
 use DB;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Validator;
 
 /**
@@ -21,6 +22,11 @@ class RegisterController extends LayoutController
      */
     public function register(Request $request)
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+
         $language = request('language');
 
         $validator = Validator::make($request->all(), [

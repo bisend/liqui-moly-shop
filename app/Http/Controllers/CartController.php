@@ -6,6 +6,7 @@ use App\Helpers\Languages;
 use App\Services\CartService;
 use App\ViewModels\CartViewModel;
 use Session;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use View;
 
 /**
@@ -58,6 +59,11 @@ class CartController extends LayoutController
      */
     public function addToCart()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         $productId = request('productId');
 
         $language = request('language');
@@ -90,6 +96,11 @@ class CartController extends LayoutController
      */
     public function deleteFromCart()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         $productId = request('productId');
 
         $language = request('language');
@@ -120,6 +131,11 @@ class CartController extends LayoutController
      */
     public function updateCart()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         $productId = request('productId');
 
         $language = request('language');
@@ -153,6 +169,10 @@ class CartController extends LayoutController
      */
     public function clearCart()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
 //        $language = request('language');
 
 //        $model = new CartViewModel($language);

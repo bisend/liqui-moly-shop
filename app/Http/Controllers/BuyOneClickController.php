@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\BuyOneClick;
 use App\Repositories\FastOrderRepository;
 use App\Repositories\ProductRepository;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * Class BuyOneClickController
@@ -39,6 +40,11 @@ class BuyOneClickController extends LayoutController
      */
     public function saveFastOrder()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         $userId = null;
 
         if (auth()->check())

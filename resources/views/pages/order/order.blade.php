@@ -41,7 +41,7 @@
                         </div>
                         <div class="row">
 
-                            <form class="form-horizontal" role="form" method="post" action="/create-order">
+                            <form class="form-horizontal" role="form" method="post">
                                 {{ csrf_field() }}
                                 <div class="col-sm-12">
                                     <input type="text"

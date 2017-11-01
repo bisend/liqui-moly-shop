@@ -11,6 +11,7 @@ use App\Services\ProfileService;
 use App\ViewModels\Profile\PersonalInfoViewModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * Class PersonalInfoController
@@ -67,6 +68,11 @@ class PersonalInfoController extends LayoutController
      */
     public function savePersonalInfo()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         $user = auth()->user();
 
         $profile = Profile::whereUserId($user->id)->first();

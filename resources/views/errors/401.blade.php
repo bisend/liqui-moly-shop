@@ -17,7 +17,7 @@
 
                                 {{--CURRENT CATEGORY--}}
                                 <li class="dropdown breadcrumb-item current">
-                                    <a>{{ trans('layout.bad_request') }}</a>
+                                    <a>{{ trans('layout.unauthorized') }}</a>
                                 </li><!-- /.breadcrumb-item -->
                             </ul>
                         </li><!-- /.breadcrumb-nav-holder -->
@@ -33,8 +33,8 @@
             <div class="row">
                 <div class="col-md-8 center-block">
                     <div class="info-404 text-center">
-                        <h2 class="primary-color inner-bottom-xs">400</h2>
-                        <p class="lead">{{ trans('layout.bad_request') }}</p>
+                        <h2 class="primary-color inner-bottom-xs">401</h2>
+                        <p class="lead">{{ trans('layout.unauthorized') }}</p>
                         <div class="text-center">
                             <a href="{{ url_home($model->language) }}" class="btn-lg huge"><i class="fa fa-home"></i>{{ trans('layout.go_home') }}</a>
                         </div>

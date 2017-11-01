@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\ReviewService;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * Class ReviewController
@@ -29,6 +30,11 @@ class ReviewController extends LayoutController
      */
     public function addReview()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         $productId = request('productId');
         $userId = auth()->check() ? auth()->user()->id : null;
         $review = request('review');

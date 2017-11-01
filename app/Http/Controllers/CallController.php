@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Languages;
 use App\Mail\OrderCall;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * Class CallController
@@ -16,6 +17,11 @@ class CallController extends LayoutController
      */
     public function orderCall()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         $name = request('name');
         
         $phoneNumber = request('phoneNumber');

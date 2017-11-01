@@ -6,6 +6,7 @@ use App\DatabaseModels\User;
 use App\Http\Controllers\LayoutController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Validator;
 
 /**
@@ -20,6 +21,11 @@ class LoginController extends LayoutController
      */
     public function login(Request $request)
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|exists:users,email'
         ]);
@@ -64,6 +70,11 @@ class LoginController extends LayoutController
      */
     public function logout()
     {
+        if(!request()->ajax())
+        {
+            throw new BadRequestHttpException();
+        }
+        
         auth()->logout();
         if (!auth()->check())
         {
