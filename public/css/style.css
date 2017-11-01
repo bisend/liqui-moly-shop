@@ -2108,7 +2108,7 @@ header {
   .product-grid-holder .product-item-holder.size-big .body {
     min-height: 195px; }
     .product-grid-holder .product-item-holder.size-big .body .title {
-      min-height: 93px;
+      min-height: 125px;
     line-height: 31px;
     font-size: 25px;
     margin: 10px 0 0 0; }
@@ -5721,7 +5721,7 @@ div.dropdown-menu ul.dropdown-menu-list{
 
     /* Modal Header */
 .pop-up-message-header {
-  padding: 2px 16px;
+  padding: 20px;
   background-color: #005aab;
   color: white;
 }
@@ -5739,7 +5739,7 @@ div.dropdown-menu ul.dropdown-menu-list{
 .pop-up-message-content {
 
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 10% auto; /* 15% from the top and centered */
     /*padding: 20px;*/
     border: 1px solid #888;
     height: 250px;
@@ -5754,15 +5754,22 @@ div.dropdown-menu ul.dropdown-menu-list{
 }
 
 .pop-up-message-text-box {
-    display: table;
-    height: 208px;
-    width: 100%;
+   padding: 20px;
     text-align: center;
 }
 
 .pop-up-message-text {
     display: table-cell;
     vertical-align: middle;
+    padding: 20px;
+}
+
+.pop-up-message-text-box .le-button{
+  position: relative!important;
+  display: block!important;
+  width: 100%;
+  top: 0!important;
+  left: 0!important;
 }
 
 /* Add Animation */
@@ -6041,3 +6048,10 @@ font-size: 22px;
   margin-top: 60px;
 }
 
+#owl-recently-viewed{
+  height: 430px;
+}
+
+#owl-recently-viewed .owl-stage-outer{
+  height: 450px;
+}
