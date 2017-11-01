@@ -72,7 +72,8 @@
                             {{ trans('layout.personal_info') }}
                         </div>
 
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" role="form" method="post">
+                            {{csrf_field()}}
                             <div class="form-group">
 
                                 <div class="col-sm-4">
