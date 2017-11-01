@@ -2103,12 +2103,12 @@ header {
     text-align: center; }
   .product-grid-holder .product-item-holder .body {
     margin: 0 34px;
-    min-height: 138px;
+    padding-bottom: 4px;
     border-bottom: 1px solid #ececec; }
   .product-grid-holder .product-item-holder.size-big .body {
     min-height: 195px; }
     .product-grid-holder .product-item-holder.size-big .body .title {
-      min-height: 125px;
+      min-height: 114px;
     line-height: 31px;
     font-size: 25px;
     margin: 10px 0 0 0; }
