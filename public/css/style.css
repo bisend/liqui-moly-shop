@@ -6059,3 +6059,24 @@ font-size: 22px;
 #owl-recently-viewed .owl-stage-outer{
   height: 450px;
 }
+
+/*.grid-list-products .tab-content .product-grid-holder .product-item .product-grid-holder .body {*/
+  /*margin: 0 34px;*/
+  /*padding-bottom: 4px;*/
+  /*border-bottom: 0px solid #ececec;*/
+/*}*/
+
+.grid-list-products .tab-content .product-grid-holder .product-item-holder .body{
+  margin: 0 34px;
+  padding-bottom: 4px;
+  border-bottom: 0px solid #ececec;
+}
+
+.product-grid-holder .product-item-holder.size-big .body .product-comments{
+  float: right;
+  margin: 0;
+}
+
+.product-grid-holder .product-item-holder.size-big .body{
+  min-height: 215px;
+}

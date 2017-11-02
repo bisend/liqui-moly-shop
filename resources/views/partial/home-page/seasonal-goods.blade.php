@@ -258,21 +258,6 @@
                             <a href="{{ url_product($model->promotionalProduct->name_slug, $model->language) }}">
                                 {{ $model->promotionalProduct->name }}</a>
                         </div>
-                        <div class="star-holder inline">
-                            <div class="star" data-score="4">
-                                @for($i = 1; $i <= 5; $i++)
-                                    @if($model->promotionalProduct->avg_rating != null)
-                                        @if($i <= $model->promotionalProduct->avg_rating)
-                                            <img src="/img/star-on.png" alt="{{  $i }}">
-                                        @else
-                                            <img src="/img/star-off.png" alt="{{  $i }}">
-                                        @endif
-                                    @else
-                                        <img src="/img/star-on.png" alt="{{  $i }}">
-                                    @endif
-                                @endfor
-                            </div>
-                        </div>
                         <div class="product-comments">
                             @if($model->promotionalProduct->avg_rating != null && $model->promotionalProduct->reviews->count() > 0)
                                 <a href="javascript:void(0);"
@@ -293,6 +278,22 @@
                                 </a>
                             @endif
                         </div>
+                        <div class="star-holder inline">
+                            <div class="star" data-score="4">
+                                @for($i = 1; $i <= 5; $i++)
+                                    @if($model->promotionalProduct->avg_rating != null)
+                                        @if($i <= $model->promotionalProduct->avg_rating)
+                                            <img src="/img/star-on.png" alt="{{  $i }}">
+                                        @else
+                                            <img src="/img/star-off.png" alt="{{  $i }}">
+                                        @endif
+                                    @else
+                                        <img src="/img/star-on.png" alt="{{  $i }}">
+                                    @endif
+                                @endfor
+                            </div>
+                        </div>
+
                     </div>
                     <div class="prices text-right">
                         {{--<div class="price-prev" style="text-decoration: line-through;">{{ $model->promotionalProduct->old_price }}</div>--}}
