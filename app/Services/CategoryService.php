@@ -85,6 +85,11 @@ class CategoryService extends LayoutService
      */
     private function fillCategoryProducts($model)
     {
+        if ($model->categoryProductsOffset >= $model->countCategoryProducts)
+        {
+            abort(404);
+        }
+
         $model->categoryProducts = $this->productRepository->getAllProductsForCategoryByLanguage($model->currentCategory, $model->sort, $model->categoryProductsLimit, $model->categoryProductsOffset, $model->language);
         
         if ($model->page != '1' && $model->categoryProducts->count() == 0 )
