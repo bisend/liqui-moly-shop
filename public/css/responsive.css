@@ -399,6 +399,11 @@
 
     header .top-cart-row  .basket-item .dropdown-total-count .dropdown-total-price{
         float: left;
+        margin-left: 15px;
+    }
+
+    #hero .caption {
+        background:none!important;
     }
 }
 
@@ -879,6 +884,7 @@
 
     .cart-modal .modal-footer .le-button{
         width: 100%!important;
+        text-align: center;
     }
 
     #single-product .body-holder .body {
