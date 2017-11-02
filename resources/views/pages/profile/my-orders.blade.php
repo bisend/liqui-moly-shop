@@ -82,8 +82,12 @@
                                             @if($model->orders->count() > 0)
                                                 <div class="row cart-item cart_item cart_item-header">
 
-                                                    <div class="col-xs-12 col-sm-3 no-margin">
+                                                    <div class="col-xs-12 col-sm-2 no-margin">
                                                         Номер
+                                                    </div>
+
+                                                    <div class="col-xs-12 col-sm-2 no-margin">
+                                                        Статус
                                                     </div>
 
                                                     <div class="col-xs-12 col-sm-3 no-margin">
@@ -99,11 +103,15 @@
                                                 @foreach($model->orders as $order)
                                                     <div class="row cart-item cart_item" id="yith-wcwl-row-1">
 
-                                                        <div class="col-xs-12 col-sm-3 no-margin">
+                                                        <div class="col-xs-12 col-sm-2 no-margin">
                                                             <a data-toggle="modal"
                                                                data-target="#order-detail-{{ $order->order_number }}">
                                                                 № {{ $order->order_number }}
                                                             </a>
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-sm-2 no-margin">
+                                                            {{ $order->status->name }}
                                                         </div>
 
                                                         <div class="col-xs-12 col-sm-3 no-margin">
@@ -116,7 +124,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-xs-12 col-sm-3 no-margin">
+                                                        <div class="col-xs-12 col-sm-2 no-margin">
                                                             <div class="text-right">
                                                                 <div class="add-cart-button">
                                                                     <a class="le-button"
@@ -211,6 +219,9 @@
                                                                             <div class="col-md-12">
                                                                                 <div class="order-detali-info">
                                                                                     <ul>
+                                                                                        <li>
+                                                                                            Статус : {{ $order->status->name }}
+                                                                                        </li>
                                                                                         @foreach($model->deliveries as $delivery)
                                                                                             @if($delivery->id == $order->delivery_id)
                                                                                                 <li>{{ trans('my-orders.delivery') }} : {{ $delivery->name }}</li>

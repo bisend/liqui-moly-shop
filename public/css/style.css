@@ -5844,6 +5844,10 @@ div.dropdown-menu ul.dropdown-menu-list{
   margin: 5px 0;
 }
 
+.order-detali-info ul li:first-child{
+  font-weight: 600;
+}
+
 .order-detali-info ul li span{
   font-size: 15px;
   margin-left: 15px;

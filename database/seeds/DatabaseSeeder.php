@@ -51,5 +51,7 @@ class DatabaseSeeder extends Seeder
 //        $this->call(ProductRatingPatchSeeder::class);
         
 //        $this->call(VendorCodeProductSeeder::class);
+        
+//        $this->call(OrderStatusesSeeder::class);
     }
 }

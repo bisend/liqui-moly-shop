@@ -39,6 +39,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Order whereUsername($value)
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\DatabaseModels\OrderProduct[] $order_products
+ * @property int $status_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\DatabaseModels\Order whereStatusId($value)
+ * @property-read \App\DatabaseModels\OrderStatus $status
  */
 class Order extends Model
 {
@@ -47,5 +50,10 @@ class Order extends Model
     public function order_products()
     {
         return $this->hasMany(OrderProduct::class, 'order_id', 'id');
+    }
+    
+    public function status()
+    {
+        return $this->hasOne(OrderStatus::class, 'id', 'status_id');
     }
 }

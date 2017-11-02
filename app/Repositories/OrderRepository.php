@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\DatabaseModels\Order;
+use App\DatabaseModels\OrderStatus;
 
 /**
  * Class OrderRepository
@@ -19,10 +20,13 @@ class OrderRepository
      */
     public function createOrder($data, $userId, $model)
     {
+        $orderStatus = OrderStatus::whereIsDefault(true)->first();
+        
         $order = new Order();
         $order->user_id = $userId;
         $order->payment_id = $data['paymentId'];
         $order->delivery_id = $data['deliveryId'];
+        $order->status_id = $orderStatus->id;
         $order->total_products_count = $model->totalProductsCount;
         $order->total_order_amount = $model->totalOrderAmount;
         $order->address_delivery = $data['address'];
@@ -64,6 +68,13 @@ class OrderRepository
                     'name_slug'
                 ])->with([
                     'images'
+                ]);
+            },
+            'status' => function ($query) use ($model) {
+                $query->select([
+                    'id',
+                    "name_$model->language as name",
+                    'name_slug'
                 ]);
             }
         ])
