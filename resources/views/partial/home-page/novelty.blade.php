@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="product-comments">
-                            @if($novelty->avg_rating != null)
+                            @if($novelty->avg_rating != null && $novelty->reviews->count() > 0)
                                 <a href="javascript:void(0);"
                                    data-go-to-review-id="{{ $novelty->id }}"
                                    data-go-to-review-slug="{{ $novelty->name_slug }}"

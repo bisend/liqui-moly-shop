@@ -46,7 +46,7 @@ class ProductService extends LayoutService
 
         $this->fillCurrentCategory($model);
         
-        $this->fillProductProperties($model);
+//        $this->fillProductProperties($model);
 
         $this->fillMeta($model);
     }

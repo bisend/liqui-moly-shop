@@ -43,7 +43,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-comments product-comments-smoll">
-                                                @if($seasonalGood->avg_rating != null)
+                                                @if($seasonalGood->avg_rating != null && $seasonalGood->reviews->count() > 0)
                                                     <a href="javascript:void(0);"
                                                        data-go-to-review-id="{{ $seasonalGood->id }}"
                                                        data-go-to-review-slug="{{ $seasonalGood->name_slug }}"
@@ -132,7 +132,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-comments product-comments-smoll">
-                                                @if($seasonalGood->avg_rating != null)
+                                                @if($seasonalGood->avg_rating != null && $seasonalGood->reviews->count() > 0)
                                                     <a href="javascript:void(0);"
                                                        data-go-to-review-id="{{ $seasonalGood->id }}"
                                                        data-go-to-review-slug="{{ $seasonalGood->name_slug }}"
@@ -274,7 +274,7 @@
                             </div>
                         </div>
                         <div class="product-comments">
-                            @if($model->promotionalProduct->avg_rating != null)
+                            @if($model->promotionalProduct->avg_rating != null && $model->promotionalProduct->reviews->count() > 0)
                                 <a href="javascript:void(0);"
                                    data-go-to-review-id="{{ $model->promotionalProduct->id }}"
                                    data-go-to-review-slug="{{ $model->promotionalProduct->name_slug }}"

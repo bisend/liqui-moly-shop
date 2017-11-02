@@ -66,7 +66,7 @@
                                             </div>
                                         </div>
                                         <div class="product-comments">
-                                            @if($searchProduct->avg_rating != null)
+                                            @if($searchProduct->avg_rating != null && $searchProduct->reviews->count() > 0)
                                                 <a href="javascript:void(0);"
                                                    data-go-to-review-id="{{ $searchProduct->id }}"
                                                    data-go-to-review-slug="{{ $searchProduct->name_slug }}"
