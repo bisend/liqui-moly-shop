@@ -6080,3 +6080,73 @@ font-size: 22px;
 .product-grid-holder .product-item-holder.size-big .body{
   min-height: 216px;
 }
+
+
+.ecommerce-info {
+  padding: 40px 0 0 0;
+  position: relative;
+}
+
+.ecommerce-info h2{
+  color: #510d00;
+  font-size: 28px;
+  border: none;
+}
+
+.ecommerce-info p{
+  margin-top: 15px;
+  color: #a0a0a0;
+  /*max-height: 100px;*/
+  /*overflow: hidden;*/
+}
+
+.ecommerce-info .positionrelative{
+  position: relative;
+}
+
+.ecommerce-info .view-more{
+  text-align: center;
+  margin-top: 30px;
+  z-index: 9999;
+}
+
+.ecommerce-info .div-shadow{
+  webkit-box-shadow: 10px -52px 71px 0px rgba(255,255,255,1); */
+-moz-box-shadow: 10px -52px 71px 0px rgba(255,255,255,1);
+  /* box-shadow: 10px -52px 71px 0px rgba(255,255,255,1); */
+  height: 60px;
+  position: absolute;
+  width: 100%;
+  bottom: 47px;
+  background: -moz-linear-gradient(top,rgba(255,255,255,0) 0,#f3f3f3  100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(255,255,255,0)),color-stop(100%,#f3f3f3 ));
+  background: -webkit-linear-gradient(top,rgba(255,255,255,0) 0,#f3f3f3  100%);
+  background: -o-linear-gradient(top,rgba(255,255,255,0) 0,#f3f3f3  100%);
+  background: -ms-linear-gradient(top,rgba(255,255,255,0) 0,#f3f3f3  100%);
+  background: linear-gradient(top,rgba(255,255,255,0) 0,#f3f3f3  100%);
+}
+
+.ecommerce-info .all-info{
+  display: none;
+}
+
+.view-more a {
+  cursor: pointer;
+  color: #000;
+}
+
+.view-more a:hover{
+  color: #000;
+  text-decoration: underline;
+}
+
+.view-more a i{
+  margin-left: 6px;
+}
+
+
+#footer .link-list-row{
+  border-top: 1px solid #e0e0e0;
+  padding-top: 40px;
+  margin: 30px 0 72px 0;
+}

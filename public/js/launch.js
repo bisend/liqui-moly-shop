@@ -177,3 +177,9 @@ $('body').on('click', '[data-popup]', function (e) {
     }
 });
 ////////////////////////////////
+
+$('.view-more-btn').on('click', function () {
+    $('.view-more').fadeOut();
+    $('.div-shadow').fadeOut();
+    $('.all-info').slideDown();
+});
