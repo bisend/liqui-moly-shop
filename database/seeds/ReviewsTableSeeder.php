@@ -16,8 +16,10 @@ class ReviewsTableSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         Review::truncate();
         $this->command->info('[reviews] table truncated...');
-
+        
+        DB::beginTransaction();
         $this->seed();
+        DB::commit();
 
         $this->command->info('[reviews] table seeded...');
         DB::statement('SET FOREIGN_KEY_CHECKS=1');

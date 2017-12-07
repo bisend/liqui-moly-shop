@@ -15,8 +15,10 @@ class ProductRatingPatchSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
 
         $this->command->info('[rating] seed started...');
-
+        
+        DB::beginTransaction();
         $this->seed();
+        DB::commit();
 
         $this->command->info('[rating] seed ended...');
         DB::statement('SET FOREIGN_KEY_CHECKS=1');

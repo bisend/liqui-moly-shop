@@ -17,7 +17,9 @@ class CategoriesTableSeeder extends Seeder
         Category::truncate();
         $this->command->info('[categories] table truncated...');
 
+        DB::beginTransaction();
         $this->seed();
+        DB::commit();
 
         $this->command->info('[categories] table seeded...');
         DB::statement('SET FOREIGN_KEY_CHECKS=1');

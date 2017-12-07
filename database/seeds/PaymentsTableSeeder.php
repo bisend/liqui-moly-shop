@@ -15,8 +15,10 @@ class PaymentsTableSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         Payment::truncate();
         $this->command->info('[payments] table truncated...');
-
+        
+        DB::beginTransaction();
         $this->seed();
+        DB::commit();
 
         $this->command->info('[payments] table seeded...');
         DB::statement('SET FOREIGN_KEY_CHECKS=1');

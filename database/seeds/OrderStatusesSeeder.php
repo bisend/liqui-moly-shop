@@ -16,7 +16,9 @@ class OrderStatusesSeeder extends Seeder
         OrderStatus::truncate();
         $this->command->info('[order_statuses] table truncated...');
 
+        DB::beginTransaction();
         $this->seed();
+        DB::commit();
 
         $this->command->info('[order_statuses] table seeded...');
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
@@ -28,7 +30,7 @@ class OrderStatusesSeeder extends Seeder
         $orderStatus->name_uk = 'Новий';
         $orderStatus->name_ru = 'Новый';
         $orderStatus->name_slug = URLify::filter('Новий');
-        $orderStatus->isDefault = true;
+        $orderStatus->is_default = true;
         $orderStatus->save();
 
         $orderStatus = new OrderStatus();

@@ -12,6 +12,7 @@ class VendorCodeProductSeeder extends Seeder
      */
     public function run()
     {
+        DB::beginTransaction();
         Product::chunk(500, function($products) {
             foreach ($products as $product)
             {
@@ -19,5 +20,6 @@ class VendorCodeProductSeeder extends Seeder
                 $product->save();
             }
         });
+        DB::commit();
     }
 }

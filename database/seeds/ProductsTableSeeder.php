@@ -17,7 +17,9 @@ class ProductsTableSeeder extends Seeder
         Product::truncate();
         $this->command->info('[products] table truncated...');
 
+        DB::beginTransaction();
         $this->seed();
+        DB::commit();
 
         $this->command->info('[products] table seeded...');
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
@@ -34,29 +36,30 @@ class ProductsTableSeeder extends Seeder
         {
             $model = new Product();
             $model->category_id = $product['category_id'];
-            if ($counter <= 4)
-            {
-                $model->product_status_id = $product['product_status_id'];
-            } 
-            elseif ($counter >= 5 && $counter <= 8)
-            {
-                $model->product_status_id = 2;
-            } 
-            elseif ($counter >= 9 && $counter <= 14)
-            {
-                $model->product_status_id = 3;
-            }
-            elseif ($counter == 15)
-            {
-                $model->product_status_id = 4;
-            }
+//            if ($counter <= 4)
+//            {
+//                $model->product_status_id = $product['product_status_id'];
+//            } 
+//            elseif ($counter >= 5 && $counter <= 8)
+//            {
+//                $model->product_status_id = 2;
+//            } 
+//            elseif ($counter >= 9 && $counter <= 14)
+//            {
+//                $model->product_status_id = 3;
+//            }
+//            elseif ($counter == 15)
+//            {
+//                $model->product_status_id = 4;
+//            }
             $model->name_uk = $product['name_uk'];
             $model->name_ru = $product['name_ru'];
             $model->name_slug = $product['name_slug'];
             $model->price = rand(100, 1999);
             $model->old_price = $model->price + rand(50, 300);
 
-            $model->description = $product['description'];
+            $model->description_uk = $product['description'];
+            $model->description_ru = $product['description'];
             $model->save();
             
 
@@ -84,7 +87,8 @@ class ProductsTableSeeder extends Seeder
             $model->price = rand(100, 1999);
             $model->old_price = $model->price + rand(50, 300);
 
-            $model->description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt';
+            $model->description_uk = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt';
+            $model->description_ru = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt';
             $model->save();
         }
     }

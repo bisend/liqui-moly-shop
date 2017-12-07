@@ -16,7 +16,9 @@ class PromotionsTableSeeder extends Seeder
         Promotion::truncate();
         $this->command->info('[promotions] table truncated...');
 
+        DB::beginTransaction();
         $this->seed();
+        DB::commit();
 
         $this->command->info('[promotions] table seeded...');
         DB::statement('SET FOREIGN_KEY_CHECKS=1');

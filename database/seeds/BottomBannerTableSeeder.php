@@ -16,7 +16,9 @@ class BottomBannerTableSeeder extends Seeder
         BottomBanner::truncate();
         $this->command->info('[bottom_banner] table truncated...');
 
+        DB::beginTransaction();
         $this->seed();
+        DB::commit();
 
         $this->command->info('[bottom_banner] table seeded...');
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
@@ -26,7 +28,7 @@ class BottomBannerTableSeeder extends Seeder
     {
         $model = new BottomBanner();
 
-        $model->image_id = 25;
+        $model->image_id = 26;
 
         $model->big_text_uk = 'СУПЕР ЦІНА!';
         $model->medium_text_uk = 'ПРИСАДКИ ВСЬОГО 399 ГРН';

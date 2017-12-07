@@ -15,8 +15,10 @@ class MainSliderTableSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         MainSlider::truncate();
         $this->command->info('[main_slider] table truncated...');
-
+        
+        DB::beginTransaction();
         $this->seed();
+        DB::commit();
 
         $this->command->info('[main_slider] table seeded...');
         DB::statement('SET FOREIGN_KEY_CHECKS=1');

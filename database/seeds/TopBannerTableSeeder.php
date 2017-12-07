@@ -16,7 +16,9 @@ class TopBannerTableSeeder extends Seeder
         TopBanner::truncate();
         $this->command->info('[top_banner] table truncated...');
 
+        DB::beginTransaction();
         $this->seed();
+        DB::commit();
 
         $this->command->info('[top_banner] table seeded...');
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
@@ -28,11 +30,11 @@ class TopBannerTableSeeder extends Seeder
         
         $model->image_id = 25;
         
-        $model->big_text_uk = 'АКЦІЯ!';
+        $model->big_text_uk = 'СУПЕР ЦІНА!';
         $model->medium_text_uk = 'ЗНИЖКА НА ВСІ АВТОМАСТИЛА 10%';
         $model->url_uk = url_home('uk');
         
-        $model->big_text_ru = 'АКЦИЯ!';
+        $model->big_text_ru = 'СУПЕР ЦЕНА!';
         $model->medium_text_ru = 'СКИДКА НА ВСЕ МАСЛА 10%';
         $model->url_ru = url_home('ru');
         

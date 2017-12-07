@@ -14,8 +14,8 @@ class RemoveProductStatusIdFromProducts extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-//            $table->dropForeign(['product_status_id']);
-//            $table->dropColumn('product_status_id');
+            $table->dropForeign(['product_status_id']);
+            $table->dropColumn('product_status_id');
         });
     }
 
@@ -27,7 +27,7 @@ class RemoveProductStatusIdFromProducts extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-//            $table->integer('product_status_id')->unsigned()->nullable();
+            $table->integer('product_status_id')->unsigned()->nullable();
         });
     }
 }

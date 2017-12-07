@@ -16,8 +16,10 @@ class ProductStatusesTableSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         ProductStatus::truncate();
         $this->command->info('[product_statuses] table truncated...');
-
+        
+        DB::beginTransaction();
         $this->seed();
+        DB::commit();
 
         $this->command->info('[product_statuses] table seeded...');
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
@@ -56,9 +58,14 @@ class ProductStatusesTableSeeder extends Seeder
                 'name_slug' => URLify::filter('Сезонні товари'),
             ],
             [
-                'name_uk' => 'Акція',
-                'name_ru' => 'Акция',
-                'name_slug' => URLify::filter('Акція'),
+                'name_uk' => 'Рекомендовані товари',
+                'name_ru' => 'Рекомендуемые товары',
+                'name_slug' => URLify::filter('Рекомендовані товари'),
+            ],
+            [
+                'name_uk' => 'Найкращі ціни',
+                'name_ru' => 'Лучшие цены',
+                'name_slug' => URLify::filter('Найкращі ціни'),
             ],
         ];
     }
